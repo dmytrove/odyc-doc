@@ -18,7 +18,7 @@
 	args={{
 		icon: MagnifyingGlass,
 		label: 'Magnifying Glass',
-		toolTipPlacement: 'bottom',
+		tooltipPlacement: 'bottom',
 		onclick: () => alert('ok')
 	}}
 />

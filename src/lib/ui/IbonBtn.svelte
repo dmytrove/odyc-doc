@@ -8,11 +8,11 @@
 		icon: IconSource;
 		label?: string;
 		onclick?: () => void;
-		toolTipPlacement?: Placement;
+		tooltipPlacement?: Placement;
 		class?: string;
 	};
 
-	let { icon, onclick, label, toolTipPlacement, class: className }: Props = $props();
+	let { icon, onclick, label, tooltipPlacement, class: className }: Props = $props();
 </script>
 
 <button
@@ -26,5 +26,5 @@
 	<Icon src={icon} class="size-5" />
 </button>
 {#if label}
-	<Tooltip text={label} placement={toolTipPlacement} />
+	<Tooltip text={label} placement={tooltipPlacement} />
 {/if}
