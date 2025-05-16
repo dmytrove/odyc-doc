@@ -3,3 +3,12 @@
 @plugin '@tailwindcss/typography';
 
 @custom-variant dark (&:where(.dark, .dark *));
+
+.dark {
+	color-scheme: dark;
+}
+
+.pixelated {
+	image-rendering: crisp-edges;
+	image-rendering: pixelated;
+}

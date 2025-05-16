@@ -1,22 +1,25 @@
 <script lang="ts">
-	import { buildGame } from '$lib/gameCode';
-	import { twMerge } from 'tailwind-merge';
-	type Props = {
-		code?: string;
-		class?: string;
-	};
-	let { code = $bindable(''), class: className = '' }: Props = $props();
-	let iframe: HTMLIFrameElement;
+	import { buildGame } from '$lib/gameCode'
+	import { twMerge } from 'tailwind-merge'
+	export type Props = {
+		code?: string
+		class?: string
+	}
+	let { code = $bindable(''), class: className = '' }: Props = $props()
+	let iframe: HTMLIFrameElement
 
 	export function requestFullscreen() {
-		iframe.requestFullscreen();
-		iframe.focus();
+		iframe.requestFullscreen()
+		iframe.focus()
+	}
+
+	export function refresh() {
+		iframe.srcdoc = buildGame(code)
 	}
 
 	$effect(() => {
-		const source = buildGame(code);
-		iframe.srcdoc = source;
-	});
+		iframe.srcdoc = buildGame(code)
+	})
 </script>
 
 <iframe

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { twMerge } from 'tailwind-merge';
 
-	type Props = {
+	export type Props = {
 		label?: string;
 		class?: string;
 		checked?: boolean;

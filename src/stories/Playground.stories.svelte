@@ -11,5 +11,4 @@
 	});
 </script>
 
-<Story name="Primary" args={{ class: 'h-80' }} />
-<Story name="FullScreen" args={{ class: 'h-screen' }} />
+<Story name="Primary" args={{ class: 'h-screen' }} />

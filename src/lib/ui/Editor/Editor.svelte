@@ -1,37 +1,40 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
-	import { Compartment, EditorState, type Extension } from '@codemirror/state';
-	import { EditorView, keymap, ViewUpdate } from '@codemirror/view';
-	import { basicSetup } from 'codemirror';
-	import { javascript } from '@codemirror/lang-javascript';
-	import { vim } from '@replit/codemirror-vim';
-	import { defaultKeymap, indentWithTab } from '@codemirror/commands';
-	import { customTheme } from './theme';
-	import { twMerge } from 'tailwind-merge';
+	import { onMount } from 'svelte'
+	import { Compartment, EditorState, type Extension } from '@codemirror/state'
+	import { EditorView, keymap, ViewUpdate } from '@codemirror/view'
+	import { basicSetup } from 'codemirror'
+	import { javascript } from '@codemirror/lang-javascript'
+	import { vim } from '@replit/codemirror-vim'
+	import { defaultKeymap, indentWithTab } from '@codemirror/commands'
+	import { customTheme } from './theme'
+	import { twMerge } from 'tailwind-merge'
+	import { indentUnit } from '@codemirror/language'
 
 	type Props = {
-		content?: string;
-		withVim?: boolean;
-		class?: string;
-	};
+		content?: string
+		withVim?: boolean
+		class?: string
+	}
 	let {
 		content = $bindable(''),
 		withVim = $bindable(false),
 		class: className = ''
-	}: Props = $props();
+	}: Props = $props()
 
-	let container: HTMLElement;
-	let editorView: EditorView;
+	let container: HTMLElement
+	let editorView: EditorView
 
-	const vimMode = new Compartment();
+	const vimMode = new Compartment()
 
 	const extensions: Extension[] = [
 		basicSetup,
 		javascript(),
+		EditorState.tabSize.of(2),
 		customTheme,
 		vimMode.of([]),
-		keymap.of([indentWithTab, ...defaultKeymap])
-	];
+		keymap.of([indentWithTab, ...defaultKeymap]),
+		indentUnit.of('\t')
+	]
 
 	onMount(() => {
 		editorView = new EditorView({
@@ -41,14 +44,14 @@
 					...extensions,
 					EditorView.updateListener.of((v: ViewUpdate) => {
 						if (v.docChanged) {
-							content = v.state.doc.toString();
+							content = v.state.doc.toString()
 						}
 					})
 				]
 			}),
 			parent: container
-		});
-	});
+		})
+	})
 
 	$effect(() => {
 		if (editorView && content !== editorView.state.doc.toString()) {
@@ -58,17 +61,17 @@
 					to: editorView.state.doc.length,
 					insert: content
 				}
-			});
+			})
 		}
-	});
+	})
 
 	$effect(() => {
-		if (!editorView) return;
-		const ext = withVim ? vim() : [];
+		if (!editorView) return
+		const ext = withVim ? vim() : []
 		editorView.dispatch({
 			effects: vimMode.reconfigure(ext)
-		});
-	});
+		})
+	})
 </script>
 
 <div
@@ -117,7 +120,7 @@
 		--editor-default-text-color: var(--color-gray-100);
 		--editor-background-editor: var(--color-gray-900);
 		--editor-selection-background-color: color-mix(in srgb, var(--color-blue-800) 60%, transparent);
-		--editor-active-line-background: color-mix(in srgb, var(--color-blue-900) 40%, transparent);
+		--editor-active-line-background: color-mix(in srgb, var(--color-blue-900) 20%, transparent);
 		--editor-gutter-text-color: var(--color-gray-100);
 		--editor-gutter-border-color: var(--color-gray-600);
 		--editor-active-gutter-line-background: color-mix(

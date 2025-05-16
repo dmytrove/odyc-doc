@@ -1,24 +1,21 @@
 <script module>
 	import { defineMeta } from '@storybook/addon-svelte-csf';
-	import { IconBtn } from '$lib';
-	import { MagnifyingGlass } from 'svelte-hero-icons';
+	import { Paint } from '$lib';
 
 	// More on how to set up stories at: https://storybook.js.org/docs/writing-stories
 	const { Story } = defineMeta({
-		title: 'Ui/IconBtn',
-		component: IconBtn,
+		title: 'Ui/Paint',
+		component: Paint,
 		tags: ['autodocs'],
 		argTypes: {}
 	});
 </script>
 
 <!-- More on writing stories with args: https://storybook.js.org/docs/writing-stories/args -->
-<Story
-	name="Primary"
-	args={{
-		icon: MagnifyingGlass,
-		label: 'Magnifying Glass',
-		tooltipPlacement: 'bottom',
-		onclick: () => alert('ok')
-	}}
-/>
+<Story name="Primary" asChild>
+	<div class="flex h-screen items-center justify-center">
+		<div class="border border-gray-200">
+			<Paint />
+		</div>
+	</div>
+</Story>

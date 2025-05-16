@@ -1,46 +1,54 @@
 <script lang="ts">
-	import { createPopper, type Placement } from '@popperjs/core';
-	import { onMount } from 'svelte';
+	import { createPopper, type Placement } from '@popperjs/core'
+	import { onMount } from 'svelte'
 
-	type Props = {
-		text: string;
-		placement?: Placement;
-	};
+	export type Props = {
+		text: string
+		placement?: Placement
+		delay?: number
+	}
 
-	let { text, placement = 'bottom' }: Props = $props();
+	let { text, placement = 'bottom', delay = 0 }: Props = $props()
 
-	let element: HTMLElement;
+	let element: HTMLElement
+	let timeOutId: ReturnType<typeof setTimeout> | null = null
 
 	onMount(() => {
-		const referenceEl = element.previousElementSibling as HTMLElement;
-		if (!referenceEl) return;
+		const referenceEl = element.previousElementSibling as HTMLElement
+		if (!referenceEl) return
 		const popperInstance = createPopper(referenceEl, element, {
 			placement,
 			modifiers: [
 				{ name: 'offset', options: { offset: [0, 8] } },
 				{ name: 'arrow', options: { padding: 5 } }
 			]
-		});
+		})
 
-		const show = () => {
-			element.classList.remove('hidden');
-			element.setAttribute('aria-hidden', 'false');
-			popperInstance.update();
-		};
-		const hide = () => {
-			element.classList.add('hidden');
-			element.setAttribute('aria-hidden', 'true');
-		};
+		const mouseEnter = () => {
+			if (timeOutId) clearTimeout(timeOutId)
+			timeOutId = setTimeout(() => {
+				timeOutId = null
+				element.classList.remove('hidden')
+				element.setAttribute('aria-hidden', 'false')
+				popperInstance.update()
+			}, delay * 1000)
+		}
 
-		referenceEl.addEventListener('mouseenter', show);
-		referenceEl.addEventListener('mouseleave', hide);
+		const mouseLeave = () => {
+			if (timeOutId) clearTimeout(timeOutId)
+			element.classList.add('hidden')
+			element.setAttribute('aria-hidden', 'true')
+		}
+
+		referenceEl.addEventListener('mouseenter', mouseEnter)
+		referenceEl.addEventListener('mouseleave', mouseLeave)
 
 		return () => {
-			popperInstance.destroy();
-			referenceEl.removeEventListener('mouseenter', show);
-			referenceEl.removeEventListener('mouseleave', hide);
-		};
-	});
+			popperInstance.destroy()
+			referenceEl.removeEventListener('mouseenter', mouseEnter)
+			referenceEl.removeEventListener('mouseleave', mouseLeave)
+		}
+	})
 </script>
 
 <div

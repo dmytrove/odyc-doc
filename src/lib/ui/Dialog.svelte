@@ -3,7 +3,7 @@
 	import { click_outside } from '$lib';
 	import { twMerge } from 'tailwind-merge';
 
-	type Props = {
+	export type Props = {
 		open: boolean;
 		children: Snippet;
 		class?: string;
