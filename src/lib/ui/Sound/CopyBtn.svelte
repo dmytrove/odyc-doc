@@ -21,6 +21,12 @@
 	}
 </script>
 
-<Button size="icon" variant="ghost" tooltip={{ text: 'Copy', delay: 1 }} onclick={handleClick}>
+<Button
+	size="icon"
+	variant="ghost"
+	tooltip={{ text: 'Copy', delay: 1 }}
+	onclick={handleClick}
+	class="hover:bg-transparent"
+>
 	<Icon src={copied ? Check : Clipboard} />
 </Button>

@@ -65,12 +65,10 @@
 
 <div class="w-sm px-4 py-4">
 	<ul
-		class="flex h-40 flex-col overflow-auto bg-gray-50 py-2 ring ring-gray-200 dark:bg-gray-800 dark:ring-gray-800"
+		class="bg-base-200 text-base-content border-border/10 flex h-40 flex-col overflow-auto border py-2"
 	>
 		{#each sounds as sound, i}
-			<li
-				class={['flex dark:text-gray-50', selected === i && 'bg-gray-200 font-bold dark:bg-black']}
-			>
+			<li class={['flex', selected === i && 'bg-base-300 font-bold']}>
 				<button
 					class={['grow cursor-pointer px-2 py-1 text-left text-sm']}
 					onclick={() => selectAndPlay(i)}>{sound.name}</button
@@ -81,6 +79,7 @@
 					variant="ghost"
 					tooltip={{ text: 'Delete', delay: 1 }}
 					onclick={() => remove(i)}
+					class="hover:bg-transparent"
 				>
 					<Icon src={Trash} />
 				</Button>

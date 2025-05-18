@@ -12,7 +12,7 @@
 
 <select
 	class={twMerge(
-		'w-52 cursor-pointer rounded border border-gray-200 bg-transparent px-2 py-2 text-sm text-gray-700 hover:border-gray-400 focus:border-gray-400 focus:shadow-md focus:outline-none dark:border-gray-800 dark:text-gray-300 dark:hover:border-gray-700 dark:hover:text-gray-100',
+		'bg-base-100 text-base-content hover:border-border border-border/60 ring-ring w-52 cursor-pointer rounded border px-2 py-2 text-sm focus:ring-1',
 		className ?? ''
 	)}
 	{...props}

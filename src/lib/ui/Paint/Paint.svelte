@@ -5,7 +5,6 @@
 		ArrowsRightLeft,
 		ArrowsUpDown,
 		ArrowUturnDown,
-		ArrowUturnRight,
 		Check,
 		Clipboard,
 		Icon,
@@ -117,21 +116,21 @@
 </script>
 
 <div class="w-sm px-4">
-	<div class="flex gap-2 px-2 pt-4">
-		<Button size="icon" tooltip={{ text: 'Mirror X' }} onclick={mirrorX}>
+	<div class="flex gap-2 pt-2">
+		<Button size="icon" variant="ghost" tooltip={{ text: 'Mirror X' }} onclick={mirrorX}>
 			<Icon src={ArrowsRightLeft} />
 		</Button>
-		<Button size="icon" tooltip={{ text: 'Mirror Y' }} onclick={mirrorY}>
+		<Button size="icon" variant="ghost" tooltip={{ text: 'Mirror Y' }} onclick={mirrorY}>
 			<Icon src={ArrowsUpDown} />
 		</Button>
-		<Button size="icon" tooltip={{ text: 'Rotate' }} onclick={rotate}>
+		<Button size="icon" variant="ghost" tooltip={{ text: 'Rotate' }} onclick={rotate}>
 			<Icon src={ArrowUturnDown} class="-scale-x-100" />
 		</Button>
-		<Button size="icon" tooltip={{ text: 'Clear' }} onclick={clear} class="ms-auto">
+		<Button size="icon" variant="ghost" tooltip={{ text: 'Clear' }} onclick={clear} class="ms-auto">
 			<Icon src={Trash} />
 		</Button>
 	</div>
-	<div class="my-4 flex aspect-square">
+	<div class="my-3 flex aspect-square">
 		<canvas
 			onclick={(e) => handleClick(e)}
 			onmousemove={(e) => handleMouseMove(e)}
@@ -144,7 +143,7 @@
 			{height}
 		></canvas>
 	</div>
-	<div class="flex gap-1.5 px-2">
+	<div class="flex gap-1.5">
 		<label
 			class={[
 				'aspect-square h-auto w-full cursor-pointer bg-gradient-to-br from-white from-50% to-gray-300 to-50% ring transition-all',
@@ -165,7 +164,7 @@
 			</label>
 		{/each}
 	</div>
-	<div class="mt-6 px-2">
+	<div class="mt-6">
 		<Range min={2} max={24} value={width} label="Width {width}" oninput={handleChangeWidth} />
 		<Range
 			min={2}
@@ -176,8 +175,8 @@
 			oninput={handleChangeHeight}
 		/>
 	</div>
-	<div class="mt-2 flex px-2 pt-2 pb-4">
-		<Button onclick={() => copyToClipBoard()} class="ms-auto">
+	<div class="mt-2 flex justify-end gap-4 px-2 pt-2 pb-4">
+		<Button onclick={() => copyToClipBoard()} class="">
 			Copy
 			<Icon src={copied ? Check : Clipboard} class="size-5" />
 		</Button>

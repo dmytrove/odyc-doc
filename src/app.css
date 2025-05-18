@@ -4,11 +4,29 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-.dark {
-	color-scheme: dark;
+@theme {
+	--color-base-100: white;
+	--color-base-200: #f8f9fa;
+	--color-base-300: #f1f3f5;
+	--color-base-content: #212529;
+	--color-border: #ced4da;
+	--color-ring: #339af0;
+
+	--radius-base: 2px;
+	/* --border: 1px; */
 }
 
-.pixelated {
+.dark {
+	color-scheme: dark;
+	--color-base-100: oklch(21% 0.034 264.665);
+	--color-base-200: #212529;
+	--color-base-300: #343a40;
+	--color-base-content: #f1f3f5;
+	--color-border: #495057;
+	--color-ring: #339af0;
+}
+
+@utility pixelated {
 	image-rendering: crisp-edges;
 	image-rendering: pixelated;
 }

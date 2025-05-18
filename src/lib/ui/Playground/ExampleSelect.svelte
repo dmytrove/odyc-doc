@@ -1,49 +1,39 @@
 <script lang="ts">
-	import { Select } from '$lib'
-	import { onMount } from 'svelte'
+	import { page } from '$app/state'
+	import { Select, useTranslations } from '$lib'
 
-	type Props = {
+	export type Props = {
 		onChange: (code: string) => void
+		examples: {
+			name: string
+			id: string
+			category: string
+			getContent: () => Promise<string>
+		}[]
 	}
 
-	let { onChange: load }: Props = $props()
+	const t = useTranslations(page.params.lang)
 
-	const rawExamples = import.meta.glob('../../../content/examples/*/*.js', {
-		query: '?raw',
-		import: 'default'
-	})
+	let { onChange: load, examples }: Props = $props()
 
-	const examplesPathes = Object.keys(rawExamples)
-	const categories = [...new Set(examplesPathes.map(getDirname).filter((el) => el !== undefined))]
-
-	function getDirname(path: string) {
-		return path.match(/[\w-]+(?=\/[\w-]+\.js)/gm)?.[0]
-	}
-
-	function getFilename(path: string) {
-		return path.match(/[\w-]+?(?=\.js)/)?.[0]
-	}
-
-	function toDisplay(text: string) {
-		return (text.charAt(0).toUpperCase() + String(text).slice(1)).replace(/-/g, ' ')
-	}
+	const categories = [...new Set(examples.map((el) => el.category))]
 
 	async function onSelectExample(e: Event & { currentTarget: EventTarget & HTMLSelectElement }) {
-		const path = e.currentTarget.value
-		const current = rawExamples[path]
+		const id = e.currentTarget.value
+		const current = examples.find((el) => el.id === id)
 		if (!current) return null
-		const code = (await current()) as string
+		const code = await current.getContent()
 		if (!code) return
 		if (code) load(code)
 	}
 </script>
 
-<Select onchange={onSelectExample} value="Load Example">
-	<option>Load Example</option>
+<Select onchange={onSelectExample} value={t('playground.loadExample')}>
+	<option>{t('playground.loadExample')}</option>
 	{#each categories as category}
-		<optgroup label={toDisplay(category)}>
-			{#each examplesPathes.filter((el) => el.includes(category)) as path}
-				<option value={path} class="capitalize">{toDisplay(getFilename(path) ?? '')}</option>
+		<optgroup label={category}>
+			{#each examples.filter((el) => el.category === category) as { name, id }}
+				<option value={id}>{name}</option>
 			{/each}
 		</optgroup>
 	{/each}

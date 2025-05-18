@@ -76,7 +76,7 @@
 
 <div
 	bind:this={container}
-	class={twMerge('h-full w-full overflow-auto bg-gray-50 shadow dark:bg-gray-900', className)}
+	class={twMerge('bg-base-200 h-full w-full overflow-auto shadow dark:bg-gray-900', className)}
 ></div>
 
 <style>
@@ -99,7 +99,7 @@
 			transparent
 		);
 
-		--editor-color-keyword: var(--color-violet-800);
+		--editor-color-keyword: var(--color-violet-700);
 		--editor-color-name: var(--color-green-700);
 		--editor-color-function: var(--color-blue-900);
 		--editor-color-constant: var(--color-orange-900);
@@ -129,7 +129,7 @@
 			transparent
 		);
 
-		--editor-color-keyword: var(--color-violet-200);
+		--editor-color-keyword: var(--color-violet-400);
 		--editor-color-name: var(--color-green-300);
 		--editor-color-function: var(--color-blue-400);
 		--editor-color-constant: var(--color-orange-100);
