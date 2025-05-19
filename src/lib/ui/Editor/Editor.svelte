@@ -1,76 +1,49 @@
 <script lang="ts">
 	import { onMount } from 'svelte'
-	import { Compartment, EditorState, type Extension } from '@codemirror/state'
-	import { EditorView, keymap, ViewUpdate } from '@codemirror/view'
-	import { basicSetup } from 'codemirror'
-	import { javascript } from '@codemirror/lang-javascript'
-	import { vim } from '@replit/codemirror-vim'
-	import { defaultKeymap, indentWithTab } from '@codemirror/commands'
-	import { customTheme } from './theme'
 	import { twMerge } from 'tailwind-merge'
-	import { indentUnit } from '@codemirror/language'
+	import { Workspace } from './Workspace.svelte'
+	import { formatJs } from './formatCode'
 
 	type Props = {
-		content?: string
+		code?: string
+		handleChange?: (code: string) => void
 		withVim?: boolean
 		class?: string
 	}
 	let {
-		content = $bindable(''),
+		code = $bindable(''),
+		handleChange,
 		withVim = $bindable(false),
 		class: className = ''
 	}: Props = $props()
 
 	let container: HTMLElement
-	let editorView: EditorView
 
-	const vimMode = new Compartment()
-
-	const extensions: Extension[] = [
-		basicSetup,
-		javascript(),
-		EditorState.tabSize.of(2),
-		customTheme,
-		vimMode.of([]),
-		keymap.of([indentWithTab, ...defaultKeymap]),
-		indentUnit.of('\t')
-	]
+	let workspace: Workspace
 
 	onMount(() => {
-		editorView = new EditorView({
-			state: EditorState.create({
-				doc: $state.snapshot(content),
-				extensions: [
-					...extensions,
-					EditorView.updateListener.of((v: ViewUpdate) => {
-						if (v.docChanged) {
-							content = v.state.doc.toString()
-						}
-					})
-				]
-			}),
-			parent: container
+		workspace = new Workspace({
+			container,
+			defaultCode: code,
+			onChange: onCodeChange
 		})
 	})
 
+	function onCodeChange(value: string) {
+		code = value
+		handleChange?.(value)
+	}
+
+	export function formatCode() {
+		workspace.updateCode(formatJs(code))
+	}
+
 	$effect(() => {
-		if (editorView && content !== editorView.state.doc.toString()) {
-			editorView.dispatch({
-				changes: {
-					from: 0,
-					to: editorView.state.doc.length,
-					insert: content
-				}
-			})
-		}
+		workspace.toggleVim(withVim)
 	})
 
 	$effect(() => {
-		if (!editorView) return
-		const ext = withVim ? vim() : []
-		editorView.dispatch({
-			effects: vimMode.reconfigure(ext)
-		})
+		workspace.updateCode(code)
 	})
 </script>
 

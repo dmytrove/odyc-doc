@@ -1,22 +1,34 @@
 <script lang="ts">
 	import { page } from '$app/state'
-	import { Button, Dialog, Editor, GameWindow, Paint, Sound, Switch, useTranslations } from '$lib'
+	import {
+		Button,
+		Dialog,
+		Editor,
+		GameWindow,
+		Paint,
+		saveLocaly,
+		Sound,
+		Switch,
+		useTranslations
+	} from '$lib'
 	import { buildGame, parseCode } from '$lib/gameCode'
 	import { SplitPane } from '@rich_harris/svelte-split-pane'
+	import { Icon } from '@steeze-ui/svelte-icon'
 	import {
-		ArrowDownTray,
-		ArrowPath,
-		CodeBracket,
-		Folder,
-		Icon,
-		MusicalNote,
-		PaintBrush,
-		Wrench
-	} from 'svelte-hero-icons'
+		Wrench,
+		Save,
+		FolderOpen,
+		RefreshCw,
+		Code,
+		Brush,
+		Music,
+		Download
+	} from '@steeze-ui/lucide-icons'
 	import { twMerge } from 'tailwind-merge'
 	import type { Props as LoadExamplesProps } from './ExampleSelect.svelte'
 	import ExampleSelect from './ExampleSelect.svelte'
-	import { formatJs } from './formater'
+	import { fade } from 'svelte/transition'
+	import { Settings } from './Settings.svelte'
 
 	type Props = {
 		code?: string
@@ -26,28 +38,30 @@
 
 	let { code = $bindable(''), examples, class: className = '' }: Props = $props()
 
-	// svelte-ignore non_reactive_update
 	let gameWindow: GameWindow
+	let editor: Editor
 	let settingsIsOpen = $state(false)
 	let paintIsOpen = $state(false)
 	let paintSrc = $state('')
 	let soundIsOpen = $state(false)
 	let downloadIsOpen = $state(false)
-	let withVim = $state(false)
-	let autoRefresh = $state(true)
+	let saved = $state(true)
 	let inputFile: HTMLInputElement
+
+	const settings = new Settings()
 
 	const t = useTranslations(page.params.lang)
 
-	// svelte-ignore state_referenced_locally
 	let iframeCode = $state(code)
 
-	$effect(() => {
-		if (autoRefresh) iframeCode = code
-	})
+	function handleChange() {
+		if (settings.autoRefresh) iframeCode = code
+		saved = false
+	}
 
-	function formatCode() {
-		code = formatJs(code)
+	function save() {
+		saveLocaly(code)
+		saved = true
 	}
 
 	function openPaint() {
@@ -57,6 +71,7 @@
 	}
 
 	async function handleFileLoad() {
+		console.log('hello')
 		const files = inputFile.files
 		if (!files) return
 		const file = files[0]
@@ -66,6 +81,7 @@
 		if (matches && matches[0]) {
 			code = matches[0]
 		}
+		inputFile.value = ''
 	}
 
 	function download(e: SubmitEvent & { currentTarget: HTMLFormElement }) {
@@ -97,16 +113,16 @@
 					gameWindow.refresh()
 				}}
 			>
-				<Icon src={ArrowPath} />
+				<Icon src={RefreshCw} />
 			</Button>
 
 			<Button
 				size="icon"
 				tooltip={{ text: t('playground.format') }}
 				variant="ghost"
-				onclick={formatCode}
+				onclick={() => editor.formatCode()}
 			>
-				<Icon src={CodeBracket} />
+				<Icon src={Code} />
 			</Button>
 
 			<Button
@@ -115,7 +131,7 @@
 				variant="ghost"
 				onclick={openPaint}
 			>
-				<Icon src={PaintBrush} />
+				<Icon src={Brush} />
 			</Button>
 
 			<Button
@@ -124,7 +140,7 @@
 				variant="ghost"
 				onclick={() => (soundIsOpen = true)}
 			>
-				<Icon src={MusicalNote} />
+				<Icon src={Music} />
 			</Button>
 
 			<Button
@@ -146,11 +162,25 @@
 		<div class="flex items-center gap-2">
 			<Button
 				size="icon"
+				tooltip={{ text: t('playground.save') }}
+				variant="ghost"
+				class="relative"
+				onclick={save}
+			>
+				<Icon src={Save} />
+				{#if !saved}
+					<span transition:fade class="absolute top-1 right-1 h-2 w-2 rounded-full bg-amber-400"
+					></span>
+				{/if}
+			</Button>
+
+			<Button
+				size="icon"
 				tooltip={{ text: t('playground.open') }}
 				variant="ghost"
 				onclick={() => inputFile?.click()}
 			>
-				<Icon src={Folder} />
+				<Icon src={FolderOpen} />
 			</Button>
 			<input type="file" bind:this={inputFile} class="hidden" onchange={handleFileLoad} />
 
@@ -160,14 +190,14 @@
 				variant="ghost"
 				onclick={() => (downloadIsOpen = true)}
 			>
-				<Icon src={ArrowDownTray} />
+				<Icon src={Download} />
 			</Button>
 		</div>
 	</header>
 	<div class="h-full min-h-0 grow">
 		<SplitPane type="horizontal" --color="var(--separator)" min="10%" max="90%">
 			{#snippet a()}
-				<Editor bind:content={code} {withVim} />
+				<Editor bind:code withVim={settings.vimMode} bind:this={editor} {handleChange} />
 			{/snippet}
 			{#snippet b()}
 				<GameWindow class="" code={iframeCode} bind:this={gameWindow} />
@@ -186,8 +216,16 @@
 
 <Dialog bind:open={settingsIsOpen}>
 	<form class="grid min-w-xs gap-4 p-8">
-		<Switch label="Vim Mode" class="justify-between" bind:checked={withVim} />
-		<Switch label="Auto-refresh" class="justify-between" bind:checked={autoRefresh} />
+		<Switch
+			label={t('playgroung.vimMode')}
+			class="justify-between"
+			bind:checked={settings.vimMode}
+		/>
+		<Switch
+			label={t('playgroung.autoRefresh')}
+			class="justify-between"
+			bind:checked={settings.autoRefresh}
+		/>
 	</form>
 </Dialog>
 

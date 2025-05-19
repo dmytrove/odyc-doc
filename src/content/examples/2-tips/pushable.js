@@ -9,7 +9,17 @@ const game = createGame({
 		},
 		p: {
 			sprite: 3,
-			onCollide: pushable
+			onCollide(target) {
+				const [px, py] = game.player.position
+				const [tx, ty] = target.position
+				const [dx, dy] = [tx - px, ty - py]
+				const nextCell = game.getCell(tx + dx, ty + dy)
+				if (!nextCell.solid) {
+					game.addToCell(tx + dx, ty + dy, target.symbol)
+					game.player.position = [tx, ty]
+					target.remove()
+				}
+			}
 		}
 	},
 	map: `
@@ -24,15 +34,3 @@ const game = createGame({
 	`,
 	background: 1
 })
-
-function pushable(target) {
-	const [px, py] = game.player.position
-	const [tx, ty] = target.position
-	const [dx, dy] = [tx - px, ty - py]
-	const nextCell = game.getCell(tx + dx, ty + dy)
-	if (!nextCell.solid) {
-		game.addToCell(tx + dx, ty + dy, target.symbol)
-		game.player.position = [tx, ty]
-		target.remove()
-	}
-}

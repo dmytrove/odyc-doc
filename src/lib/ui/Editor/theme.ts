@@ -1,6 +1,6 @@
-import { EditorView } from '@codemirror/view';
-import { HighlightStyle, syntaxHighlighting } from '@codemirror/language';
-import { tags as t } from '@lezer/highlight';
+import { EditorView } from '@codemirror/view'
+import { HighlightStyle, syntaxHighlighting } from '@codemirror/language'
+import { tags as t } from '@lezer/highlight'
 
 const theme = EditorView.theme(
 	{
@@ -28,10 +28,19 @@ const theme = EditorView.theme(
 		},
 		'.cm-activeLineGutter': {
 			backgroundColor: 'var(--editor-active-gutter-line-background)'
+		},
+		'.cm-tooltip': {
+			backgroundColor: 'var(--color-base-100)',
+			color: 'var(--color-base-content)',
+			borderColor: 'var(--color-border)'
+		},
+		'.cm-tooltip.cm-tooltip-autocomplete>ul>li[aria-selected]': {
+			backgroundColor: 'var(--color-base-300)',
+			color: 'var(--color-base-content)'
 		}
 	},
 	{ dark: false }
-);
+)
 
 const highlightStyle = HighlightStyle.define([
 	{ tag: t.keyword, color: 'var(--editor-color-keyword)' },
@@ -68,6 +77,6 @@ const highlightStyle = HighlightStyle.define([
 	{ tag: [t.atom, t.bool, t.special(t.variableName)], color: 'var(--editor-color-atom)' },
 	{ tag: [t.processingInstruction, t.string, t.inserted], color: 'var(--editor-color-string)' },
 	{ tag: t.invalid, color: 'var(--editor-color-invalid)' }
-]);
+])
 
-export const customTheme = [theme, syntaxHighlighting(highlightStyle)];
+export const customTheme = [theme, syntaxHighlighting(highlightStyle)]

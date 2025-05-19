@@ -1,15 +1,16 @@
 <script lang="ts">
-	import { Button, Range } from '$lib'
-	import { onMount, tick } from 'svelte'
+	import { page } from '$app/state'
+	import { Button, Range, useTranslations } from '$lib'
+	import { Check } from '@steeze-ui/heroicons'
 	import {
-		ArrowsRightLeft,
-		ArrowsUpDown,
-		ArrowUturnDown,
-		Check,
 		Clipboard,
-		Icon,
-		Trash
-	} from 'svelte-hero-icons'
+		Eraser,
+		FlipHorizontal,
+		FlipVertical,
+		RotateCw
+	} from '@steeze-ui/lucide-icons'
+	import { Icon } from '@steeze-ui/svelte-icon'
+	import { onMount, tick } from 'svelte'
 	import {
 		defaultColors,
 		drawGrid,
@@ -38,6 +39,8 @@
 	let grid = $state(initGrid(width, height))
 
 	let ctx: CanvasRenderingContext2D
+
+	const t = useTranslations(page.params.lang)
 
 	onMount(() => {
 		ctx = canvas.getContext('2d')!
@@ -117,17 +120,33 @@
 
 <div class="w-sm px-4">
 	<div class="flex gap-2 pt-2">
-		<Button size="icon" variant="ghost" tooltip={{ text: 'Mirror X' }} onclick={mirrorX}>
-			<Icon src={ArrowsRightLeft} />
+		<Button
+			size="icon"
+			variant="ghost"
+			tooltip={{ text: t('paint.horizontalMirror') }}
+			onclick={mirrorX}
+		>
+			<Icon src={FlipHorizontal} />
 		</Button>
-		<Button size="icon" variant="ghost" tooltip={{ text: 'Mirror Y' }} onclick={mirrorY}>
-			<Icon src={ArrowsUpDown} />
+		<Button
+			size="icon"
+			variant="ghost"
+			tooltip={{ text: t('paint.verticalMirror') }}
+			onclick={mirrorY}
+		>
+			<Icon src={FlipVertical} />
 		</Button>
-		<Button size="icon" variant="ghost" tooltip={{ text: 'Rotate' }} onclick={rotate}>
-			<Icon src={ArrowUturnDown} class="-scale-x-100" />
+		<Button size="icon" variant="ghost" tooltip={{ text: t('paint.rotate') }} onclick={rotate}>
+			<Icon src={RotateCw} />
 		</Button>
-		<Button size="icon" variant="ghost" tooltip={{ text: 'Clear' }} onclick={clear} class="ms-auto">
-			<Icon src={Trash} />
+		<Button
+			size="icon"
+			variant="ghost"
+			tooltip={{ text: t('paint.clear') }}
+			onclick={clear}
+			class="ms-auto"
+		>
+			<Icon src={Eraser} />
 		</Button>
 	</div>
 	<div class="my-3 flex aspect-square">
@@ -165,19 +184,25 @@
 		{/each}
 	</div>
 	<div class="mt-6">
-		<Range min={2} max={24} value={width} label="Width {width}" oninput={handleChangeWidth} />
+		<Range
+			min={2}
+			max={24}
+			value={width}
+			label={t('paint.width') + ' ' + width}
+			oninput={handleChangeWidth}
+		/>
 		<Range
 			min={2}
 			max={24}
 			value={height}
-			label="Height {height}"
+			label={t('paint.height') + ' ' + height}
 			class="mt-2"
 			oninput={handleChangeHeight}
 		/>
 	</div>
 	<div class="mt-2 flex justify-end gap-4 px-2 pt-2 pb-4">
 		<Button onclick={() => copyToClipBoard()} class="">
-			Copy
+			{t('paint.copy')}
 			<Icon src={copied ? Check : Clipboard} class="size-5" />
 		</Button>
 	</div>

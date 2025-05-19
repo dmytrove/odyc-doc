@@ -25,6 +25,8 @@ export {
 }
 
 export * from './getDocPosts'
+export * from './getExamplesCode'
 export * from './i18n'
 export * from './string'
-export * from './getExamplesCode'
+export * from './functions'
+export * from './localSave'

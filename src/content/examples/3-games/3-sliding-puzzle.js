@@ -1,9 +1,3 @@
-function onCollide(target) {
-	game.addToCell(...game.player.position, target.symbol)
-	game.player.position = target.position
-	target.remove()
-}
-
 const game = createGame({
 	player: {
 		sprite: 0,
@@ -70,3 +64,10 @@ const game = createGame({
 	},
 	background: 2
 })
+
+/** @param target{import('odyc').Actor}*/
+function onCollide(target) {
+	game.addToCell(...game.player.position, target.symbol)
+	game.player.position = target.position
+	target.remove()
+}

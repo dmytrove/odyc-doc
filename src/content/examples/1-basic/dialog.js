@@ -25,7 +25,7 @@ const game = createGame({
 			..2..2..
 			.22.22..
 			`,
-			dialog: 'Are you a robot ?'
+			dialog: 'Are you a robot?'
 		},
 
 		// wall

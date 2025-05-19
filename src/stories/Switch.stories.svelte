@@ -1,7 +1,6 @@
 <script module>
-	import { Switch } from '$lib';
-	import { defineMeta } from '@storybook/addon-svelte-csf';
-	import { MagnifyingGlass } from 'svelte-hero-icons';
+	import { Switch } from '$lib'
+	import { defineMeta } from '@storybook/addon-svelte-csf'
 
 	// More on how to set up stories at: https://storybook.js.org/docs/writing-stories
 	const { Story } = defineMeta({
@@ -9,7 +8,7 @@
 		component: Switch,
 		tags: ['autodocs'],
 		argTypes: {}
-	});
+	})
 </script>
 
 <!-- More on writing stories with args: https://storybook.js.org/docs/writing-stories/args -->

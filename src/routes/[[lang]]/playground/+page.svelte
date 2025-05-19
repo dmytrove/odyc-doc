@@ -1,8 +1,40 @@
 <script lang="ts">
-	import { Playground } from '$lib'
+	import { loadLocalSave, Playground } from '$lib'
 	import type { PageProps } from './$types'
 
 	const { data }: PageProps = $props()
+
+	const code =
+		loadLocalSave() ??
+		`const game = createGame({
+	player: {
+		sprite: \`
+			...00...
+			...00...
+			.000000.
+			0.0000.0
+			0.0000.0
+			..0000..
+			..0..0..
+			..0..0..
+			\`,
+		position: [3, 1]
+	},
+	templates: {
+		x: {
+			sprite: 2
+		}
+	},
+	map: \`
+	xxxxxxxx
+	x......x
+	x......x
+	x......x
+	x......x
+	x......x
+	x......x
+	xxxxxxxx
+	\`})`
 </script>
 
-<Playground class="h-screen" examples={data.examples} code={data.code} />
+<Playground class="h-screen" examples={data.examples} {code} />

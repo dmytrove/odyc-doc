@@ -1,5 +1,6 @@
 let hasOs = true
 
+/** @return {[number,number]}*/
 function randomPosition() {
 	const r = Math.floor(Math.random() * 7 + 1)
 	const side = Math.floor(Math.random() * 3)

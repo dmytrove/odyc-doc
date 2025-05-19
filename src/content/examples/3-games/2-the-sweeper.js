@@ -3,7 +3,7 @@ const cellHeight = 8
 const screenWidth = 8
 const screenHeight = 8
 
-const levels = [
+const levels = /**@type {const}*/ ([
 	{
 		map: `
 		........
@@ -69,7 +69,7 @@ const levels = [
 	`,
 		playerPos: [3, 0]
 	}
-]
+])
 
 let levelIndex = 0
 

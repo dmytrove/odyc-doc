@@ -249,16 +249,15 @@ async function update() {
 		const [dirX, dirY] = symbol ? directions[symbol] : [0, 0]
 		const nextCell = game.getCell(posX + dirX, posY + dirY)
 		if (nextCell.symbol !== '.') {
-			const newSymbols = {
+			const newSymbols = /** @type {const} */ ({
 				'<': '>',
 				'>': '<',
 				'^': 'v',
 				v: '^'
-			}
+			})
 			if (playerX === posX && playerY === posY) {
 				gameOver = true
 			}
-			//@ts-ignore
 			game.addToCell(posX, posY, newSymbols[symbol])
 		} else {
 			if (

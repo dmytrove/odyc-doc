@@ -1,8 +1,8 @@
 <script module>
-	import { defineMeta } from '@storybook/addon-svelte-csf';
-	import { Button } from '$lib';
-	import { Icon } from 'svelte-hero-icons';
-	import { MagnifyingGlass } from 'svelte-hero-icons';
+	import { defineMeta } from '@storybook/addon-svelte-csf'
+	import { Button } from '$lib'
+	import { Icon } from '@steeze-ui/svelte-icon'
+	import { Check } from '@steeze-ui/lucide-icons'
 
 	// More on how to set up stories at: https://storybook.js.org/docs/writing-stories
 	const { Story } = defineMeta({
@@ -10,7 +10,7 @@
 		component: Button,
 		tags: ['autodocs'],
 		argTypes: {}
-	});
+	})
 </script>
 
 <!-- More on writing stories with args: https://storybook.js.org/docs/writing-stories/args -->
@@ -41,7 +41,7 @@
 <Story name="With Icon" asChild>
 	<div class="p-8">
 		<Button size="icon" tooltip={{ text: 'coucou', placement: 'right' }}>
-			<Icon src={MagnifyingGlass} />
+			<Icon src={Check} />
 		</Button>
 	</div>
 </Story>

@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { Button } from '$lib'
-	import { Icon, Clipboard, Check } from 'svelte-hero-icons'
+	import { Clipboard, Check } from '@steeze-ui/lucide-icons'
+	import { Icon } from '@steeze-ui/svelte-icon'
 
 	type Props = {
 		toCopy: string

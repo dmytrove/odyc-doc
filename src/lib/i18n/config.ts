@@ -14,9 +14,21 @@ export const ui = {
 		'playground.sounds': 'Sounds',
 		'playground.settings': 'Settings',
 		'playground.loadExample': 'Load an example',
+		'playground.save': 'Save locally',
 		'playground.open': 'Open',
-		'playground.export': 'Export',
-		'gamewindow.fullscreen': 'Fullscreen'
+		'playground.export': 'Download',
+		'playgroung.vimMode': 'Vim Mode',
+		'playgroung.autoRefresh': 'Auto-refresh',
+
+		'gamewindow.fullscreen': 'Fullscreen',
+
+		'paint.horizontalMirror': 'Horizontal Mirror',
+		'paint.verticalMirror': 'Vertical Mirror',
+		'paint.rotate': 'Rotate',
+		'paint.clear': 'Clear',
+		'paint.width': 'Width',
+		'paint.height': 'Height',
+		'paint.copy': 'Copy'
 	},
 	fr: {
 		'playground.refresh': 'Actualiser',
@@ -25,8 +37,20 @@ export const ui = {
 		'playground.sounds': 'Sons',
 		'playground.settings': 'Paramètres',
 		'playground.loadExample': 'Charger un exemple',
+		'playground.save': 'Sauvegarder en local',
 		'playground.open': 'Ouvrir',
-		'playground.export': 'Exporter',
-		'gamewindow.fullscreen': 'Plein écran'
+		'playground.export': 'Télécharger',
+		'playgroung.vimMode': 'Mode Vim',
+		'playgroung.autoRefresh': 'Actualisation automatique',
+
+		'gamewindow.fullscreen': 'Plein écran',
+
+		'paint.horizontalMirror': 'Miroir horizontal',
+		'paint.verticalMirror': 'Miroir vertical',
+		'paint.rotate': 'Tourner',
+		'paint.clear': 'Supprimer',
+		'paint.width': 'Largeur',
+		'paint.height': 'Hauteur',
+		'paint.copy': 'Copier'
 	}
 } as const

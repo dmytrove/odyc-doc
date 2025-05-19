@@ -1,8 +1,10 @@
 <script lang="ts">
 	import { Button } from '$lib'
+	import { X } from '@steeze-ui/lucide-icons'
+	import { Icon } from '@steeze-ui/svelte-icon'
 	import { createSoundFromTemplate, playSound, TEMPLATES } from 'pfxr'
 	import { onMount } from 'svelte'
-	import { Clipboard, Icon, Trash } from 'svelte-hero-icons'
+
 	import CopyBtn from './CopyBtn.svelte'
 
 	type TemplateKey = keyof typeof TEMPLATES
@@ -81,7 +83,7 @@
 					onclick={() => remove(i)}
 					class="hover:bg-transparent"
 				>
-					<Icon src={Trash} />
+					<Icon src={X} />
 				</Button>
 			</li>
 		{/each}
