@@ -1,3 +1,4 @@
+import makeSlug from 'slugify'
 export function getDirName(path: string) {
 	return path.match(/([^\/]+)(?=\/([^\/]+)$)/)?.[0] ?? null
 }
@@ -16,4 +17,8 @@ export function removeNumberPrefix(text: string) {
 
 export function capitalize(text: string) {
 	return text.charAt(0).toUpperCase() + text.slice(1)
+}
+
+export function slugify(text: string) {
+	return makeSlug(text, { lower: true })
 }

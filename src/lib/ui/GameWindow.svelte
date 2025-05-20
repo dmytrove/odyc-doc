@@ -2,7 +2,7 @@
 	import { page } from '$app/state'
 	import { buildGame } from '$lib/gameCode'
 	import { useTranslations } from '$lib/i18n'
-	import { Expand } from '@steeze-ui/lucide-icons'
+	import { Expand, Camera, Fullscreen } from '@steeze-ui/lucide-icons'
 	import { Icon } from '@steeze-ui/svelte-icon'
 	import { twMerge } from 'tailwind-merge'
 	import Tooltip from './Tooltip.svelte'
@@ -19,6 +19,13 @@
 		iframe?.focus()
 	}
 
+	function requestScreenshot() {
+		iframe?.contentWindow?.postMessage(
+			{ type: 'screenshot', filename: t('gamewindow.screenshotName') },
+			'*'
+		)
+	}
+
 	export function refresh() {
 		if (iframe) iframe.srcdoc = buildGame(code)
 	}
@@ -32,15 +39,24 @@
 	<iframe
 		src=""
 		frameborder="0"
-		class={twMerge('h-full w-full', className)}
+		class={twMerge('h-full w-full bg-white', className)}
 		title="game"
 		bind:this={iframe}
 	></iframe>
+
 	<button
-		class="ring-ring absolute top-4 right-4 z-10 cursor-pointer p-1 focus:ring-1"
+		class="ring-ring absolute top-4 right-14 cursor-pointer p-1 opacity-80 mix-blend-difference hover:opacity-100 focus:ring-1"
+		onclick={requestScreenshot}
+	>
+		<Icon src={Camera} class="size-5 text-white" />
+	</button>
+	<Tooltip text={t('gamewindow.screenshot')} placement="bottom-end" />
+
+	<button
+		class="ring-ring absolute top-4 right-4 cursor-pointer p-1 opacity-80 mix-blend-difference hover:opacity-100 focus:ring-1"
 		onclick={requestFullscreen}
 	>
-		<Icon src={Expand} class="size-5 text-slate-500 hover:text-gray-600" />
+		<Icon src={Fullscreen} class="size-5 text-white" />
 	</button>
-	<Tooltip text={t('gamewindow.fullscreen')} placement="left" />
+	<Tooltip text={t('gamewindow.fullscreen')} placement="bottom-start" />
 </div>

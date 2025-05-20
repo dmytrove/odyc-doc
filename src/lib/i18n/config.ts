@@ -21,6 +21,8 @@ export const ui = {
 		'playgroung.autoRefresh': 'Auto-refresh',
 
 		'gamewindow.fullscreen': 'Fullscreen',
+		'gamewindow.screenshot': 'Screenshot',
+		'gamewindow.screenshotName': 'odyc-screenshot',
 
 		'paint.horizontalMirror': 'Horizontal Mirror',
 		'paint.verticalMirror': 'Vertical Mirror',
@@ -44,6 +46,8 @@ export const ui = {
 		'playgroung.autoRefresh': 'Actualisation automatique',
 
 		'gamewindow.fullscreen': 'Plein écran',
+		'gamewindow.screenshot': "Capture d'écran",
+		'gamewindow.screenshotName': 'odyc-cature-d-ecran',
 
 		'paint.horizontalMirror': 'Miroir horizontal',
 		'paint.verticalMirror': 'Miroir vertical',

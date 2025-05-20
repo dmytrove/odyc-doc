@@ -26,8 +26,10 @@ export function getExamples() {
 			}
 		})
 		.sort((a, b) => {
-			if (a.categoryIndex !== b.categoryIndex) return Number(a.nameIndex) - Number(b.nameIndex)
-			return Number(a.categoryIndex) - Number(b.categoryIndex)
+			return (
+				Number(a.categoryIndex) - Number(b.categoryIndex) ||
+				Number(a.nameIndex) - Number(b.nameIndex)
+			)
 		})
 }
 

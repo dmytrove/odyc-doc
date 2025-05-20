@@ -1,5 +1,6 @@
-import odyc from 'odyc/dist/index.global.js?raw';
-import handleErrorScript from './handleErrors?raw';
+import screenshots from './screenshot.js?raw'
+import odyc from 'odyc/dist/index.global.js?raw'
+import handleErrorScript from './handleErrors?raw'
 export const buildGame = (code: string, debug = true) => /* html */ `
 <html>
 <head>
@@ -31,16 +32,17 @@ const {createGame, createSound} = odyc
 //startofthegame
 ${code}
 //endofthegame
+ ${debug ? screenshots : ''}
   </script>
 </body>
 </html>
-`;
+`
 
 export const parseCode = (code: string) => {
-	return code.match(/(?<=\/\/startofthegame\n)((.|\n)*)(?=\n\/\/endofthegame)/gm);
-};
+	return code.match(/(?<=\/\/startofthegame\n)((.|\n)*)(?=\n\/\/endofthegame)/gm)
+}
 
 export function updateIframe(code: string, iframe: HTMLIFrameElement): void {
-	const source = buildGame(code);
-	iframe.srcdoc = source;
+	const source = buildGame(code)
+	iframe.srcdoc = source
 }
