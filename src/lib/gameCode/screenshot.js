@@ -1,79 +1,208 @@
-/** @param filename{string}*/
-function makeScreenShot(filename) {
-	const rendererCanvas = /**@type {HTMLCanvasElement} */ (
-		document.querySelector('canvas.odyc-renderer-canvas')
-	)
-	const filterOrigin = /**@type {HTMLCanvasElement} */ (
-		document.querySelector('canvas.odyc-filter-canvas')
-	)
-	/**@type {HTMLCanvasElement|null} */
-	const dialogCanvas = /**@type {HTMLCanvasElement} */ (
-		document.querySelector('canvas.odyc-dialog-canvas')
-	)
-	/**@type {HTMLCanvasElement|null} */
-	const messageCanvas = /**@type {HTMLCanvasElement} */ (
-		document.querySelector('canvas.odyc-message-canvas')
-	)
+;(function () {
+	class GameCopy {
+		/**@type{number}*/
+		#width
+		/**@type{number}*/
+		#height
+		/**@type{HTMLCanvasElement}*/
+		canvas
 
-	const filterCanvas = filterOrigin ? glCanvasTo2dCanvas(filterOrigin) : null
+		/**@type{CanvasRenderingContext2D}*/
+		#resultCtx
 
-	const frames = [filterCanvas ?? rendererCanvas]
-	if (dialogCanvas.style.display !== 'none') frames.push(dialogCanvas)
-	if (messageCanvas.style.display !== 'none') frames.push(messageCanvas)
-	const width = Math.max(...frames.map((el) => el.width))
-	const height = Math.max(...frames.map((el) => el.height))
+		/**@type{HTMLCanvasElement}*/
+		#rendererCanvas
+		/**@type{HTMLCanvasElement|null}*/
+		#filterCanvas
+		/**@type{HTMLCanvasElement}*/
+		#dialogCanvas
+		/**@type{HTMLCanvasElement}*/
+		#messageCanvas
 
-	const backgroundColor = getComputedStyle(document.body, null).getPropertyValue('background-color')
+		constructor() {
+			this.#rendererCanvas = /**@type {HTMLCanvasElement} */ (
+				document.querySelector('canvas.odyc-renderer-canvas')
+			)
+			this.#filterCanvas = /**@type {HTMLCanvasElement|null} */ (
+				document.querySelector('canvas.odyc-filter-canvas')
+			)
+			this.#dialogCanvas = /**@type {HTMLCanvasElement} */ (
+				document.querySelector('canvas.odyc-dialog-canvas')
+			)
+			this.#messageCanvas = /**@type {HTMLCanvasElement} */ (
+				document.querySelector('canvas.odyc-message-canvas')
+			)
+			this.#width = Math.max(
+				...[this.#rendererCanvas, this.#dialogCanvas, this.#messageCanvas].map((el) => el.width)
+			)
+			this.#height = Math.max(
+				...[this.#rendererCanvas, this.#dialogCanvas, this.#messageCanvas].map((el) => el.height)
+			)
+			this.canvas = document.createElement('canvas')
+			this.canvas.width = this.#width
+			this.canvas.height = this.#height
+			this.#resultCtx = /** @type {CanvasRenderingContext2D}*/ (this.canvas.getContext('2d'))
 
-	const canvas = document.createElement('canvas')
-	canvas.width = width
-	canvas.height = height
-	const ctx = canvas.getContext('2d')
-	if (!ctx) return
-	ctx.imageSmoothingEnabled = false
-	ctx.fillStyle = backgroundColor
-	ctx.fillRect(0, 0, width, height)
-	frames.forEach((el) => ctx?.drawImage(el, 0, 0, width, height))
-	const dataURL = canvas.toDataURL('image/png')
-	const link = document.createElement('a')
-	link.href = dataURL
-	link.download = filename + '.png'
-	document.body.appendChild(link)
-	link.click()
-	document.body.removeChild(link)
-}
+			this.update()
+		}
 
-addEventListener('message', (e) => {
-	if (e.data.type === 'screenshot') {
-		const filename = e.data.filename
-		makeScreenShot(filename)
+		update() {
+			const frames = [
+				this.#filterCanvas ? this.#glCanvasTo2dCanvas(this.#filterCanvas) : this.#rendererCanvas
+			]
+			if (this.#dialogCanvas.style.display !== 'none') frames.push(this.#dialogCanvas)
+			if (this.#messageCanvas.style.display !== 'none') frames.push(this.#messageCanvas)
+			const backgroundColor = getComputedStyle(document.body, null).getPropertyValue(
+				'background-color'
+			)
+			this.#resultCtx.imageSmoothingEnabled = false
+			this.#resultCtx.fillStyle = backgroundColor
+			this.#resultCtx.fillRect(0, 0, this.#width, this.#height)
+			frames.forEach((el) => this.#resultCtx?.drawImage(el, 0, 0, this.#width, this.#height))
+		}
+
+		/**
+		 * @param filename{string}
+		 */
+		save(filename) {
+			const dataURL = this.canvas.toDataURL('image/png')
+			const link = document.createElement('a')
+			link.href = dataURL
+			link.download = filename + '.png'
+			document.body.appendChild(link)
+			link.click()
+			document.body.removeChild(link)
+		}
+
+		/**
+		 * @param canvas {HTMLCanvasElement}
+		 * */
+		#glCanvasTo2dCanvas(canvas) {
+			const gl = /**@type {WebGLRenderingContext}*/ (
+				canvas.getContext('webgl', { preserveDrawingBuffer: true })
+			)
+			const w = canvas.width,
+				h = canvas.height
+			const pixels = new Uint8Array(w * h * 4)
+			gl.readPixels(0, 0, w, h, gl.RGBA, gl.UNSIGNED_BYTE, pixels)
+
+			const rowSize = w * 4
+			const tempRow = new Uint8Array(rowSize)
+			for (let y = 0; y < h / 2; y++) {
+				const topOffset = y * rowSize
+				const bottomOffset = (h - y - 1) * rowSize
+				tempRow.set(pixels.subarray(topOffset, topOffset + rowSize))
+				pixels.copyWithin(topOffset, bottomOffset, bottomOffset + rowSize)
+				pixels.set(tempRow, bottomOffset)
+			}
+			const imgData = new ImageData(new Uint8ClampedArray(pixels), w, h)
+			const copyCanvas = document.createElement('canvas')
+			copyCanvas.width = w
+			copyCanvas.height = h
+			const ctx = copyCanvas.getContext('2d')
+			ctx?.putImageData(imgData, 0, 0)
+			return copyCanvas
+		}
 	}
-})
 
-/**@param canvas {HTMLCanvasElement}*/
-function glCanvasTo2dCanvas(canvas) {
-	const gl = /**@type {WebGLRenderingContext}*/ (
-		canvas.getContext('webgl', { preserveDrawingBuffer: true })
-	)
-	const w = canvas.width,
-		h = canvas.height
-	const pixels = new Uint8Array(w * h * 4)
-	gl.readPixels(0, 0, w, h, gl.RGBA, gl.UNSIGNED_BYTE, pixels)
+	class CanvasRecorder {
+		/**@type {MediaRecorder} */
+		#mediaRecorder
+		/**@type {Blob[]}*/
+		#chunks = []
 
-	const rowSize = w * 4
-	const tempRow = new Uint8Array(rowSize)
-	for (let y = 0; y < h / 2; y++) {
-		const topOffset = y * rowSize
-		const bottomOffset = (h - y - 1) * rowSize
-		tempRow.set(pixels.subarray(topOffset, topOffset + rowSize))
-		pixels.copyWithin(topOffset, bottomOffset, bottomOffset + rowSize)
-		pixels.set(tempRow, bottomOffset)
+		/**@type {string}*/
+		#mimeType
+
+		/**
+		 * @param canvas {HTMLCanvasElement}
+		 */
+		constructor(canvas) {
+			this.#mimeType =
+				[
+					'video/webm',
+					'video/webm,codecs=vp9',
+					'video/vp8',
+					'video/webm\;codecs=vp8',
+					'video/webm\;codecs=daala',
+					'video/webm\;codecs=h264',
+					'video/mpeg'
+				].find((el) => MediaRecorder.isTypeSupported(el)) ?? ''
+
+			const stream = canvas.captureStream(15)
+			this.#mediaRecorder = new MediaRecorder(stream, {
+				mimeType: this.#mimeType
+			})
+
+			this.#mediaRecorder.ondataavailable = (e) => {
+				this.#chunks.push(e.data)
+			}
+		}
+
+		start() {
+			this.#chunks = []
+			this.#mediaRecorder.start(100)
+		}
+
+		stop() {
+			this.#mediaRecorder.stop()
+		}
+
+		/**
+		 * @param filename {string}
+		 */
+		save(filename) {
+			const blob = new Blob(this.#chunks, { type: this.#mimeType })
+			const url = URL.createObjectURL(blob)
+			const link = document.createElement('a')
+			link.style.display = 'none'
+			link.href = url
+			link.download = filename + '.webm'
+			document.body.appendChild(link)
+			link.click()
+			document.body.removeChild(link)
+		}
 	}
-	const imgData = new ImageData(new Uint8ClampedArray(pixels), w, h)
-	const copyCanvas = document.createElement('canvas')
-	copyCanvas.width = w
-	copyCanvas.height = h
-	const ctx = copyCanvas.getContext('2d')
-	ctx?.putImageData(imgData, 0, 0)
-	return copyCanvas
-}
+
+	const copy = new GameCopy()
+	const recorder = new CanvasRecorder(copy.canvas)
+
+	let frameRequest = 0
+	const loop = () => {
+		copy.update()
+		frameRequest = requestAnimationFrame(loop)
+	}
+
+	/**@type MessagePort*/
+	let port
+
+	addEventListener('message', (e) => {
+		if (e.ports[0]) {
+			port = e.ports[0]
+			port.onmessage = (e) => handleMessage(e)
+		}
+	})
+
+	/**
+	 * @param e {MessageEvent}
+	 */
+	function handleMessage(e) {
+		switch (e.data.type) {
+			case 'screenshot':
+				const copy = new GameCopy()
+				copy.save(e.data.filename)
+				break
+			case 'start-record':
+				loop()
+				recorder.start()
+				port.postMessage({ type: 'start-record' })
+				break
+			case 'stop-record':
+				cancelAnimationFrame(frameRequest)
+				recorder.stop()
+				port.postMessage({ type: 'stop-record' })
+				recorder.save(e.data.filename)
+				break
+		}
+	}
+})()

@@ -56,7 +56,8 @@
 
 	function handleChange() {
 		if (settings.autoRefresh) iframeCode = code
-		saved = false
+		if (settings.autoSave) save()
+		else saved = false
 	}
 
 	function save() {
@@ -225,6 +226,11 @@
 			label={t('playgroung.autoRefresh')}
 			class="justify-between"
 			bind:checked={settings.autoRefresh}
+		/>
+		<Switch
+			label={t('playgroung.autoSave')}
+			class="justify-between"
+			bind:checked={settings.autoSave}
 		/>
 	</form>
 </Dialog>

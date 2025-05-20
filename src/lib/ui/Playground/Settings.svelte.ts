@@ -2,10 +2,12 @@ import { browser } from '$app/environment'
 
 const VIMMODEKEY = 'odyc-playground-settings-vimmode'
 const AUTOREFRESHKEY = 'odyc-playground-settings-autorefresh'
+const AUTOSAVEKey = 'odyc-playground-settings-autosave'
 
 export class Settings {
 	#vimMode = $state(false)
 	#autoRefresh = $state(true)
+	#autoSave = $state(false)
 
 	constructor() {
 		if (browser) {
@@ -13,6 +15,8 @@ export class Settings {
 			if (vimMode) this.#vimMode = Boolean(+vimMode)
 			const autoRefresh = localStorage.getItem(AUTOREFRESHKEY)
 			if (autoRefresh) this.#autoRefresh = Boolean(+autoRefresh)
+			const autoSave = localStorage.getItem(AUTOSAVEKey)
+			if (autoSave) this.#autoSave = Boolean(+autoSave)
 		}
 	}
 
@@ -32,5 +36,14 @@ export class Settings {
 	set autoRefresh(value: boolean) {
 		localStorage.setItem(AUTOREFRESHKEY, Number(value).toString())
 		this.#autoRefresh = value
+	}
+
+	get autoSave() {
+		return this.#autoSave
+	}
+
+	set autoSave(value: boolean) {
+		localStorage.setItem(AUTOSAVEKey, Number(value).toString())
+		this.#autoSave = value
 	}
 }

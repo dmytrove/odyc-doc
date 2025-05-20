@@ -19,10 +19,12 @@ export const ui = {
 		'playground.export': 'Download',
 		'playgroung.vimMode': 'Vim Mode',
 		'playgroung.autoRefresh': 'Auto-refresh',
+		'playgroung.autoSave': 'Auto-save',
 
 		'gamewindow.fullscreen': 'Fullscreen',
 		'gamewindow.screenshot': 'Screenshot',
 		'gamewindow.screenshotName': 'odyc-screenshot',
+		'gamewindow.recordName': 'odyc-video',
 
 		'paint.horizontalMirror': 'Horizontal Mirror',
 		'paint.verticalMirror': 'Vertical Mirror',
@@ -44,10 +46,12 @@ export const ui = {
 		'playground.export': 'Télécharger',
 		'playgroung.vimMode': 'Mode Vim',
 		'playgroung.autoRefresh': 'Actualisation automatique',
+		'playgroung.autoSave': 'Sauvegarde automatique',
 
 		'gamewindow.fullscreen': 'Plein écran',
 		'gamewindow.screenshot': "Capture d'écran",
 		'gamewindow.screenshotName': 'odyc-cature-d-ecran',
+		'gamewindow.recordName': 'odyc-video',
 
 		'paint.horizontalMirror': 'Miroir horizontal',
 		'paint.verticalMirror': 'Miroir vertical',
