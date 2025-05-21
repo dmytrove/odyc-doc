@@ -50,7 +50,7 @@ export const ui = {
 
 		'gamewindow.fullscreen': 'Plein écran',
 		'gamewindow.screenshot': "Capture d'écran",
-		'gamewindow.screenshotName': 'odyc-cature-d-ecran',
+		'gamewindow.screenshotName': 'odyc-capture-d-ecran',
 		'gamewindow.recordName': 'odyc-video',
 
 		'paint.horizontalMirror': 'Miroir horizontal',

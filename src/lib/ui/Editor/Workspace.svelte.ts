@@ -4,19 +4,21 @@ import { defaultKeymap, indentWithTab } from '@codemirror/commands'
 import { javascript } from '@codemirror/lang-javascript'
 import { linter } from '@codemirror/lint'
 import { Compartment, EditorState, type Extension } from '@codemirror/state'
-import { EditorView, hoverTooltip, keymap, ViewUpdate } from '@codemirror/view'
+import { EditorView, keymap, ViewUpdate } from '@codemirror/view'
 import { vim } from '@replit/codemirror-vim'
 import { basicSetup } from 'codemirror'
-import { customTheme } from './theme'
 import { TsServer } from './TsServer'
 
+import { cobalt } from 'thememirror'
 const vimMode = new Compartment()
 
 const extensions: Extension[] = [
 	basicSetup,
 	javascript(),
 	EditorState.tabSize.of(2),
-	customTheme,
+	// customTheme,
+	// cmTheme,
+	cobalt,
 	vimMode.of([])
 ]
 

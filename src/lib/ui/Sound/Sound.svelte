@@ -75,7 +75,7 @@
 					class={['grow cursor-pointer px-2 py-1 text-left text-sm']}
 					onclick={() => selectAndPlay(i)}>{sound.name}</button
 				>
-				<CopyBtn toCopy="createSound('{sound.template}', {sound.seed})" />
+				<CopyBtn toCopy="['{sound.template}', {sound.seed}]" />
 				<Button
 					size="icon"
 					variant="ghost"

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/state'
-	import { getLangFromUrl, slugify } from '$lib'
+	import { defaultLang, getLangFromUrl, slugify } from '$lib'
 	import { summary } from '../../../content/doc/summary'
 	import type { PageProps } from './$types'
 
@@ -15,7 +15,11 @@
 				<ul>
 					{#each category.items as post}
 						<li>
-							<!-- <a href="/doc/{slugify(category[lang])}/{slugify(post[lang])}">{post[lang]}</a> -->
+							<a
+								href="{lang === defaultLang ? '/' : '/' + lang + '/'}doc/{slugify(
+									category[lang]
+								)}/{slugify(post[lang])}">{post[lang]}</a
+							>
 						</li>
 					{/each}
 				</ul>

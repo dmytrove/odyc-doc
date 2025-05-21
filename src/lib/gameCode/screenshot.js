@@ -1,4 +1,6 @@
 ;(function () {
+	const TIMEBETWEENFRAMES = 1000 / 15
+
 	class GameCopy {
 		/**@type{number}*/
 		#width
@@ -129,7 +131,7 @@
 					'video/mpeg'
 				].find((el) => MediaRecorder.isTypeSupported(el)) ?? ''
 
-			const stream = canvas.captureStream(15)
+			const stream = canvas.captureStream(TIMEBETWEENFRAMES)
 			this.#mediaRecorder = new MediaRecorder(stream, {
 				mimeType: this.#mimeType
 			})
@@ -167,9 +169,14 @@
 	const copy = new GameCopy()
 	const recorder = new CanvasRecorder(copy.canvas)
 
+	let lastFrame = 0
 	let frameRequest = 0
-	const loop = () => {
-		copy.update()
+	/**@type {(now:number)=>void}*/
+	const loop = (now) => {
+		if (now - lastFrame > TIMEBETWEENFRAMES) {
+			lastFrame = now
+			copy.update()
+		}
 		frameRequest = requestAnimationFrame(loop)
 	}
 
@@ -193,7 +200,7 @@
 				copy.save(e.data.filename)
 				break
 			case 'start-record':
-				loop()
+				requestAnimationFrame(loop)
 				recorder.start()
 				port.postMessage({ type: 'start-record' })
 				break

@@ -1,13 +1,20 @@
-import { mdsvex } from 'mdsvex'
+import { escapeSvelte, mdsvex } from 'mdsvex'
 import adapter from '@sveltejs/adapter-static'
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte'
-import rehypeExpressiveCode from 'rehype-expressive-code'
+import { codeToHtml } from 'shiki'
+import dracula from 'shiki/themes/dracula.mjs'
+import rehypeShiki from '@shikijs/rehype'
 
 /** @type {import('mdsvex').MdsvexOptions} */
 const mdsvexOptions = {
 	extensions: ['.md'],
-	rehypePlugins: [rehypeExpressiveCode],
-	highlight: false
+	smartypants: false,
+	highlight: {
+		highlighter: async (code, lang) => {
+			const html = await codeToHtml(code, { lang: lang, theme: 'aurora-x' })
+			return escapeSvelte(html)
+		}
+	}
 }
 
 /** @type {import('@sveltejs/kit').Config} */

@@ -16,6 +16,7 @@
 		"build-storybook": "storybook build"
 	},
 	"devDependencies": {
+		"@shikijs/rehype": "^3.4.2",
 		"@storybook/addon-essentials": "^8.6.12",
 		"@storybook/addon-interactions": "^8.6.12",
 		"@storybook/addon-svelte-csf": "^5.0.0-next.0",
@@ -37,7 +38,7 @@
 		"prettier-plugin-svelte": "^3.3.3",
 		"prettier-plugin-tailwindcss": "^0.6.11",
 		"storybook": "^8.6.12",
-		"svelte": "^5.0.0",
+		"svelte": "^5.5.0",
 		"svelte-check": "^4.0.0",
 		"tailwindcss": "^4.0.0",
 		"vite": "^6.2.6"
@@ -63,13 +64,16 @@
 		"@steeze-ui/svelte-icon": "^1.6.2",
 		"@typescript/vfs": "^1.6.1",
 		"codemirror": "^6.0.1",
+		"codemirror-theme-vars": "^0.1.2",
 		"js-beautify": "^1.15.4",
-		"odyc": "^0.0.46",
+		"odyc": "^0.0.47",
 		"open-color": "^1.9.1",
 		"pfxr": "^1.0.9",
 		"rehype-expressive-code": "^0.41.2",
+		"shiki": "^3.4.2",
 		"slugify": "^1.6.6",
 		"tailwind-merge": "^3.3.0",
+		"thememirror": "^2.0.1",
 		"typescript": "^5.8.3"
 	}
 }

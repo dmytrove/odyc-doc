@@ -10,7 +10,7 @@ const game = createGame({
 			..8..8..
 			.88..88.
 			`,
-		position: [1, 1]
+		position: [5, 1]
 	},
 	templates: {
 		// Bell
@@ -38,8 +38,8 @@ const game = createGame({
 	x......x
 	x......x
 	x......x
-	x...b..x
 	x......x
+	x.b....x
 	x......x
 	xxxxxxxx
 	`,

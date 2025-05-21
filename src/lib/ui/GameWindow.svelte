@@ -42,7 +42,7 @@
 
 	function requestRecord() {
 		const type = isRecording ? 'stop-record' : 'start-record'
-		messageChannel.port1.postMessage({ type, filename: t('gamewindow.screenshotName') })
+		messageChannel.port1.postMessage({ type, filename: t('gamewindow.recordName') })
 		if (!isRecording) iframe.focus()
 	}
 

@@ -1,7 +1,8 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/forms';
 @plugin '@tailwindcss/typography';
-
+@import './prism.css';
+@import './codemirror.css';
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
@@ -29,4 +30,41 @@
 @utility pixelated {
 	image-rendering: crisp-edges;
 	image-rendering: pixelated;
+}
+
+html:not(.dark) {
+	--cm-foreground: #393a34;
+	--cm-background: #f8f8f8;
+
+	--cm-comment: #758575;
+	--cm-namespace: #444444;
+	--cm-string: #bc8671;
+	--cm-punctuation: #80817d;
+	--cm-literal: #36acaa;
+	--cm-keyword: #248459;
+	--cm-function: #849145;
+	--cm-deleted: #9a050f;
+	--cm-class: #2b91af;
+	--cm-builtin: #800000;
+	--cm-property: #ce9178;
+	--cm-regex: #ad502b;
+}
+
+html.dark {
+	--cm-foreground: #d4d4d4;
+	--cm-background: #1e1e1e;
+
+	--cm-namespace: #aaaaaa;
+	--cm-comment: #758575;
+	--cm-namespace: #444444;
+	--cm-string: #ce9178;
+	--cm-punctuation: #d4d4d4;
+	--cm-literal: #36acaa;
+	--cm-keyword: #38a776;
+	--cm-function: #dcdcaa;
+	--cm-deleted: #9a050f;
+	--cm-class: #4ec9b0;
+	--cm-builtin: #d16969;
+	--cm-property: #ce9178;
+	--cm-regex: #ad502b;
 }

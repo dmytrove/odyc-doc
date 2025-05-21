@@ -1,7 +1,8 @@
 <script lang="ts">
+	import type { Snippet } from 'svelte'
 	import '../../app.css'
-
-	let { children } = $props()
+	import 'codemirror-theme-vars/base.css'
+	let { children }: { children: Snippet } = $props()
 </script>
 
 <div class="dark">
