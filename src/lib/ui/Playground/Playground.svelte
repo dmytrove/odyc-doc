@@ -87,6 +87,11 @@
 		paintIsOpen = true
 	}
 
+	function loadExample(newCode: string) {
+		code = newCode
+		refresh()
+	}
+
 	async function handleFileLoad() {
 		const files = inputFile.files
 		if (!files) return
@@ -176,7 +181,7 @@
 
 		{#if examples}
 			<div class="flex items-center gap-2">
-				<ExampleSelect {examples} onChange={(newCode) => (code = newCode)} />
+				<ExampleSelect {examples} onChange={loadExample} />
 			</div>
 		{/if}
 

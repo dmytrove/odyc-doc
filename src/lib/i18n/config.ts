@@ -36,7 +36,10 @@ export const ui = {
 		'paint.up': 'Nudge Up',
 		'paint.right': 'Nudge Right',
 		'paint.down': 'Nudge Down',
-		'paint.left': 'Nudge Left'
+		'paint.left': 'Nudge Left',
+
+		'doc.note': 'Note',
+		'doc.warning': 'Warning'
 	},
 	fr: {
 		'playground.refresh': 'Actualiser',
@@ -67,6 +70,9 @@ export const ui = {
 		'paint.up': 'Décaler vers le haut',
 		'paint.right': 'Décaler vers la droite',
 		'paint.down': 'Décaler vers le bas',
-		'paint.left': 'Décaler vers la gauche'
+		'paint.left': 'Décaler vers la gauche',
+
+		'doc.note': 'Note',
+		'doc.warning': 'Attention'
 	}
 } as const

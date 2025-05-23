@@ -1,5 +1,5 @@
 ;(function () {
-	const TIMEBETWEENFRAMES = 1000 / 15
+	const TIMEBETWEENFRAMES = 1000 / 30
 
 	class GameCopy {
 		/**@type{number}*/

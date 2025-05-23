@@ -23,6 +23,9 @@ export const summary: Summary = [
 	{
 		en: 'Recipes',
 		fr: 'Recettes',
-		items: [{ en: 'Sprites', fr: 'Sprites', path: '2-recipes--1-sprites' }]
+		items: [
+			{ en: 'Sprites', fr: 'Sprites', path: '2-recipes--1-sprites' },
+			{ en: 'Dialogs', fr: 'Dialogues', path: '2-recipes--2-dialogs' }
+		]
 	}
 ]
