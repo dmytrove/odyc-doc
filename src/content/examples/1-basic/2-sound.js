@@ -25,7 +25,7 @@ const game = createGame({
 			.55555..
 			5555555.
 			`,
-			sound: createSound('PICKUP', 1560136431384798)
+			sound: ['PICKUP', 1560136431384798]
 		},
 
 		// wall

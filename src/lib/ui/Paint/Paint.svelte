@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/state'
-	import { Button, Range, useTranslations } from '$lib'
-	import { Check } from '@steeze-ui/heroicons'
+	import { Button, odycColors, Range, useTranslations } from '$lib'
+	import { ArrowDown, ArrowLeft, ArrowRight, ArrowUp, Check } from '@steeze-ui/heroicons'
 	import {
 		Clipboard,
 		Eraser,
@@ -11,32 +11,17 @@
 	} from '@steeze-ui/lucide-icons'
 	import { Icon } from '@steeze-ui/svelte-icon'
 	import { onMount, tick } from 'svelte'
-	import {
-		defaultColors,
-		drawGrid,
-		getMousePos,
-		gridToString,
-		initGrid,
-		mirrorGrid,
-		resizeGrid,
-		rotateGrid,
-		setGrid,
-		stringToGrid
-	} from './utils'
+	import { Drawing } from './Drawing.svelte'
 
-	type Props = {
-		src?: string
-	}
+	type Props = {}
 
-	let { src }: Props = $props()
+	let {}: Props = $props()
 
 	let canvas: HTMLCanvasElement
 	let currentColor = $state(0)
-	let width = $state(8)
-	let height = $state(8)
 	let copied = $state(false)
-	// svelte-ignore state_referenced_locally
-	let grid = $state(initGrid(width, height))
+
+	const drawing = new Drawing()
 
 	let ctx: CanvasRenderingContext2D
 
@@ -44,82 +29,110 @@
 
 	onMount(() => {
 		ctx = canvas.getContext('2d')!
-	})
-
-	$effect(() => {
-		if (ctx) {
-			drawGrid(grid, width, height, ctx)
-			copied = false
-		}
-	})
-
-	$effect(() => {
-		if (src) {
-			const newSprite = stringToGrid(src)
-			width = newSprite.width
-			height = newSprite.height
-			grid = newSprite.grid
-		}
+		canvas.width = drawing.width
+		canvas.height = drawing.height
+		drawing.display(ctx)
 	})
 
 	function handleClick(e: MouseEvent) {
-		const [x, y] = getMousePos(e, width, height)
-		grid = setGrid(grid, x, y, currentColor)
+		const [x, y] = getMousePos(e)
+		drawing.putPixel(x, y, currentColor)
+		drawing.display(ctx)
 	}
 
 	function handleMouseMove(e: MouseEvent) {
-		const [x, y] = getMousePos(e, width, height)
+		const [x, y] = getMousePos(e)
 		const isPressed = e.buttons === 1
 		if (isPressed) {
-			grid = setGrid(grid, x, y, currentColor)
+			drawing.putPixel(x, y, currentColor)
+			drawing.display(ctx)
 		}
-	}
-
-	function clear() {
-		grid = initGrid(width, height)
-	}
-
-	function rotate() {
-		const newGrid = rotateGrid(grid, width, height)
-		;[height, width] = [width, height]
-		grid = newGrid
-		canvas.width = width
-		canvas.height = height
-	}
-
-	function mirrorX() {
-		const newGrid = mirrorGrid(grid, width, height)
-		grid = newGrid
-	}
-
-	function mirrorY() {
-		const newGrid = mirrorGrid(grid, width, height, true)
-		grid = newGrid
 	}
 
 	async function handleChangeWidth(e: Event) {
 		const target = e.target as HTMLInputElement
-		width = target.valueAsNumber
-		grid = resizeGrid(grid, width, height)
+		const width = target.valueAsNumber
+		drawing.resize(width, drawing.height)
 		await tick()
-		if (ctx) drawGrid(grid, target.valueAsNumber, height, ctx)
+		drawing.display(ctx)
 	}
 
 	async function handleChangeHeight(e: Event) {
 		const target = e.target as HTMLInputElement
-		height = target.valueAsNumber
-		grid = resizeGrid(grid, width, height)
+		const height = target.valueAsNumber
+		drawing.resize(drawing.width, height)
+		await tick()
+		drawing.display(ctx)
+	}
+
+	function mirrorX() {
+		drawing.mirror()
+		drawing.display(ctx)
+	}
+
+	function mirrorY() {
+		drawing.mirror(true)
+		drawing.display(ctx)
+	}
+
+	async function rotate() {
+		drawing.rotate()
+		await tick()
+		drawing.display(ctx)
+	}
+
+	function moveUp() {
+		drawing.move(0, -1)
+		drawing.display(ctx)
+	}
+
+	function moveRight() {
+		drawing.move(1, 0)
+		drawing.display(ctx)
+	}
+
+	function moveDown() {
+		drawing.move(0, 1)
+		drawing.display(ctx)
+	}
+
+	function moveLeft() {
+		drawing.move(-1, 0)
+		drawing.display(ctx)
+	}
+
+	function clear() {
+		drawing.clear()
+		drawing.display(ctx)
 	}
 
 	function copyToClipBoard() {
-		const text = gridToString(grid, width, height)
-		navigator.clipboard.writeText(text)
+		navigator.clipboard.writeText(drawing.text)
 		copied = true
+		setTimeout(() => (copied = false), 1000)
+	}
+
+	async function handlePaste(e: ClipboardEvent) {
+		if (e.clipboardData?.files?.[0]) {
+			await drawing.loadImgFile(e.clipboardData.files[0])
+			drawing.display(ctx)
+		} else if (e.clipboardData?.getData('Text')) {
+			drawing.text = e.clipboardData.getData('Text')
+			drawing.display(ctx)
+		}
+	}
+
+	function getMousePos(e: MouseEvent) {
+		const target = e.target as HTMLElement
+		const { left, top, width, height } = target.getBoundingClientRect()
+		const x = Math.floor(((e.clientX - left) / width) * drawing.width)
+		const y = Math.floor(((e.clientY - top) / height) * drawing.height)
+		return [x, y]
 	}
 </script>
 
-<div class="w-sm px-4">
-	<div class="flex gap-2 pt-2">
+<div class="w-sm px-4" onpaste={handlePaste}>
+	<div class="flex pt-2">
 		<Button
 			size="icon"
 			variant="ghost"
@@ -139,6 +152,18 @@
 		<Button size="icon" variant="ghost" tooltip={{ text: t('paint.rotate') }} onclick={rotate}>
 			<Icon src={RotateCw} />
 		</Button>
+		<Button size="icon" variant="ghost" tooltip={{ text: t('paint.up') }} onclick={moveUp}>
+			<Icon src={ArrowUp} />
+		</Button>
+		<Button size="icon" variant="ghost" tooltip={{ text: t('paint.right') }} onclick={moveRight}>
+			<Icon src={ArrowRight} />
+		</Button>
+		<Button size="icon" variant="ghost" tooltip={{ text: t('paint.down') }} onclick={moveDown}>
+			<Icon src={ArrowDown} />
+		</Button>
+		<Button size="icon" variant="ghost" tooltip={{ text: t('paint.left') }} onclick={moveLeft}>
+			<Icon src={ArrowLeft} />
+		</Button>
 		<Button
 			size="icon"
 			variant="ghost"
@@ -149,20 +174,20 @@
 			<Icon src={Eraser} />
 		</Button>
 	</div>
-	<div class="my-3 flex aspect-square">
+	<div class="mt-3 flex aspect-square">
 		<canvas
 			onclick={(e) => handleClick(e)}
 			onmousemove={(e) => handleMouseMove(e)}
 			class={[
 				'pixelated m-auto max-h-full max-w-full cursor-crosshair',
-				width > height ? 'h-auto w-full' : 'h-full w-auto'
+				drawing.width > drawing.height ? 'h-auto w-full' : 'h-full w-auto'
 			]}
 			bind:this={canvas}
-			{width}
-			{height}
+			width={drawing.width}
+			height={drawing.height}
 		></canvas>
 	</div>
-	<div class="flex gap-1.5">
+	<div class="mt-3 flex gap-1.5">
 		<label
 			class={[
 				'aspect-square h-auto w-full cursor-pointer bg-gradient-to-br from-white from-50% to-gray-300 to-50% ring transition-all',
@@ -171,7 +196,7 @@
 		>
 			<input type="radio" bind:group={currentColor} value={-1} hidden />
 		</label>
-		{#each defaultColors as color, index}
+		{#each odycColors as color, index}
 			<label
 				class={[
 					'aspect-square h-auto w-full cursor-pointer ring transition-all',
@@ -187,15 +212,15 @@
 		<Range
 			min={2}
 			max={24}
-			value={width}
-			label={t('paint.width') + ' ' + width}
+			value={drawing.width}
+			label={t('paint.width') + ' ' + drawing.width}
 			oninput={handleChangeWidth}
 		/>
 		<Range
 			min={2}
 			max={24}
-			value={height}
-			label={t('paint.height') + ' ' + height}
+			value={drawing.height}
+			label={t('paint.height') + ' ' + drawing.height}
 			class="mt-2"
 			oninput={handleChangeHeight}
 		/>

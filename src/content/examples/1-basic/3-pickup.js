@@ -24,7 +24,7 @@ const game = createGame({
 			..5...5.
 			....5...
 			`,
-			sound: createSound('PICKUP', 7904414519357331),
+			sound: ['PICKUP', 7904414519357331],
 			onCollide(target) {
 				target.remove()
 			}

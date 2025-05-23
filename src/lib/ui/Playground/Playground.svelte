@@ -1,16 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/state'
-	import {
-		Button,
-		Dialog,
-		Editor,
-		GameWindow,
-		Paint,
-		saveLocaly,
-		Sound,
-		Switch,
-		useTranslations
-	} from '$lib'
+	import { Button, Dialog, Editor, GameWindow, Paint, Sound, Switch, useTranslations } from '$lib'
 	import { buildGame, parseCode } from '$lib/gameCode'
 	import { SplitPane } from '@rich_harris/svelte-split-pane'
 	import { Icon } from '@steeze-ui/svelte-icon'
@@ -34,15 +24,15 @@
 		code?: string
 		class?: string
 		examples?: LoadExamplesProps['examples']
+		localStorageKey?: string
 	}
 
-	let { code = $bindable(''), examples, class: className = '' }: Props = $props()
+	let { code = $bindable(''), examples, localStorageKey, class: className = '' }: Props = $props()
 
 	let gameWindow: GameWindow
 	let editor: Editor
 	let settingsIsOpen = $state(false)
 	let paintIsOpen = $state(false)
-	let paintSrc = $state('')
 	let soundIsOpen = $state(false)
 	let downloadIsOpen = $state(false)
 	let saved = $state(true)
@@ -61,18 +51,43 @@
 	}
 
 	function save() {
-		saveLocaly(code)
+		if (!localStorageKey) return
+		localStorage.setItem(localStorageKey, code)
 		saved = true
+	}
+	function refresh() {
+		iframeCode = code
+		gameWindow.refresh()
+	}
+
+	function handleKeydown(e: KeyboardEvent) {
+		if ((e.metaKey || e.ctrlKey) && e.shiftKey && e.key === 'R') {
+			refresh()
+			e.preventDefault()
+		}
+		if ((e.metaKey || e.ctrlKey) && e.shiftKey && e.key === 'F') {
+			editor.formatCode()
+			e.preventDefault()
+		}
+		if (e.metaKey && e.key === 's') {
+			save()
+			e.preventDefault()
+		}
+		if (e.metaKey && e.shiftKey && e.key === 'O') {
+			inputFile.click()
+			e.preventDefault()
+		}
+		if ((e.metaKey || e.ctrlKey) && e.shiftKey && e.key === 'E') {
+			downloadIsOpen = true
+			e.preventDefault()
+		}
 	}
 
 	function openPaint() {
 		paintIsOpen = true
-		const selection = window?.getSelection()?.toString()
-		if (selection) paintSrc = selection
 	}
 
 	async function handleFileLoad() {
-		console.log('hello')
 		const files = inputFile.files
 		if (!files) return
 		const file = files[0]
@@ -100,6 +115,7 @@
 	}
 </script>
 
+<svelte:window onkeydown={handleKeydown} />
 <div class={twMerge('playground  flex h-full flex-col shadow dark:bg-gray-900', className)}>
 	<header
 		class="flex items-center justify-between gap-2 border-b border-gray-200 px-4 py-2 dark:border-gray-700"
@@ -107,19 +123,23 @@
 		<div class="flex items-center gap-2">
 			<Button
 				size="icon"
-				tooltip={{ text: t('playground.refresh'), placement: 'bottom-end' }}
-				variant="ghost"
-				onclick={() => {
-					iframeCode = code
-					gameWindow.refresh()
+				tooltip={{
+					text: t('playground.refresh'),
+					placement: 'bottom-end',
+					shortcut: { defaultShortcut: 'ctrl ⇧ R', macShortcut: '⌘ ⇧ R' }
 				}}
+				variant="ghost"
+				onclick={refresh}
 			>
 				<Icon src={RefreshCw} />
 			</Button>
 
 			<Button
 				size="icon"
-				tooltip={{ text: t('playground.format') }}
+				tooltip={{
+					text: t('playground.format'),
+					shortcut: { defaultShortcut: 'ctrl ⇧ F', macShortcut: '⌘ ⇧ F' }
+				}}
 				variant="ghost"
 				onclick={() => editor.formatCode()}
 			>
@@ -163,7 +183,11 @@
 		<div class="flex items-center gap-2">
 			<Button
 				size="icon"
-				tooltip={{ text: t('playground.save') }}
+				tooltip={{
+					text: t('playground.save'),
+					placement: 'bottom-end',
+					shortcut: { defaultShortcut: 'ctrl S', macShortcut: '⌘ S' }
+				}}
 				variant="ghost"
 				class="relative"
 				onclick={save}
@@ -177,7 +201,11 @@
 
 			<Button
 				size="icon"
-				tooltip={{ text: t('playground.open') }}
+				tooltip={{
+					text: t('playground.open'),
+					placement: 'bottom-end',
+					shortcut: { defaultShortcut: 'ctrl ⇧ O', macShortcut: '⌘ ⇧ O' }
+				}}
 				variant="ghost"
 				onclick={() => inputFile?.click()}
 			>
@@ -187,7 +215,11 @@
 
 			<Button
 				size="icon"
-				tooltip={{ text: t('playground.export'), placement: 'bottom-start' }}
+				tooltip={{
+					text: t('playground.export'),
+					placement: 'bottom-start',
+					shortcut: { defaultShortcut: 'ctrl ⇧ E', macShortcut: '⌘ ⇧ E' }
+				}}
 				variant="ghost"
 				onclick={() => (downloadIsOpen = true)}
 			>
@@ -208,7 +240,7 @@
 </div>
 
 <Dialog bind:open={paintIsOpen}>
-	<Paint src={paintSrc} />
+	<Paint />
 </Dialog>
 
 <Dialog bind:open={soundIsOpen}>

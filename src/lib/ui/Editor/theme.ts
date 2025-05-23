@@ -3,63 +3,25 @@ import type { Extension } from '@codemirror/state'
 import { HighlightStyle, syntaxHighlighting } from '@codemirror/language'
 import { tags as t } from '@lezer/highlight'
 
-// Using https://github.com/one-dark/vscode-one-dark-theme/ as reference for the colors
-
-const chalky = '#e5c07b',
-	coral = '#e06c75',
-	cyan = '#56b6c2',
-	invalid = '#ffffff',
-	ivory = '#abb2bf',
-	stone = '#7d8799', // Brightened compared to original to increase contrast
-	malibu = '#61afef',
-	sage = '#98c379',
-	whiskey = '#d19a66',
-	violet = '#c678dd',
-	darkBackground = '#21252b',
-	highlightBackground = '#2c313a',
-	background = 'var(--color-gray-900)',
-	// background = '#282c34',
-	tooltipBackground = '#353a42',
-	selection = '#3E4451',
-	cursor = '#528bff'
-
-/// The colors used in the theme, as CSS color strings.
-export const color = {
-	chalky,
-	coral,
-	cyan,
-	invalid,
-	ivory,
-	stone,
-	malibu,
-	sage,
-	whiskey,
-	violet,
-	darkBackground,
-	highlightBackground,
-	background,
-	tooltipBackground,
-	selection,
-	cursor
-}
-
-/// The editor theme styles for One Dark.
 export const oneDarkTheme = EditorView.theme(
 	{
 		'&': {
-			color: ivory,
-			backgroundColor: background
+			color: 'var(--code-color-text-primary)',
+			backgroundColor: 'var(--code-color-background)'
 		},
 
 		'.cm-content': {
-			caretColor: cursor
+			caretColor: 'var(--code-color-cursor)'
 		},
 
-		'.cm-cursor, .cm-dropCursor': { borderLeftColor: cursor },
+		'.cm-cursor, .cm-dropCursor': { borderLeftColor: 'var(--code-color-cursor)' },
 		'&.cm-focused > .cm-scroller > .cm-selectionLayer .cm-selectionBackground, .cm-selectionBackground, .cm-content ::selection':
-			{ backgroundColor: selection },
+			{ backgroundColor: 'var(--code-color-selection)' },
 
-		'.cm-panels': { backgroundColor: darkBackground, color: ivory },
+		'.cm-panels': {
+			backgroundColor: 'var(--code-color-dark-background)',
+			color: 'var(--code-color-text-primary)'
+		},
 		'.cm-panels.cm-panels-top': { borderBottom: '2px solid black' },
 		'.cm-panels.cm-panels-bottom': { borderTop: '2px solid black' },
 
@@ -79,13 +41,13 @@ export const oneDarkTheme = EditorView.theme(
 		},
 
 		'.cm-gutters': {
-			backgroundColor: background,
-			color: stone,
+			backgroundColor: 'var(--code-color-background)',
+			color: 'var(--code-color-text-secondary)',
 			border: 'none'
 		},
 
 		'.cm-activeLineGutter': {
-			backgroundColor: highlightBackground
+			backgroundColor: 'var(--code-color-highlight-background)'
 		},
 
 		'.cm-foldPlaceholder': {
@@ -96,21 +58,29 @@ export const oneDarkTheme = EditorView.theme(
 
 		'.cm-tooltip': {
 			border: 'none',
-			backgroundColor: tooltipBackground
+			backgroundColor: 'var(--code-color-tooltip-background)'
 		},
 		'.cm-tooltip .cm-tooltip-arrow:before': {
 			borderTopColor: 'transparent',
 			borderBottomColor: 'transparent'
 		},
 		'.cm-tooltip .cm-tooltip-arrow:after': {
-			borderTopColor: tooltipBackground,
-			borderBottomColor: tooltipBackground
+			borderTopColor: 'var(--code-color-tooltip-background)',
+			borderBottomColor: 'var(--code-color-tooltip-background)'
 		},
 		'.cm-tooltip-autocomplete': {
 			'& > ul > li[aria-selected]': {
-				backgroundColor: highlightBackground,
-				color: ivory
+				backgroundColor: 'var(--code-color-highlight-background)',
+				color: 'var(--code-color-text-primary)'
 			}
+		},
+		'.cm-panels .cm-button': {
+			backgroundImage: 'inherit',
+			cursor: 'pointer',
+			color: 'var(--code-color-text-primary)'
+		},
+		'.cm-panels .cm-button:hover': {
+			backgroundColor: 'var(--code-color-button-hover-background)'
 		}
 	},
 	{ dark: true }
@@ -118,11 +88,18 @@ export const oneDarkTheme = EditorView.theme(
 
 /// The highlighting style for code in the One Dark theme.
 export const oneDarkHighlightStyle = HighlightStyle.define([
-	{ tag: t.keyword, color: violet },
-	{ tag: [t.name, t.deleted, t.character, t.propertyName, t.macroName], color: coral },
-	{ tag: [t.function(t.variableName), t.labelName], color: malibu },
-	{ tag: [t.color, t.constant(t.name), t.standard(t.name)], color: whiskey },
-	{ tag: [t.definition(t.name), t.separator], color: ivory },
+	{ tag: t.keyword, color: 'var(--code-color-syntax-keyword)' },
+	{
+		tag: [t.deleted, t.character, t.propertyName, t.macroName],
+		color: 'var(--code-color-syntax-identifier)'
+	},
+	{ tag: [t.function(t.variableName), t.labelName], color: 'var(--code-color-syntax-function)' },
+	{
+		tag: [t.color, t.constant(t.name), t.standard(t.name)],
+		color: 'var(--code-color-syntax-constant)'
+	},
+	{ tag: [t.separator], color: 'var(--code-color-text-primary)' },
+	{ tag: [t.name, t.definition(t.name)], color: 'var(--code-color-syntax-name)' },
 	{
 		tag: [
 			t.typeName,
@@ -134,23 +111,26 @@ export const oneDarkHighlightStyle = HighlightStyle.define([
 			t.self,
 			t.namespace
 		],
-		color: chalky
+		color: 'var(--code-color-syntax-constant)'
 	},
 	{
-		tag: [t.operator, t.operatorKeyword, t.url, t.escape, t.regexp, t.link, t.special(t.string)],
-		color: cyan
+		tag: [t.operator, t.operatorKeyword, t.url, t.escape, t.regexp, t.link],
+		color: 'var(--code-color-syntax-operator)'
 	},
-	{ tag: [t.meta, t.comment], color: stone },
+	{ tag: [t.meta, t.comment], color: 'var(--code-color-text-secondary)' },
 	{ tag: t.strong, fontWeight: 'bold' },
 	{ tag: t.emphasis, fontStyle: 'italic' },
 	{ tag: t.strikethrough, textDecoration: 'line-through' },
-	{ tag: t.link, color: stone, textDecoration: 'underline' },
-	{ tag: t.heading, fontWeight: 'bold', color: coral },
-	{ tag: [t.atom, t.bool, t.special(t.variableName)], color: whiskey },
-	{ tag: [t.processingInstruction, t.string, t.inserted], color: sage },
-	{ tag: t.invalid, color: invalid }
+	{ tag: t.link, color: 'var(--code-color-text-secondary)', textDecoration: 'underline' },
+	{ tag: t.heading, fontWeight: 'bold', color: 'var(--code-color-syntax-identifier)' },
+	{ tag: [t.atom, t.bool, t.special(t.variableName)], color: 'var(--code-color-syntax-constant)' },
+	{
+		tag: [t.processingInstruction, t.string, t.inserted],
+		color: 'var(--code-color-syntax-string)'
+	},
+	{ tag: t.invalid, color: 'var(--code-color-syntax-invalid)' }
 ])
 
 /// Extension to enable the One Dark theme (both the editor theme and
 /// the highlight style).
-export const cmTheme: Extension = [oneDarkTheme, syntaxHighlighting(oneDarkHighlightStyle)]
+export const theme: Extension = [oneDarkTheme, syntaxHighlighting(oneDarkHighlightStyle)]

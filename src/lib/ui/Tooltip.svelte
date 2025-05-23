@@ -1,14 +1,17 @@
 <script lang="ts">
 	import { createPopper, type Placement } from '@popperjs/core'
+	import type { Props as ShortcutProps } from './Shortcut.svelte'
 	import { onMount } from 'svelte'
+	import { Shortcut } from '$lib'
 
 	export type Props = {
 		text: string
 		placement?: Placement
 		delay?: number
+		shortcut?: ShortcutProps
 	}
 
-	let { text, placement = 'bottom', delay = 0 }: Props = $props()
+	let { text, placement = 'bottom', delay = 0, shortcut }: Props = $props()
 
 	let element: HTMLElement
 	let timeOutId: ReturnType<typeof setTimeout> | null = null
@@ -58,6 +61,9 @@
 	aria-hidden="true"
 >
 	{text}
+	{#if shortcut}
+		<Shortcut class="ms-1 text-gray-800" {...shortcut} />
+	{/if}
 	<div data-popper-arrow class="arrow"></div>
 </div>
 

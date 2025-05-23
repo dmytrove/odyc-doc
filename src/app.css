@@ -1,8 +1,7 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/forms';
 @plugin '@tailwindcss/typography';
-@import './prism.css';
-@import './codemirror.css';
+@import './code-colors.css';
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
@@ -10,6 +9,7 @@
 	--color-base-200: #f8f9fa;
 	--color-base-300: #f1f3f5;
 	--color-base-content: #212529;
+	--color-base-fade: #868e96;
 	--color-border: #ced4da;
 	--color-ring: #339af0;
 
@@ -19,10 +19,11 @@
 
 .dark {
 	color-scheme: dark;
-	--color-base-100: oklch(21% 0.034 264.665);
+	--color-base-100: oklch(19% 0.034 264.665);
 	--color-base-200: #212529;
 	--color-base-300: #343a40;
 	--color-base-content: #f1f3f5;
+	--color-base-fade: #dee2e6;
 	--color-border: #495057;
 	--color-ring: #339af0;
 }

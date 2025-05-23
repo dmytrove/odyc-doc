@@ -1,11 +1,17 @@
 <script lang="ts">
-	import { loadLocalSave, Playground } from '$lib'
+	import { browser } from '$app/environment'
+	import { page } from '$app/state'
+	import { Playground } from '$lib'
 	import type { PageProps } from './$types'
 
 	const { data }: PageProps = $props()
 
+	const LOCALSTORAGEKEY = 'odyc-playground-save'
+
+	const localCode = browser ? localStorage.getItem(LOCALSTORAGEKEY) : null
+
 	const code =
-		loadLocalSave() ??
+		localCode ??
 		`const game = createGame({
 	player: {
 		sprite: \`
@@ -37,4 +43,4 @@
 	\`})`
 </script>
 
-<Playground class="h-screen" examples={data.examples} {code} />
+<Playground class="h-screen" examples={data.examples} {code} localStorageKey={LOCALSTORAGEKEY} />

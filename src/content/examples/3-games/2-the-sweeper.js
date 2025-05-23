@@ -131,7 +131,7 @@ const game = createGame({
 		'#': {
 			sprite: sprites.dirtyFloor,
 			solid: false,
-			sound: createSound('BLIP', 424245453),
+			sound: ['BLIP', 424245453],
 			onEnter: function (target) {
 				game.addToCell(...target.position, '$')
 			}
@@ -139,7 +139,7 @@ const game = createGame({
 		$: {
 			sprite: sprites.cleanFloor,
 			solid: false,
-			sound: createSound('FALL', 424245453),
+			sound: ['FALL', 424245453],
 			onEnter: async function (target) {
 				game.addToCell(...target.position, '#')
 				await game.openDialog('Oh no, I got it dirty again!')

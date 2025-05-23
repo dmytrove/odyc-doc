@@ -66,14 +66,13 @@
 		"codemirror": "^6.0.1",
 		"codemirror-theme-vars": "^0.1.2",
 		"js-beautify": "^1.15.4",
-		"odyc": "^0.0.47",
+		"odyc": "^0.0.57",
 		"open-color": "^1.9.1",
 		"pfxr": "^1.0.9",
 		"rehype-expressive-code": "^0.41.2",
 		"shiki": "^3.4.2",
 		"slugify": "^1.6.6",
 		"tailwind-merge": "^3.3.0",
-		"thememirror": "^2.0.1",
 		"typescript": "^5.8.3"
 	}
 }

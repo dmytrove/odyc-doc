@@ -2,9 +2,16 @@
 
 prout
 
+```bash
+npm i odyc
+npm run dev
+rm -rf
+```
+
 caca
 
 ```js
+game.playSound()
 const game = createGame({
 	player: {
 		sprite: `

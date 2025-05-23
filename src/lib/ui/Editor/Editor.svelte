@@ -2,7 +2,6 @@
 	import { onMount } from 'svelte'
 	import { twMerge } from 'tailwind-merge'
 	import { Workspace } from './Workspace.svelte'
-	import { formatJs } from './formatCode'
 
 	type Props = {
 		code?: string
@@ -35,7 +34,7 @@
 	}
 
 	export function formatCode() {
-		workspace.updateCode(formatJs(code))
+		workspace.formatCode()
 	}
 
 	$effect(() => {
@@ -51,3 +50,9 @@
 	bind:this={container}
 	class={twMerge('bg-base-200 h-full w-full overflow-auto shadow dark:bg-gray-900', className)}
 ></div>
+
+<style>
+	:global(.cm-editor) {
+		height: 100%;
+	}
+</style>

@@ -32,7 +32,11 @@ export const ui = {
 		'paint.clear': 'Clear',
 		'paint.width': 'Width',
 		'paint.height': 'Height',
-		'paint.copy': 'Copy'
+		'paint.copy': 'Copy',
+		'paint.up': 'Nudge Up',
+		'paint.right': 'Nudge Right',
+		'paint.down': 'Nudge Down',
+		'paint.left': 'Nudge Left'
 	},
 	fr: {
 		'playground.refresh': 'Actualiser',
@@ -56,9 +60,13 @@ export const ui = {
 		'paint.horizontalMirror': 'Miroir horizontal',
 		'paint.verticalMirror': 'Miroir vertical',
 		'paint.rotate': 'Tourner',
-		'paint.clear': 'Supprimer',
+		'paint.clear': 'Tout effacer',
 		'paint.width': 'Largeur',
 		'paint.height': 'Hauteur',
-		'paint.copy': 'Copier'
+		'paint.copy': 'Copier',
+		'paint.up': 'Décaler vers le haut',
+		'paint.right': 'Décaler vers la droite',
+		'paint.down': 'Décaler vers le bas',
+		'paint.left': 'Décaler vers la gauche'
 	}
 } as const

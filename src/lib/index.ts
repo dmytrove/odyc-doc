@@ -9,6 +9,7 @@ import Range from './ui/Range.svelte'
 import Select from './ui/Select.svelte'
 import Switch from './ui/Switch.svelte'
 import Tooltip from './ui/Tooltip.svelte'
+import Shortcut from './ui/Shortcut.svelte'
 
 export {
 	Editor,
@@ -21,7 +22,8 @@ export {
 	Range,
 	Select,
 	Switch,
-	Tooltip
+	Tooltip,
+	Shortcut
 }
 
 export * from './getDocPosts'
@@ -29,4 +31,4 @@ export * from './getExamplesCode'
 export * from './i18n'
 export * from './string'
 export * from './functions'
-export * from './localSave'
+export * from './colors'

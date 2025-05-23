@@ -71,7 +71,7 @@ const game = createGame({
       ........
       ........
     `,
-			sound: createSound('PICKUP', 5353),
+			sound: ['PICKUP', 5353],
 			onCollide: function (target) {
 				target.remove()
 				hasOs = true

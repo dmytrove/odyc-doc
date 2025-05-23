@@ -2,8 +2,7 @@ import { escapeSvelte, mdsvex } from 'mdsvex'
 import adapter from '@sveltejs/adapter-static'
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte'
 import { codeToHtml } from 'shiki'
-import dracula from 'shiki/themes/dracula.mjs'
-import rehypeShiki from '@shikijs/rehype'
+import { shikiTheme } from './shiki-theme.js'
 
 /** @type {import('mdsvex').MdsvexOptions} */
 const mdsvexOptions = {
@@ -11,7 +10,10 @@ const mdsvexOptions = {
 	smartypants: false,
 	highlight: {
 		highlighter: async (code, lang) => {
-			const html = await codeToHtml(code, { lang: lang, theme: 'aurora-x' })
+			const html = await codeToHtml(code, {
+				lang: lang,
+				theme: shikiTheme
+			})
 			return escapeSvelte(html)
 		}
 	}

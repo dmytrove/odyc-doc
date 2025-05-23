@@ -1,3 +1,4 @@
+import type { EditorView } from 'codemirror'
 import pkg from 'js-beautify'
 
 export function formatJs(code: string) {

@@ -4,21 +4,20 @@ import { defaultKeymap, indentWithTab } from '@codemirror/commands'
 import { javascript } from '@codemirror/lang-javascript'
 import { linter } from '@codemirror/lint'
 import { Compartment, EditorState, type Extension } from '@codemirror/state'
-import { EditorView, keymap, ViewUpdate } from '@codemirror/view'
+import { EditorView, keymap, ViewUpdate, type KeyBinding } from '@codemirror/view'
 import { vim } from '@replit/codemirror-vim'
 import { basicSetup } from 'codemirror'
 import { TsServer } from './TsServer'
 
-import { cobalt } from 'thememirror'
+import { formatJs } from './formatCode'
+import { theme } from './theme'
 const vimMode = new Compartment()
 
 const extensions: Extension[] = [
 	basicSetup,
 	javascript(),
 	EditorState.tabSize.of(2),
-	// customTheme,
-	// cmTheme,
-	cobalt,
+	theme,
 	vimMode.of([])
 ]
 
@@ -26,20 +25,20 @@ type Props = {
 	defaultCode?: string
 	container: HTMLElement
 	onChange: (value: string) => void
+	localStorageKey?: string
 }
 
 export class Workspace {
-	#editorView: EditorView
-	#editorState: EditorState
-	#onCodeChange: (value: string) => void
+	view: EditorView
 	#tsServer: TsServer
+	#onCodeChange: (value: string) => void
 
 	constructor({ defaultCode, container, onChange }: Props) {
 		this.#onCodeChange = debounce(onChange, 200)
 		this.#tsServer = new TsServer()
 
-		this.#editorState = EditorState.create({
-			doc: defaultCode ?? '',
+		const state = EditorState.create({
+			doc: defaultCode || '',
 			extensions: [
 				...extensions,
 				linter(
@@ -53,19 +52,13 @@ export class Workspace {
 					override: [this.#tsServer.autocomplete],
 					defaultKeymap: true
 				}),
-				// hoverTooltip(
-				// 	async (_, pos) => {
-				// 		return await this.#tsServer.hoverTooltip(pos)
-				// 	},
-				// 	{ hideOnChange: true }
-				// ),
 				keymap.of([...defaultKeymap, { key: 'Tab', run: acceptCompletion }, indentWithTab]),
 				EditorView.updateListener.of(this.#handleChange)
 			]
 		})
 
-		this.#editorView = new EditorView({
-			state: this.#editorState,
+		this.view = new EditorView({
+			state,
 			parent: container
 		})
 	}
@@ -78,17 +71,27 @@ export class Workspace {
 
 	toggleVim(value: boolean) {
 		const ext = value ? vim() : []
-		this.#editorView.dispatch({
+		this.view.dispatch({
 			effects: vimMode.reconfigure(ext)
 		})
 	}
 
-	updateCode(newCode: string) {
-		if (newCode === this.#editorView.state.doc.toString()) return
-		this.#editorView.dispatch({
+	formatCode() {
+		this.view.dispatch({
 			changes: {
 				from: 0,
-				to: this.#editorView.state.doc.length,
+				to: this.view.state.doc.length,
+				insert: formatJs(this.view.state.doc.toString())
+			}
+		})
+	}
+
+	updateCode(newCode: string) {
+		if (newCode === this.view.state.doc.toString()) return
+		this.view.dispatch({
+			changes: {
+				from: 0,
+				to: this.view.state.doc.length,
 				insert: newCode
 			}
 		})
