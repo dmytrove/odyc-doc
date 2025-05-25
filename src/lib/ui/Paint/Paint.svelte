@@ -12,16 +12,23 @@
 	import { Icon } from '@steeze-ui/svelte-icon'
 	import { onMount, tick } from 'svelte'
 	import { Drawing } from './Drawing.svelte'
+	import { twMerge } from 'tailwind-merge'
 
-	type Props = {}
+	type Props = {
+		resize?: boolean
+		copy?: boolean
+		sprite?: string
+		class?: string
+		onChange?: (sprite: string) => void
+	}
 
-	let {}: Props = $props()
+	let { resize = true, copy = true, sprite, onChange, class: className = '' }: Props = $props()
 
 	let canvas: HTMLCanvasElement
 	let currentColor = $state(0)
 	let copied = $state(false)
 
-	const drawing = new Drawing()
+	const drawing = new Drawing(sprite)
 
 	let ctx: CanvasRenderingContext2D
 
@@ -38,6 +45,7 @@
 		const [x, y] = getMousePos(e)
 		drawing.putPixel(x, y, currentColor)
 		drawing.display(ctx)
+		onChange?.(drawing.text)
 	}
 
 	function handleMouseMove(e: MouseEvent) {
@@ -46,6 +54,7 @@
 		if (isPressed) {
 			drawing.putPixel(x, y, currentColor)
 			drawing.display(ctx)
+			onChange?.(drawing.text)
 		}
 	}
 
@@ -55,6 +64,7 @@
 		drawing.resize(width, drawing.height)
 		await tick()
 		drawing.display(ctx)
+		onChange?.(drawing.text)
 	}
 
 	async function handleChangeHeight(e: Event) {
@@ -63,47 +73,56 @@
 		drawing.resize(drawing.width, height)
 		await tick()
 		drawing.display(ctx)
+		onChange?.(drawing.text)
 	}
 
 	function mirrorX() {
 		drawing.mirror()
 		drawing.display(ctx)
+		onChange?.(drawing.text)
 	}
 
 	function mirrorY() {
 		drawing.mirror(true)
 		drawing.display(ctx)
+		onChange?.(drawing.text)
 	}
 
 	async function rotate() {
 		drawing.rotate()
 		await tick()
 		drawing.display(ctx)
+		onChange?.(drawing.text)
 	}
 
 	function moveUp() {
 		drawing.move(0, -1)
 		drawing.display(ctx)
+		onChange?.(drawing.text)
 	}
 
 	function moveRight() {
 		drawing.move(1, 0)
 		drawing.display(ctx)
+		onChange?.(drawing.text)
 	}
 
 	function moveDown() {
 		drawing.move(0, 1)
 		drawing.display(ctx)
+		onChange?.(drawing.text)
 	}
 
 	function moveLeft() {
 		drawing.move(-1, 0)
 		drawing.display(ctx)
+		onChange?.(drawing.text)
 	}
 
 	function clear() {
 		drawing.clear()
 		drawing.display(ctx)
+		onChange?.(drawing.text)
 	}
 
 	function copyToClipBoard() {
@@ -131,7 +150,7 @@
 	}
 </script>
 
-<div class="w-sm px-4" onpaste={handlePaste}>
+<div class={twMerge('w-sm px-4', className)} onpaste={handlePaste}>
 	<div class="flex pt-2">
 		<Button
 			size="icon"
@@ -208,27 +227,31 @@
 			</label>
 		{/each}
 	</div>
-	<div class="mt-6">
-		<Range
-			min={2}
-			max={24}
-			value={drawing.width}
-			label={t('paint.width') + ' ' + drawing.width}
-			oninput={handleChangeWidth}
-		/>
-		<Range
-			min={2}
-			max={24}
-			value={drawing.height}
-			label={t('paint.height') + ' ' + drawing.height}
-			class="mt-2"
-			oninput={handleChangeHeight}
-		/>
-	</div>
-	<div class="mt-2 flex justify-end gap-4 px-2 pt-2 pb-4">
-		<Button onclick={() => copyToClipBoard()} class="">
-			{t('paint.copy')}
-			<Icon src={copied ? Check : Clipboard} class="size-5" />
-		</Button>
-	</div>
+	{#if resize}
+		<div class="mt-6">
+			<Range
+				min={2}
+				max={24}
+				value={drawing.width}
+				label={t('paint.width') + ' ' + drawing.width}
+				oninput={handleChangeWidth}
+			/>
+			<Range
+				min={2}
+				max={24}
+				value={drawing.height}
+				label={t('paint.height') + ' ' + drawing.height}
+				class="mt-2"
+				oninput={handleChangeHeight}
+			/>
+		</div>
+	{/if}
+	{#if copy}
+		<div class="mt-2 flex justify-end gap-4 px-2 pt-2 pb-4">
+			<Button onclick={() => copyToClipBoard()} class="">
+				{t('paint.copy')}
+				<Icon src={copied ? Check : Clipboard} class="size-5" />
+			</Button>
+		</div>
+	{/if}
 </div>

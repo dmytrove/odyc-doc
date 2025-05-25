@@ -62,7 +62,7 @@
 >
 	{text}
 	{#if shortcut}
-		<Shortcut class="ms-1 text-gray-800" {...shortcut} />
+		<Shortcut class="ms-1 text-gray-200 dark:text-gray-800" {...shortcut} />
 	{/if}
 	<div data-popper-arrow class="arrow"></div>
 </div>

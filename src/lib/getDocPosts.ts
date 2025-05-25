@@ -1,4 +1,7 @@
-import { defaultLang, languages, languagesUrl } from './i18n'
+import { page } from '$app/state'
+import { slugify } from '$lib'
+import type { DocCategory, DocItem, summary } from '../content/doc/summary'
+import { defaultLang, getLangFromUrl, languages, languagesUrl } from './i18n'
 
 type DocPost = {
 	title: string
@@ -47,4 +50,10 @@ export const getDocPosts = async () => {
 			title: title.replace(/^\d+-/, ''),
 			...el
 		}))
+}
+
+export function makeDocPostUrl(category: DocCategory, post: DocItem, currentUrl: URL) {
+	const lang = getLangFromUrl(currentUrl)
+	const prefix = lang === defaultLang ? '/' : '/' + lang + '/'
+	return prefix + `doc/${slugify(category[lang])}/${slugify(post[lang])}`
 }

@@ -1,8 +1,10 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/forms';
-@plugin '@tailwindcss/typography';
-@import './code-colors.css';
-@custom-variant dark (&:where(.dark, .dark *));
+/* @plugin '@tailwindcss/typography'; */
+@import './style/code-colors.css';
+@import './style/prose.css';
+
+@custom-variant dark (&: where(.dark, .dark *));
 
 @theme {
 	--color-base-100: white;
@@ -12,6 +14,14 @@
 	--color-base-fade: #868e96;
 	--color-border: #ced4da;
 	--color-ring: #339af0;
+
+	--color-danger-content: var(--color-red-950);
+	--color-danger-border: var(--color-red-400);
+	--color-danger-surface: var(--color-red-100);
+
+	--color-note-content: var(--color-indigo-950);
+	--color-note-border: var(--color-indigo-400);
+	--color-note-surface: var(--color-indigo-100);
 
 	--radius-base: 2px;
 	/* --border: 1px; */
@@ -26,6 +36,14 @@
 	--color-base-fade: #dee2e6;
 	--color-border: #495057;
 	--color-ring: #339af0;
+
+	--color-danger-content: var(--color-base-content);
+	--color-danger-border: var(--color-red-400);
+	--color-danger-surface: var(--color-red-900);
+
+	--color-note-content: var(--color-indigo-content);
+	--color-note-border: var(--color-indigo-400);
+	--color-note-surface: var(--color-indigo-900);
 }
 
 @utility pixelated {

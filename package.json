@@ -66,14 +66,20 @@
 		"@typescript/vfs": "^1.6.1",
 		"codemirror": "^6.0.1",
 		"codemirror-theme-vars": "^0.1.2",
+		"gray-matter": "^4.0.3",
 		"js-beautify": "^1.15.4",
-		"odyc": "^0.0.58",
+		"mdast-util-toc": "^7.1.0",
+		"odyc": "^0.0.60",
 		"open-color": "^1.9.1",
 		"pfxr": "^1.0.9",
 		"rehype-expressive-code": "^0.41.2",
+		"remark-frontmatter": "^5.0.0",
+		"remark-parse": "^11.0.0",
 		"shiki": "^3.4.2",
 		"slugify": "^1.6.6",
 		"tailwind-merge": "^3.3.0",
-		"typescript": "^5.8.3"
+		"typescript": "^5.8.3",
+		"unified": "^11.0.5",
+		"unist-util-visit": "^5.0.0"
 	}
 }

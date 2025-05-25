@@ -1,31 +1,40 @@
-import { languages } from '$lib'
+import { type Lang } from '$lib'
 
-type Lang = keyof typeof languages
+export type DocItem = { [lang in Lang]: string } & { path: string }
 
-export type DocPost = { [lang in Lang]: string } & { path: string }
+export type DocCategory = { [lang in Lang]: string } & { items: DocItem[] }
 
-export type Summary = Array<
-	{ [lang in Lang]: string } & {
-		items: Array<DocPost>
-	}
->
-
+export type Summary = DocCategory[]
 export const summary: Summary = [
 	{
-		en: 'Tutorials',
-		fr: 'Tutoriels',
+		en: 'World Building',
+		fr: 'Construction du monde',
 		items: [
-			{ en: 'Introduction', fr: 'Introduction', path: '1-tutorial--1-introduction' },
-			{ en: 'Create Game', fr: 'Créer le jeu', path: '1-tutorial--2-create-game' },
-			{ en: 'Add Dialog', fr: 'Ajouter des dialogues', path: '1-tutorial--3-add-dialog' }
+			{ en: 'Player', fr: 'Player', path: '1-world--1-player' },
+			{ en: 'Templates & Map', fr: 'Templates et Carte', path: '1-world--2-templates-map' },
+			{ en: 'Sprites', fr: 'Sprites', path: '1-world--3-sprites' },
+			{ en: 'Sounds', fr: 'Sons', path: '1-world--4-sounds' },
+			{ en: 'Dialogues', fr: 'Dialogues', path: '1-world--5-dialogues' },
+			{ en: 'Messages', fr: 'Messages', path: '1-world--6-messages' }
 		]
 	},
 	{
-		en: 'Recipes',
-		fr: 'Recettes',
+		en: 'Interaction & Logic',
+		fr: 'Interaction & logique',
 		items: [
-			{ en: 'Sprites', fr: 'Sprites', path: '2-recipes--1-sprites' },
-			{ en: 'Dialogs', fr: 'Dialogues', path: '2-recipes--2-dialogs' }
+			{ en: 'Events', fr: 'Événements', path: '2-logic--1-events' },
+			{ en: 'Game Actions', fr: 'Actions du jeu', path: '2-logic--2-game-actions' },
+			{ en: 'Modifying Game State', fr: 'Modifier l’état du jeu', path: '2-logic--3-game-state' }
+		]
+	},
+	{
+		en: 'Configuration',
+		fr: 'Configuration',
+		items: [
+			{ en: 'Colors', fr: 'Couleurs', path: '3-config--1-colors' },
+			{ en: 'Screen & Camera', fr: 'Caméra & Écran', path: '3-config--2-screen-camera' },
+			{ en: 'Filters', fr: 'Filtres', path: '3-config--3-filters' },
+			{ en: 'Custom Key Bindings', fr: 'Touches personnalisées', path: '3-config--4-keybindings' }
 		]
 	}
 ]

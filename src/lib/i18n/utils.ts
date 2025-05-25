@@ -1,6 +1,8 @@
 import { defaultLang, languages, ui } from './config'
 
-export function getLangFromUrl(url: URL): keyof typeof ui {
+export type Lang = keyof typeof languages
+
+export function getLangFromUrl(url: URL): Lang {
 	const [, lang] = url.pathname.split('/')
 	if (lang in languages) return lang as keyof typeof ui
 	return defaultLang

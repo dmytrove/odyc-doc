@@ -4,8 +4,9 @@ export class Drawing {
 	#grid: number[][]
 	#width = $state(8)
 	#height = $state(8)
-	constructor() {
+	constructor(sprite?: string) {
 		this.#grid = this.#createGrid(this.#width, this.#height)
+		if (sprite) this.text = sprite
 	}
 
 	display(ctx: CanvasRenderingContext2D) {

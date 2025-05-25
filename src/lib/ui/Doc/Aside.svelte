@@ -13,15 +13,15 @@
 	}
 
 	const variantsClasses: Record<AsideVariant, string> = {
-		Note: 'border-indigo-300 bg-indigo-100 text-indigo-900',
-		Warning: 'border-amber-300 bg-amber-100 text-amber-900'
+		Note: 'border-indigo-300 bg-indigo-600/10',
+		Warning: 'border-danger-border bg-danger-surface text-danger-content'
 	}
 	type Props = { children: Snippet; variant?: AsideVariant }
 
 	let { children, variant = 'Note' }: Props = $props()
 </script>
 
-<div class={twMerge('mb-[2em]  border-l-6 px-4 py-4 leading-snug', variantsClasses[variant])}>
+<div class={twMerge('!mt-[2em] border-l-6 px-4 py-4 leading-snug', variantsClasses[variant])}>
 	<p class="not-prose flex items-center gap-2 text-xl font-bold">
 		<Icon src={icons[variant]} class="size-8" />
 		{variant}

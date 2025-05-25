@@ -32,3 +32,5 @@ export * from './i18n'
 export * from './string'
 export * from './functions'
 export * from './colors'
+
+export * from './types'

@@ -1,4 +1,4 @@
-import { slugify } from '$lib'
+import { slugify, type DocPostFrontamatter } from '$lib'
 import { defaultLang, getLangFromUrl, ui } from '$lib/i18n'
 import { error } from '@sveltejs/kit'
 import { summary } from '../../../../../content/doc/summary'
@@ -33,6 +33,7 @@ export const load: PageLoad = async ({ url, params }) => {
 	return {
 		title: post[lang],
 		category: group[lang],
-		Content: md.default
+		Content: md.default,
+		metadata: md.metadata as DocPostFrontamatter
 	}
 }

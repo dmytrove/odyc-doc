@@ -4,18 +4,17 @@ import { defaultKeymap, indentWithTab } from '@codemirror/commands'
 import { javascript } from '@codemirror/lang-javascript'
 import { linter } from '@codemirror/lint'
 import { Compartment, EditorState, type Extension } from '@codemirror/state'
-import { EditorView, keymap, ViewUpdate, type KeyBinding } from '@codemirror/view'
+import { EditorView, keymap, ViewUpdate } from '@codemirror/view'
 import { vim } from '@replit/codemirror-vim'
 import { basicSetup } from 'codemirror'
 import { TsServer } from './TsServer'
-import { commentKeymap } from '@codemirror/comment'
-
 import { formatJs } from './formatCode'
 import { theme } from './theme'
+
 const vimMode = new Compartment()
 
 const extensions: Extension[] = [
-	// basicSetup,
+	basicSetup,
 	javascript(),
 	EditorState.tabSize.of(2),
 	theme,

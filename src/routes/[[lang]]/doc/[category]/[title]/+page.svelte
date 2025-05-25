@@ -1,17 +1,24 @@
 <script lang="ts">
-	import { onMount } from 'svelte'
+	import { fade } from 'svelte/transition'
 	import type { PageProps } from './$types'
+	import Toc from './Toc.svelte'
 
-	const { data }: PageProps = $props()
-	const { category, title, Content } = data
+	let { data }: PageProps = $props()
 
 	let wrapper: HTMLElement | undefined = $state()
 </script>
 
-<article
-	class="prose dark:prose-invert prose-pre:rounded-none prose-pre:border-border prose-pre:border mx-auto max-w-prose"
-	bind:this={wrapper}
->
-	<h1>{title}</h1>
-	<Content />
-</article>
+<div class="flex">
+	<article transition:fade id="main-content" class="" bind:this={wrapper}>
+		{#key data.Content}
+			<div class="prose dark:prose-invert mx-auto max-w-prose px-8 pt-12 pb-32">
+				<data.Content />
+			</div>
+		{/key}
+	</article>
+	<aside class="sticky top-0 hidden h-screen w-2xs pt-16 xl:block">
+		{#key data.metadata.toc}
+			<Toc toc={data.metadata.toc} />
+		{/key}
+	</aside>
+</div>

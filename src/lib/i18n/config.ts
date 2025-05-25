@@ -39,7 +39,9 @@ export const ui = {
 		'paint.left': 'Nudge Left',
 
 		'doc.note': 'Note',
-		'doc.warning': 'Warning'
+		'doc.warning': 'Warning',
+		'doc.overview': 'Overview',
+		'doc.onThisPage': 'On this page'
 	},
 	fr: {
 		'playground.refresh': 'Actualiser',
@@ -73,6 +75,8 @@ export const ui = {
 		'paint.left': 'Décaler vers la gauche',
 
 		'doc.note': 'Note',
-		'doc.warning': 'Attention'
+		'doc.warning': 'Attention',
+		'doc.overview': "Vue d'ensemble",
+		'doc.onThisPage': 'Sur cette page'
 	}
 } as const
