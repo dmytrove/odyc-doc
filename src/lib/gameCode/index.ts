@@ -1,5 +1,6 @@
 import odyc from 'odyc/dist/index.global.js?raw'
-import handleErrorScript from './inlineScripts/handeErrors.js?raw'
+import messageChannelScript from './inlineScripts/messageChannel.js?raw'
+import consoleScript from './inlineScripts/console.js?raw'
 import gameRecorderScript from './inlineScripts/gameRecorder.js?raw'
 
 export const buildGame = (code: string, debug = true) => `
@@ -8,7 +9,14 @@ export const buildGame = (code: string, debug = true) => `
   <meta charset="utf-8" />
 </head>
 <body>
-  ${debug ? `<script>${handleErrorScript}</script>` : ''}
+  ${
+		debug
+			? `<script>
+  ${messageChannelScript}
+  ${consoleScript}
+</script>`
+			: ''
+	}
   <script>
     ${odyc}
     const {createGame, createSound} = odyc

@@ -41,7 +41,17 @@ export const ui = {
 		'doc.note': 'Note',
 		'doc.warning': 'Warning',
 		'doc.overview': 'Overview',
-		'doc.onThisPage': 'On this page'
+		'doc.onThisPage': 'On this page',
+
+		'doc.previous': 'Previous',
+		'doc.next': 'Next',
+
+		'header.theme': 'Toggles light & dark',
+		'header.selectLang': 'Select Language',
+
+		'nav.doc': 'Docs',
+		'nav.tutorial': 'Tutorial',
+		'nav.playground': 'Playground'
 	},
 	fr: {
 		'playground.refresh': 'Actualiser',
@@ -77,6 +87,15 @@ export const ui = {
 		'doc.note': 'Note',
 		'doc.warning': 'Attention',
 		'doc.overview': "Vue d'ensemble",
-		'doc.onThisPage': 'Sur cette page'
+		'doc.onThisPage': 'Sur cette page',
+		'doc.previous': 'Précédent',
+		'doc.next': 'Suivant',
+
+		'header.theme': 'Thème clair / sombre',
+		'header.selectLang': 'Sélection de la langue',
+
+		'nav.doc': 'Documentation',
+		'nav.tutorial': 'Tutoriel',
+		'nav.playground': 'Editeur'
 	}
 } as const

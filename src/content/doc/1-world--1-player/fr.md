@@ -1,12 +1,11 @@
 <script>
 import Aside from '../../../lib/ui/Doc/Aside.svelte'
 import Emoji from '../../../lib/ui/Doc/Emoji.svelte'
-import PaintDemo from '../../../lib/ui/Doc/PaintDemo.svelte'
 </script>
 
 # <Emoji src="😎" /> Le Joueur
 
-Le `player` est le personnage que l’on contrôle dans le jeu. Il est défini par deux propriétés : **sa position de départ** et **son apparence**.
+Le `player` est le personnage que l’on contrôle dans le jeu. Il est défini par deux propriétés : **sa position** et **son apparence**.
 
 ---
 
@@ -48,7 +47,9 @@ createGame({
 ```
 
 <Aside>
-Le fonctionnement des sprites est expliqué plus en détail dans la <a href="/fr/doc/construction-du-monde/sprites">page dédiée</a>.
+
+Le fonctionnement des sprites est expliqué plus en détail dans la [section dédiée](/fr/doc/construction-du-monde/sprites).
+
 </Aside>
 
 ---

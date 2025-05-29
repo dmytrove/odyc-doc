@@ -112,6 +112,6 @@
 {/snippet}
 
 <div class="">
-	<h2 class="font-semi pl-3 text-lg">{t('doc.onThisPage')}</h2>
+	<h2 class="font-semi text-base-content pl-3 text-lg">{t('doc.onThisPage')}</h2>
 	{@render chunk(nestedToc)}
 </div>

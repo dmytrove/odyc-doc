@@ -1,12 +1,8 @@
 import { page } from '$app/state'
 import { slugify } from '$lib'
-import type { DocCategory, DocItem, summary } from '../content/doc/summary'
+import { summary, type DocCategory, type DocItem } from '../content/doc/summary'
 import { defaultLang, getLangFromUrl, languages, languagesUrl } from './i18n'
 
-type DocPost = {
-	title: string
-	slug: string
-}
 export const getDocPosts = async () => {
 	const entries = Object.entries(import.meta.glob('../content/doc/*/*/*.md')).map(
 		([path, resolver]) => ({ path, resolver })
@@ -52,8 +48,59 @@ export const getDocPosts = async () => {
 		}))
 }
 
-export function makeDocPostUrl(category: DocCategory, post: DocItem, currentUrl: URL) {
+export function getFirstDocPost(currentUrl: URL) {
+	const lang = getLangFromUrl(currentUrl)
+	const category = summary[0][lang]
+	const post = summary[0].items[0][lang]
+	return makeDocPostUrl(category, post, currentUrl)
+}
+
+export function makeDocPostUrl(category: string, post: string, currentUrl: URL) {
 	const lang = getLangFromUrl(currentUrl)
 	const prefix = lang === defaultLang ? '/' : '/' + lang + '/'
-	return prefix + `doc/${slugify(category[lang])}/${slugify(post[lang])}`
+	return prefix + `doc/${slugify(category)}/${slugify(post)}`
+}
+
+export function getNextPost(category: string, title: string, currentUrl: URL) {
+	const lang = getLangFromUrl(currentUrl)
+	const items = summary.flatMap((c) => c.items.map((el) => ({ ...el, category: c })))
+	const next = items.find((_, i) => {
+		const previous = items[i - 1]
+		if (!previous) return false
+		return previous.category[lang] === category && previous[lang] === title
+	})
+	if (next)
+		return {
+			url: makeDocPostUrl(next.category[lang], next[lang], currentUrl),
+			title: next[lang]
+		}
+}
+
+export function getpreviousPost(category: string, title: string, currentUrl: URL) {
+	const lang = getLangFromUrl(currentUrl)
+	const items = summary.flatMap((c) => c.items.map((el) => ({ ...el, category: c })))
+	const previous = items.find((_, i) => {
+		const next = items[i + 1]
+		if (!next) return false
+		return next.category[lang] === category && next[lang] === title
+	})
+	if (previous)
+		return {
+			url: makeDocPostUrl(previous.category[lang], previous[lang], currentUrl),
+			title: previous[lang]
+		}
+}
+
+export function getDocLocales(categorySlug: string, titleSlug: string, currentUrl: URL) {
+	const lang = getLangFromUrl(currentUrl)
+	const post = summary
+		.flatMap((c) => c.items.map((el) => ({ ...el, category: c })))
+		.find((el) => slugify(el.category[lang]) === categorySlug && slugify(el[lang]) === titleSlug)
+	if (!post) return []
+	return Object.entries(languages).map(([key, langName]) => {
+		const prefix = key === defaultLang ? '/' : '/' + key + '/'
+		//@ts-ignore
+		const url = prefix + `doc/${slugify(post.category[key])}/${slugify(post[key])}`
+		return { url, lang: langName }
+	})
 }

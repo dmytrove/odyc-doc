@@ -1,10 +1,10 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/forms';
-/* @plugin '@tailwindcss/typography'; */
 @import './style/code-colors.css';
 @import './style/prose.css';
+@import './style/shiki.css';
 
-@custom-variant dark (&: where(.dark, .dark *));
+@custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
 	--color-base-100: white;
@@ -24,14 +24,16 @@
 	--color-note-surface: var(--color-indigo-100);
 
 	--radius-base: 2px;
+
+	--font-pixel: 'Pixelify Sans Variable', system-ui;
 	/* --border: 1px; */
 }
 
 .dark {
 	color-scheme: dark;
-	--color-base-100: oklch(19% 0.034 264.665);
-	--color-base-200: #212529;
-	--color-base-300: #343a40;
+	--color-base-100: color(display-p3 0.067 0.067 0.067);
+	--color-base-200: color(display-p3 0.098 0.098 0.098);
+	--color-base-300: color(display-p3 0.135 0.135 0.135);
 	--color-base-content: #f1f3f5;
 	--color-base-fade: #dee2e6;
 	--color-border: #495057;

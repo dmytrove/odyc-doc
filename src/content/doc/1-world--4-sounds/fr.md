@@ -78,7 +78,7 @@ La liste complète des paramètres est disponible [ici](https://github.com/achta
 
 ---
 
-## <Emoji src="⚙️"/> Volume global
+## <Emoji src="🔊"/> Volume global
 
 Le volume des sons peut être ajusté dans la configuration initiale du jeu avec la clé `volume`:
 

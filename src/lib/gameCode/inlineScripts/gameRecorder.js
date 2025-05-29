@@ -166,51 +166,43 @@
 		}
 	}
 
-	const copy = new GameCopy()
-	const recorder = new CanvasRecorder(copy.canvas)
+	onload = () => {
+		const copy = new GameCopy()
+		const recorder = new CanvasRecorder(copy.canvas)
 
-	let lastFrame = 0
-	let frameRequest = 0
-	/**@type {(now:number)=>void}*/
-	const loop = (now) => {
-		if (now - lastFrame > TIMEBETWEENFRAMES) {
-			lastFrame = now
+		let lastFrame = 0
+		let frameRequest = 0
+		/**@type {(now:number)=>void}*/
+		const loop = (now) => {
+			if (now - lastFrame > TIMEBETWEENFRAMES) {
+				lastFrame = now
+				copy.update()
+			}
+			frameRequest = requestAnimationFrame(loop)
+		}
+
+		addEventListener('message', (e) => {
+			if (e.ports[0]) {
+				port = e.ports[0]
+				port.onmessage = (e) => handleMessage(e)
+			}
+		})
+
+		messageListeners.set('screenshot', (e) => {
 			copy.update()
-		}
-		frameRequest = requestAnimationFrame(loop)
-	}
-
-	/**@type MessagePort*/
-	let port
-
-	addEventListener('message', (e) => {
-		if (e.ports[0]) {
-			port = e.ports[0]
-			port.onmessage = (e) => handleMessage(e)
-		}
-	})
-
-	/**
-	 * @param e {MessageEvent}
-	 */
-	function handleMessage(e) {
-		switch (e.data.type) {
-			case 'screenshot':
-				copy.update()
-				copy.save(e.data.filename)
-				break
-			case 'start-record':
-				copy.update()
-				requestAnimationFrame(loop)
-				recorder.start()
-				port.postMessage({ type: 'start-record' })
-				break
-			case 'stop-record':
-				cancelAnimationFrame(frameRequest)
-				recorder.stop()
-				port.postMessage({ type: 'stop-record' })
-				recorder.save(e.data.filename)
-				break
-		}
+			copy.save(e.data.filename)
+		})
+		messageListeners.set('start-record', (e) => {
+			copy.update()
+			requestAnimationFrame(loop)
+			recorder.start()
+			port.postMessage({ type: 'start-record' })
+		})
+		messageListeners.set('stop-record', (e) => {
+			cancelAnimationFrame(frameRequest)
+			recorder.stop()
+			port.postMessage({ type: 'stop-record' })
+			recorder.save(e.data.filename)
+		})
 	}
 })()

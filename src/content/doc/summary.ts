@@ -11,11 +11,11 @@ export const summary: Summary = [
 		fr: 'Construction du monde',
 		items: [
 			{ en: 'Player', fr: 'Player', path: '1-world--1-player' },
-			{ en: 'Templates & Map', fr: 'Templates et Carte', path: '1-world--2-templates-map' },
-			{ en: 'Sprites', fr: 'Sprites', path: '1-world--3-sprites' },
+			{ en: 'Sprites', fr: 'Sprites', path: '1-world--2-sprites' },
+			{ en: 'Templates & Map', fr: 'Templates et Carte', path: '1-world--3-templates-map' },
 			{ en: 'Sounds', fr: 'Sons', path: '1-world--4-sounds' },
 			{ en: 'Dialogues', fr: 'Dialogues', path: '1-world--5-dialogues' },
-			{ en: 'Messages', fr: 'Messages', path: '1-world--6-messages' }
+			{ en: 'Title & End', fr: 'Titre & fin de jeu', path: '1-world--6-title-end' }
 		]
 	},
 	{
@@ -34,7 +34,12 @@ export const summary: Summary = [
 			{ en: 'Colors', fr: 'Couleurs', path: '3-config--1-colors' },
 			{ en: 'Screen & Camera', fr: 'Caméra & Écran', path: '3-config--2-screen-camera' },
 			{ en: 'Filters', fr: 'Filtres', path: '3-config--3-filters' },
-			{ en: 'Custom Key Bindings', fr: 'Touches personnalisées', path: '3-config--4-keybindings' }
+			{ en: 'Custom Key Bindings', fr: 'Touches personnalisées', path: '3-config--4-keybindings' },
+			{
+				en: 'Default Configuration',
+				fr: 'Configuration par défaut',
+				path: '3-config--5-default-config'
+			}
 		]
 	}
 ]

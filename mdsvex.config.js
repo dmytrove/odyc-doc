@@ -1,10 +1,11 @@
+import { transformerNotationDiff, transformerNotationHighlight } from '@shikijs/transformers'
 import { escapeSvelte } from 'mdsvex'
 import { codeToHtml } from 'shiki'
 import { shikiTheme } from './shiki-theme.js'
 import { toc } from 'mdast-util-toc'
 import { visit } from 'unist-util-visit'
 import slugify from 'slugify'
-import { log } from 'console'
+import remarkGithubAlert from 'remark-github-blockquote-alert'
 
 function remarkAddHeadingId() {
 	return (tree) => {
@@ -84,11 +85,12 @@ export const mdsvexOptions = {
 		highlighter: async (code, lang) => {
 			const html = await codeToHtml(code, {
 				lang: lang,
-				theme: shikiTheme
+				theme: shikiTheme,
+				transformers: []
 			})
 			return escapeSvelte(html)
 		}
 	},
-	remarkPlugins: [remarkAddHeadingId, remarkInjectTocInFrontmatter]
+	remarkPlugins: [remarkGithubAlert, remarkAddHeadingId, remarkInjectTocInFrontmatter]
 	// rehypePlugins: [rehypeSlug]
 }

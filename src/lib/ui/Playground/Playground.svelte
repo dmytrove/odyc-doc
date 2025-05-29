@@ -122,9 +122,7 @@
 
 <svelte:window onkeydown={handleKeydown} />
 <div class={twMerge('playground  flex h-full flex-col shadow dark:bg-gray-900', className)}>
-	<header
-		class="flex items-center justify-between gap-2 border-b border-gray-200 px-4 py-2 dark:border-gray-700"
-	>
+	<header class="border-border flex items-center justify-between gap-2 border-b px-4 py-2">
 		<div class="flex items-center gap-2">
 			<Button
 				size="icon"
@@ -233,7 +231,7 @@
 		</div>
 	</header>
 	<div class="h-full min-h-0 grow">
-		<SplitPane type="horizontal" --color="var(--separator)" min="10%" max="90%">
+		<SplitPane type="horizontal" min="10%" max="90%">
 			{#snippet a()}
 				<Editor bind:code withVim={settings.vimMode} bind:this={editor} {handleChange} />
 			{/snippet}

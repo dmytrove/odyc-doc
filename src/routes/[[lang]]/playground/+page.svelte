@@ -2,6 +2,7 @@
 	import { browser } from '$app/environment'
 	import { page } from '$app/state'
 	import { Playground } from '$lib'
+	import Header from '$lib/ui/Header.svelte'
 	import type { PageProps } from './$types'
 
 	const { data }: PageProps = $props()
@@ -9,6 +10,14 @@
 	const LOCALSTORAGEKEY = 'odyc-playground-save'
 
 	const localCode = browser ? localStorage.getItem(LOCALSTORAGEKEY) : null
+
+	let locales = [
+		{ lang: 'english', url: '/playground' },
+		{
+			lang: 'français',
+			url: '/fr/playground'
+		}
+	]
 
 	const code =
 		localCode ??
@@ -43,4 +52,14 @@
 	\`})`
 </script>
 
-<Playground class="h-screen" examples={data.examples} {code} localStorageKey={LOCALSTORAGEKEY} />
+<div class="flex h-screen flex-col">
+	{#key page.params.lang}
+		<Header {locales} />
+		<Playground
+			class="h-full min-h-0 grow"
+			examples={data.examples}
+			{code}
+			localStorageKey={LOCALSTORAGEKEY}
+		/>
+	{/key}
+</div>

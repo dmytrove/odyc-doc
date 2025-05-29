@@ -1,9 +1,13 @@
 <script lang="ts">
+	import { twMerge } from 'tailwind-merge'
+
 	type Props = {
 		src: string
 	}
 
 	let { src }: Props = $props()
+
+	let loaded = $state(false)
 
 	function getCode(emoji: string) {
 		const segmenter = new Intl.Segmenter(undefined, { granularity: 'grapheme' })
@@ -12,7 +16,7 @@
 
 		for (const segment of segments) {
 			for (const cp of segment.segment) {
-				codePoints.push(cp.codePointAt(0).toString(16))
+				codePoints.push(cp.codePointAt(0)?.toString(16))
 			}
 		}
 
@@ -20,4 +24,12 @@
 	}
 </script>
 
-<img src="/emojis/{getCode(src)}.webp" alt={src} class="not-prose mr-1 inline h-[1.5em]" />
+<img
+	src="/emojis/{getCode(src)}.webp"
+	alt={src}
+	class={twMerge('not-prose mr-1 inline h-[1.5em]', loaded ? 'visible' : 'hidden')}
+	onload={() => (loaded = true)}
+/>
+<span class={twMerge('not-prose mr-1 inline text-[1.5em]', loaded ? 'hidden' : 'visible')}
+	>{src}</span
+>

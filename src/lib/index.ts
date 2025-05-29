@@ -10,6 +10,8 @@ import Select from './ui/Select.svelte'
 import Switch from './ui/Switch.svelte'
 import Tooltip from './ui/Tooltip.svelte'
 import Shortcut from './ui/Shortcut.svelte'
+import Header from './ui/Header.svelte'
+import SelectLanguage from './ui/SelectLanguage.svelte'
 
 export {
 	Editor,
@@ -23,7 +25,9 @@ export {
 	Select,
 	Switch,
 	Tooltip,
-	Shortcut
+	Shortcut,
+	Header,
+	SelectLanguage
 }
 
 export * from './getDocPosts'

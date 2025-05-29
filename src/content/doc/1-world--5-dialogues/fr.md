@@ -3,11 +3,9 @@ import Aside from '../../../lib/ui/Doc/Aside.svelte'
 import Emoji from '../../../lib/ui/Doc/Emoji.svelte'
 </script>
 
-# <Emoji src="🙊"/> Les Dialogues
+# <Emoji src="💬"/> Les Dialogues
 
 Les dialogues permettent d'introduire des conversations, des indices ou des éléments narratifs... Vous pouvez également les enrichir avec des effets visuels et des couleurs.
-
-<video src="/doc/dialog-fx.webm" autoplay loop muted playsinline/>
 
 ---
 
@@ -43,20 +41,22 @@ Pour laisser des lignes vides, il est possible de faire suivre plusieurs <code>|
 
 ---
 
-## <Emoji src="🎆"/> Ajouter des effets et des couleurs au texte
+## <Emoji src="💥"/> Ajouter des effets et des couleurs au texte
 
-Pour rendre vos dialogues plus dynamiques, vous pouvez appliquer des effets et des couleurs directement dans le texte en utilisant une syntaxe simple.
+Pour rendre votre dialogue plus dynamique, vous pouvez lui appliquer des effets et des couleurs en utilisant une syntaxe simple.
 
-### Effets disponibles
+<video src="/doc/dialog-fx.webm" autoplay loop muted playsinline/>
 
-| Effet                | Syntaxe   | Description                       |
-| -------------------- | --------- | --------------------------------- |
-| Vague verticale      | `~texte~` | Lettres qui montent et descendent |
-| Vague horizontale    | `_texte_` | Lettres qui ondulent latéralement |
-| Secousse aléatoire   | `%texte%` | Tremblement désordonné            |
-| Secousse horizontale | `=texte=` | Tremblement gauche-droite         |
-| Secousse verticale   | `^texte^` | Tremblement haut-bas              |
-| Clignotement         | `°texte°` | Apparition-dispariton             |
+### Effets
+
+| Effet                | Syntaxe         | Description                       |
+| -------------------- | --------------- | --------------------------------- |
+| Vague verticale      | `~votre texte~` | Lettres qui montent et descendent |
+| Vague horizontale    | `_votre texte_` | Lettres qui ondulent latéralement |
+| Secousse aléatoire   | `votre %texte%` | Tremblement désordonné            |
+| Secousse horizontale | `votre =texte=` | Tremblement gauche-droite         |
+| Secousse verticale   | `votre ^texte^` | Tremblement haut-bas              |
+| Clignotement         | `votre °texte°` | Apparition-dispariton             |
 
 ### Couleurs
 

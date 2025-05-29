@@ -5,11 +5,11 @@ import PaintDemo from '../../../lib/ui/Doc/PaintDemo.svelte'
 import ColorsDemo from '../../../lib/ui/Doc/ColorsDemo.svelte'
 </script>
 
-# <Emoji src="🫟" /> Modifier les couleurs dujeu
+# <Emoji src="🫟" /> Modifier les couleurs
 
-Odyc.js utilise une palette de couleurs personnalisable pour dessiner les sprites, les dialogues et l’interface du jeu. Une palette est fournie par défaut, mais vous pouvez la remplacer ou l’ajuster comme vous le souhaitez.
+Odyc.js utilise une palette prédéfinie pour dessiner les sprites, les dialogues et les messages du jeu. Vous pouvez la remplacer ou l’ajuster comme vous le souhaitez.
 
-## <Emoji src="🌈" /> Personnalisation de la palette
+## <Emoji src="🌈" /> Personnaliser la palette
 
 Voici la palette prédéfinie. Cliquez sur une couleur pour copier son code hexadécimal.
 
@@ -38,6 +38,21 @@ createGame({
 ```
 
 `colors` doit recevoir un tableau de chaînes interprétées comme des [couleurs CSS](https://developer.mozilla.org/fr/docs/Web/CSS/color_value)(noms de couleurs, codes hexadécimaux, RGB, HSL, LAB, etc...)
+
+---
+
+## <Emoji src="🌈" /> Couleur de fond
+
+Utiliser `backround` pour paramétrer la couleur de fond.
+
+```javascript
+createGame({
+	//...
+	background: '#ff00ff'
+})
+```
+
+`background` doit recevoir une [couleur CSS](https://developer.mozilla.org/fr/docs/Web/CSS/color_value) ou un chiffre correspondant à une couleur de la palette.
 
 ---
 
