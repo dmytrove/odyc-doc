@@ -59,7 +59,7 @@
 	--flow-space: 1.5em;
 }
 
-.prose :not(pre) :where(code):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
+.prose :not(pre) > :where(code):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
 	white-space: pre-wrap;
 	background: var(--color-base-300);
 	padding: 0.2rem 0.4rem;

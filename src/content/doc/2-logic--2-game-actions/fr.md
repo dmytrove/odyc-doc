@@ -75,14 +75,14 @@ game.end('Perdu', 'Mais bien joué quand même')
 
 Les méthodes `openDialog`, `openMessage` et `playSound` **retournent une promesse**, ce qui vous permet d’attendre la fin de l’action avant d’enchaîner la suite.
 
-### ➤ Exemple : attendre la fin d’un message avant de jouer un son
+Par exemple, pour attendre la fin d’un message avant de jouer un son:
 
 ```js
 await game.openMessage('Attention...')
 game.playSound('EXPLOSION')
 ```
 
-### ➤ Exemple : séquence de dialogues avec un son entre deux
+Et pour une séquence de dialogues avec un son entre deux:
 
 ```js
 await game.openDialog('Tu es prêt ?')

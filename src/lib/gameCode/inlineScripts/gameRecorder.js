@@ -167,14 +167,17 @@
 	}
 
 	onload = () => {
-		const copy = new GameCopy()
-		const recorder = new CanvasRecorder(copy.canvas)
+		/**@type {GameCopy} */
+		let copy
+		/**@type {CanvasRecorder} */
+		let recorder
 
 		let lastFrame = 0
 		let frameRequest = 0
 		/**@type {(now:number)=>void}*/
 		const loop = (now) => {
 			if (now - lastFrame > TIMEBETWEENFRAMES) {
+				if (!copy) copy = new GameCopy()
 				lastFrame = now
 				copy.update()
 			}
@@ -189,16 +192,21 @@
 		})
 
 		messageListeners.set('screenshot', (e) => {
+			if (!copy) copy = new GameCopy()
 			copy.update()
 			copy.save(e.data.filename)
 		})
 		messageListeners.set('start-record', (e) => {
+			if (!copy) copy = new GameCopy()
+			if (!recorder) recorder = new CanvasRecorder(copy.canvas)
 			copy.update()
 			requestAnimationFrame(loop)
 			recorder.start()
 			port.postMessage({ type: 'start-record' })
 		})
 		messageListeners.set('stop-record', (e) => {
+			if (!copy) copy = new GameCopy()
+			if (!recorder) recorder = new CanvasRecorder(copy.canvas)
 			cancelAnimationFrame(frameRequest)
 			recorder.stop()
 			port.postMessage({ type: 'stop-record' })

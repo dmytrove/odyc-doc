@@ -23,11 +23,18 @@
 	type Props = {
 		code?: string
 		class?: string
+		orientation?: 'vertical' | 'horizontal'
 		examples?: LoadExamplesProps['examples']
 		localStorageKey?: string
 	}
 
-	let { code = $bindable(''), examples, localStorageKey, class: className = '' }: Props = $props()
+	let {
+		code = $bindable(''),
+		orientation = 'horizontal',
+		examples,
+		localStorageKey,
+		class: className = ''
+	}: Props = $props()
 
 	let gameWindow: GameWindow
 	let editor: Editor
@@ -121,9 +128,9 @@
 </script>
 
 <svelte:window onkeydown={handleKeydown} />
-<div class={twMerge('playground  flex h-full flex-col shadow dark:bg-gray-900', className)}>
-	<header class="border-border flex items-center justify-between gap-2 border-b px-4 py-2">
-		<div class="flex items-center gap-2">
+<div class={twMerge('playground  flex h-full flex-col shadow', className)}>
+	<header class="border-border flex items-center justify-between gap-2 border-b px-1 py-2 sm:px-4">
+		<div class="flex items-center sm:gap-2">
 			<Button
 				size="icon"
 				tooltip={{
@@ -154,6 +161,7 @@
 				tooltip={{ text: t('playground.paint') }}
 				variant="ghost"
 				onclick={openPaint}
+				class="hidden sm:flex"
 			>
 				<Icon src={Brush} />
 			</Button>
@@ -163,6 +171,7 @@
 				tooltip={{ text: t('playground.sounds') }}
 				variant="ghost"
 				onclick={() => (soundIsOpen = true)}
+				class="hidden sm:flex"
 			>
 				<Icon src={Music} />
 			</Button>
@@ -172,6 +181,7 @@
 				tooltip={{ text: t('playground.settings') }}
 				variant="ghost"
 				onclick={() => (settingsIsOpen = true)}
+				class="hidden sm:flex"
 			>
 				<Icon src={Wrench} />
 			</Button>
@@ -183,7 +193,7 @@
 			</div>
 		{/if}
 
-		<div class="flex items-center gap-2">
+		<div class="flex items-center sm:gap-2">
 			<Button
 				size="icon"
 				tooltip={{
@@ -231,7 +241,7 @@
 		</div>
 	</header>
 	<div class="h-full min-h-0 grow">
-		<SplitPane type="horizontal" min="10%" max="90%">
+		<SplitPane type={orientation} min="10%" max="90%">
 			{#snippet a()}
 				<Editor bind:code withVim={settings.vimMode} bind:this={editor} {handleChange} />
 			{/snippet}
@@ -272,9 +282,7 @@
 
 <Dialog bind:open={downloadIsOpen}>
 	<form class="grid min-w-xs gap-4 px-8 py-6" onsubmit={download}>
-		<label for="filename" class="block text-sm font-medium text-gray-900 dark:text-white"
-			>File name:</label
-		>
+		<label for="filename" class="text-base-content block text-sm font-medium">File name:</label>
 		<input
 			type="text"
 			id="filename"

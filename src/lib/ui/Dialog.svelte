@@ -22,7 +22,7 @@
 
 <dialog
 	bind:this={dialogElement}
-	class="backdrop:bg-base-100/40 bg-base-100 fixed top-1/2 left-1/2 -translate-1/2 backdrop:backdrop-blur-sm"
+	class="backdrop:bg-base-100/40 bg-base-100 fixed top-1/2 left-1/2 h-min -translate-1/2 backdrop:backdrop-blur-sm"
 	onclose={() => (open = false)}
 >
 	<div

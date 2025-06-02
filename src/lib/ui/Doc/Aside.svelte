@@ -15,8 +15,8 @@
 	}
 
 	const variantsClasses: Record<AsideVariant, string> = {
-		Note: 'border-indigo-300 bg-indigo-600/10',
-		Warning: 'border-danger-border bg-danger-surface text-danger-content'
+		Note: 'border-indigo-500 bg-indigo-100 dark:bg-indigo-900/40 ',
+		Warning: 'border-red-500 bg-red-100 dark:bg-red-900/40 '
 	}
 	type Props = { children: Snippet; variant?: AsideVariant }
 

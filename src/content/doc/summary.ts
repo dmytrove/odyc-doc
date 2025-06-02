@@ -4,8 +4,8 @@ export type DocItem = { [lang in Lang]: string } & { path: string }
 
 export type DocCategory = { [lang in Lang]: string } & { items: DocItem[] }
 
-export type Summary = DocCategory[]
-export const summary: Summary = [
+export type DocSummary = DocCategory[]
+export const docSummary: DocSummary = [
 	{
 		en: 'World Building',
 		fr: 'Construction du monde',

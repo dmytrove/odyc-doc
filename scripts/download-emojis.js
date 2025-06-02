@@ -1,17 +1,18 @@
 import fs from 'fs/promises'
 import path from 'path'
 import { fileURLToPath } from 'url'
+import emojisData from '../src/lib/emojis.json' with { type: 'json' }
 
 // Utilitaire pour résoudre __dirname avec ESModules
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 // Dossier de destination
-const OUTPUT_DIR = path.join(__dirname, '../static/emojis')
+const OUTPUT_DIR = path.join(__dirname, '../static/nemojis')
 
 async function getEmojiList() {
-	const response = await fetch('https://googlefonts.github.io/noto-emoji-animation/data/api.json')
-	const data = await response.json()
-	return data.icons.map((icon) => {
+	// const response = await fetch('https://googlefonts.github.io/noto-emoji-animation/data/api.json')
+	// const data = await response.json()
+	return emojisData.icons.map((icon) => {
 		const name = icon.tags[0].slice(1, -1)
 		return { code: icon.codepoint, name }
 	})

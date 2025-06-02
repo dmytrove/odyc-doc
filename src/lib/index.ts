@@ -10,8 +10,9 @@ import Select from './ui/Select.svelte'
 import Switch from './ui/Switch.svelte'
 import Tooltip from './ui/Tooltip.svelte'
 import Shortcut from './ui/Shortcut.svelte'
-import Header from './ui/Header.svelte'
+import Header from './ui/Header/Header.svelte'
 import SelectLanguage from './ui/SelectLanguage.svelte'
+import MediaQuery from './ui/MediaQuery.svelte'
 
 export {
 	Editor,
@@ -27,7 +28,8 @@ export {
 	Tooltip,
 	Shortcut,
 	Header,
-	SelectLanguage
+	SelectLanguage,
+	MediaQuery
 }
 
 export * from './getDocPosts'

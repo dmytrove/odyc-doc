@@ -71,7 +71,7 @@
 		"gray-matter": "^4.0.3",
 		"js-beautify": "^1.15.4",
 		"mdast-util-toc": "^7.1.0",
-		"odyc": "^0.0.69",
+		"odyc": "^0.0.70",
 		"open-color": "^1.9.1",
 		"pfxr": "^1.0.9",
 		"rehype-expressive-code": "^0.41.2",

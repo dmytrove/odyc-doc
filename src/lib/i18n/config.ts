@@ -42,16 +42,23 @@ export const ui = {
 		'doc.warning': 'Warning',
 		'doc.overview': 'Overview',
 		'doc.onThisPage': 'On this page',
+		'doc.edit': 'Edit this page',
 
 		'doc.previous': 'Previous',
 		'doc.next': 'Next',
 
 		'header.theme': 'Toggles light & dark',
 		'header.selectLang': 'Select Language',
+		'header.menu': 'Menu',
+		'header.closeMenu': 'Close',
 
 		'nav.doc': 'Docs',
 		'nav.tutorial': 'Tutorial',
-		'nav.playground': 'Playground'
+		'nav.playground': 'Playground',
+
+		'tutorial.previous': 'Previous',
+		'tutorial.next': 'Next',
+		'tutorial.solve': 'Solve'
 	},
 	fr: {
 		'playground.refresh': 'Actualiser',
@@ -90,12 +97,19 @@ export const ui = {
 		'doc.onThisPage': 'Sur cette page',
 		'doc.previous': 'Précédent',
 		'doc.next': 'Suivant',
+		'doc.edit': 'Modifier cette page',
 
 		'header.theme': 'Thème clair / sombre',
 		'header.selectLang': 'Sélection de la langue',
+		'header.menu': 'Menu',
+		'header.closeMenu': 'Fermer',
 
 		'nav.doc': 'Documentation',
 		'nav.tutorial': 'Tutoriel',
-		'nav.playground': 'Editeur'
+		'nav.playground': 'Editeur',
+
+		'tutorial.previous': 'Précédent',
+		'tutorial.next': 'Suivant',
+		'tutorial.solve': 'Résoudre'
 	}
 } as const

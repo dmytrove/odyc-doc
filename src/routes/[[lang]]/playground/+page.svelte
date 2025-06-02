@@ -1,8 +1,7 @@
 <script lang="ts">
 	import { browser } from '$app/environment'
 	import { page } from '$app/state'
-	import { Playground } from '$lib'
-	import Header from '$lib/ui/Header.svelte'
+	import { Playground, Header, MediaQuery } from '$lib'
 	import type { PageProps } from './$types'
 
 	const { data }: PageProps = $props()
@@ -55,11 +54,24 @@
 <div class="flex h-screen flex-col">
 	{#key page.params.lang}
 		<Header {locales} />
-		<Playground
-			class="h-full min-h-0 grow"
-			examples={data.examples}
-			{code}
-			localStorageKey={LOCALSTORAGEKEY}
-		/>
+		<MediaQuery query="(width>=48rem)">
+			{#snippet children(match)}
+				{#if match}
+					<Playground
+						class="h-full min-h-0 grow"
+						examples={data.examples}
+						{code}
+						localStorageKey={LOCALSTORAGEKEY}
+					/>
+				{:else}
+					<Playground
+						class="h-full min-h-0 grow"
+						orientation="vertical"
+						{code}
+						localStorageKey={LOCALSTORAGEKEY}
+					/>
+				{/if}
+			{/snippet}
+		</MediaQuery>
 	{/key}
 </div>

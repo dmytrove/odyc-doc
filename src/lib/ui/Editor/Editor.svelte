@@ -48,7 +48,7 @@
 
 <div
 	bind:this={container}
-	class={twMerge('bg-base-200 h-full w-full overflow-auto shadow dark:bg-gray-900', className)}
+	class={twMerge('bg-base-200 h-full w-full overflow-auto shadow', className)}
 ></div>
 
 <style>
