@@ -11,29 +11,31 @@
 	let searchWrapper: HTMLElement | undefined = $state()
 	let pagefindUi: any
 
-	onMount(async () => {
+	function initPagefindUi() {
 		//@ts-ignore
 		pagefindUi = new PagefindUI({
 			element: searchWrapper,
 			showImages: false,
+			showSubResults: true,
 			processResult(result: any) {
 				result.url = result.url.replace('.html', '/')
+				//@ts-ignore
+				result.sub_results = result.sub_results.map((el) => ({
+					...el,
+					url: el.url.replace('.html', '/')
+				}))
 				return result
 			}
 		})
+	}
+
+	onMount(async () => {
+		initPagefindUi()
 	})
 
 	afterNavigate(() => {
 		pagefindUi.destroy()
-		//@ts-ignore
-		pagefindUi = new PagefindUI({
-			element: searchWrapper,
-			showImages: false,
-			processResult(result: any) {
-				result.url = result.url.replace('.html', '/')
-				return result
-			}
-		})
+		initPagefindUi()
 		open = false
 	})
 
