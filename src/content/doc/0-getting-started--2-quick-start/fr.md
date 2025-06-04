@@ -46,7 +46,7 @@ Si vous préférez travailler localement **sans configuration complexe**, vous p
 
 ## <Emoji src="🔧" /> Utiliser un bundler (Vite, Webpack…)
 
-Pour les projets plus avancés, vous pouvez intégrer OdyC via npm :
+Pour les projets plus avancés, vous pouvez intégrer Odyc.js via npm :
 
 ```bash
 npm install odyc

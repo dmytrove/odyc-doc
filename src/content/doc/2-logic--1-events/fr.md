@@ -5,7 +5,7 @@ import Emoji from '../../../lib/ui/Doc/Emoji.svelte'
 
 # <Emoji src="🪤" /> Les Événements
 
-Pour ajouter de l'interactivité, OdyC.js propose un système d’événements.  
+Pour ajouter de l'interactivité, Odyc.js propose un système d’événements.  
 Ils permettent de déclencher des actions ou de modifier l’état du jeu lorsque le joueur interagit avec un élément.
 
 Les événements sont définis dans les `templates`.

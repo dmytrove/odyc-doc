@@ -6,7 +6,7 @@ import KeyDemo from '../../../lib/ui/Doc/KeyDemo.svelte'
 
 # <Emoji src="🎮" /> Touches personnalisées
 
-Par défaut, OdyC utilise les flèches du clavier et la touche **espace** ou **Entrée** pour se déplacer et interagir.
+Par défaut, Odyc.js utilise les flèches du clavier et la touche **espace** ou **Entrée** pour se déplacer et interagir.
 
 Mais vous pouvez redéfinir librement les touches de contrôle via la propriété `controls`.
 

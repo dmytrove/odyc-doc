@@ -5,7 +5,7 @@ import Emoji from '../../../lib/ui/Doc/Emoji.svelte'
 
 # <Emoji src="🪤" /> Events
 
-To add interactivity, OdyC.js provides a simple event system.  
+To add interactivity, Odyc.js provides a simple event system.  
 Events let you trigger actions or modify the game state when the player interacts with an element.
 
 Events are defined inside `templates`.
