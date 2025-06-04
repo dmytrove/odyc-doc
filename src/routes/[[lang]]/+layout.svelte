@@ -17,7 +17,7 @@
 			<link
 				rel="alternate"
 				hreflang={code}
-				href="https://{base}{code !== defaultLang ? '/' + code : ''}{path}"
+				href="https://odyc.dev{code !== defaultLang ? '/' + code : ''}{path}"
 			/>
 		{/if}
 	{/each}
