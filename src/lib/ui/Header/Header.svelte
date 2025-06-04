@@ -39,7 +39,7 @@
 
 <header class="border-border iems-center text-base-content flex items-center border-b px-4 sm:px-8">
 	<a href="{urlPrefix}/" class="my-auto flex items-center gap-2">
-		<img src="/logo.jpeg" alt="" class="pixelated h-8" />
+		<img src="/logo.png" alt="" class="pixelated h-8" />
 		<span class="font-pixel text-xl"> Odyc.js </span>
 	</a>
 	<button

@@ -1,6 +1,13 @@
 <script lang="ts">
 	import { page } from '$app/state'
-	import { defaultLang, getFirstDocPost, getLangFromUrl, Header, useTranslations } from '$lib'
+	import {
+		defaultLang,
+		getFirstDocPost,
+		getLangFromUrl,
+		Header,
+		SvgSprite,
+		useTranslations
+	} from '$lib'
 	import Gallery from './Gallery.svelte'
 
 	const lang = getLangFromUrl(page.url)
@@ -32,7 +39,7 @@
 				>
 			</div>
 		</div>
-		<img src="/logo.jpeg" alt="" class="pixelated hidden w-full lg:block" />
+		<img src="/logo.png" alt="" class="pixelated hidden w-full lg:block" />
 	</section>
 
 	<section class="mt-48 space-y-9">

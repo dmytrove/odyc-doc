@@ -13,6 +13,7 @@ import Shortcut from './ui/Shortcut.svelte'
 import Header from './ui/Header/Header.svelte'
 import SelectLanguage from './ui/SelectLanguage.svelte'
 import MediaQuery from './ui/MediaQuery.svelte'
+import SvgSprite from './ui/SvgSprite.svelte'
 
 export {
 	Editor,
@@ -29,7 +30,8 @@ export {
 	Shortcut,
 	Header,
 	SelectLanguage,
-	MediaQuery
+	MediaQuery,
+	SvgSprite
 }
 
 export * from './getDocPosts'

@@ -2,11 +2,11 @@
 <html lang="%lang%" class="scroll-smooth">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
+		<link rel="icon" href="%sveltekit.assets%/logo.svg" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		%sveltekit.head%
-		<link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
-		<script src="/pagefind/pagefind-ui.js"></script>
+		<link href="%sveltekit.assets%/pagefind/pagefind-ui.css" rel="stylesheet" />
+		<script src="%sveltekit.assets%/pagefind/pagefind-ui.js"></script>
 		<script>
 			const isDark = localStorage.getItem('theme') === 'dark'
 			document.firstElementChild.classList.toggle('dark', isDark)
