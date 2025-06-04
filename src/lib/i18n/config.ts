@@ -67,7 +67,9 @@ export const ui = {
 			'A small javascript library that lets you code video games even without programming experience.',
 		'home.learn': 'Learn',
 		'home.create': 'Create a game',
-		'home.gallery': 'Gallery'
+		'home.gallery': 'Gallery',
+		'meta.description':
+			'Odyc.js is a simple JavaScript library to create interactive narrative games, even without coding experience.'
 	},
 	fr: {
 		'playground.refresh': 'Actualiser',
@@ -128,6 +130,9 @@ export const ui = {
 			'Une petite librairie javascript qui permet de coder des jeux-vidéo, même sans expérience en programmation.',
 		'home.learn': 'Apprendre',
 		'home.create': 'Créer un jeu',
-		'home.gallery': 'Galerie'
+		'home.gallery': 'Galerie',
+
+		'meta.description':
+			'Odyc.js est une bibliothèque JavaScript simple pour créer des jeux narratifs interactifs, même sans savoir coder.'
 	}
 } as const
