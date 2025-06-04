@@ -60,7 +60,14 @@ export const ui = {
 
 		'tutorial.previous': 'Previous',
 		'tutorial.next': 'Next',
-		'tutorial.solve': 'Solve'
+		'tutorial.solve': 'Solve',
+
+		'home.headline': 'Play to create Games',
+		'home.description':
+			'A small javascript library that lets you code video games even without programming experience.',
+		'home.learn': 'Learn',
+		'home.create': 'Create a game',
+		'home.gallery': 'Gallery'
 	},
 	fr: {
 		'playground.refresh': 'Actualiser',
@@ -114,6 +121,13 @@ export const ui = {
 
 		'tutorial.previous': 'Précédent',
 		'tutorial.next': 'Suivant',
-		'tutorial.solve': 'Résoudre'
+		'tutorial.solve': 'Résoudre',
+
+		'home.headline': 'Jouer à créer des jeux.',
+		'home.description':
+			'Une petite librairie javascript qui permet de coder des jeux-vidéo, même sans expérience en programmation.',
+		'home.learn': 'Apprendre',
+		'home.create': 'Créer un jeu',
+		'home.gallery': 'Galerie'
 	}
 } as const

@@ -1,10 +1,18 @@
 <script lang="ts">
 	import { page } from '$app/state'
-	import { defaultLang, getFirstDocPost, getLangFromUrl, Header, makeLocaleUrl } from '$lib'
+	import {
+		defaultLang,
+		getFirstDocPost,
+		getLangFromUrl,
+		Header,
+		makeLocaleUrl,
+		useTranslations
+	} from '$lib'
 	import Gallery from './Gallery.svelte'
 
 	const lang = getLangFromUrl(page.url)
 	let langPrefix = lang === defaultLang ? '' : '/' + lang + '/'
+	const t = useTranslations(lang)
 </script>
 
 <Header />
@@ -17,19 +25,17 @@
 			>
 				Odyc.js
 			</h1>
-			<p class="mt-4 text-4xl font-bold">Play to create Games.</p>
-			<p class="max-w-prose text-xl">
-				A small javascript library that lets you code video games even without programming
-				experience.
-			</p>
+			<p class="mt-4 text-4xl font-bold">{t('home.headline')}</p>
+			<p class="max-w-prose text-xl">{t('home.description')}</p>
 			<div class="mt-6 flex flex-wrap items-center justify-center gap-6 lg:justify-start">
 				<a
 					href="{langPrefix}playground/"
-					class="bg-[#228be6] px-4 py-2 text-white transition-colors sm:text-lg">Create a game</a
+					class="bg-[#228be6] px-4 py-2 text-white transition-colors sm:text-lg"
+					>{t('home.create')}</a
 				>
 				<a
 					href={getFirstDocPost(page.url)}
-					class=" px-4 py-2 transition-colors hover:bg-gray-100 sm:text-lg">Explore the docs</a
+					class=" px-4 py-2 transition-colors hover:bg-gray-100 sm:text-lg">{t('home.learn')}</a
 				>
 			</div>
 		</div>
@@ -37,7 +43,7 @@
 	</section>
 
 	<section class="mt-48 space-y-9">
-		<h2 class="font-pixel text-center text-6xl font-bold sm:text-7xl">Gallery</h2>
+		<h2 class="font-pixel text-center text-6xl font-bold sm:text-7xl">{t('home.gallery')}</h2>
 		<Gallery />
 	</section>
 </main>
