@@ -4,14 +4,14 @@ import Emoji from '../../../lib/ui/Doc/Emoji.svelte'
 
 # <Emoji src="✨" /> Welcome to the Odyc.js Documentation
 
-OdyC.js is a tiny JavaScript library designed to create narrative games by combining pixels, sounds, text, and a bit of logic.  
+Odyc.js is a tiny JavaScript library designed to create narrative games by combining pixels, sounds, text, and a bit of logic.  
 Everything is built **through code**, but without unnecessary complexity: your entire game can fit in a single file.
 
 ---
 
 ## <Emoji src="🎮" /> One Function to Make a Game
 
-Creating a game with OdyC is as simple as calling `createGame()`.  
+Creating a game with Odyc.js is as simple as calling `createGame()`.  
 You provide your sprites, dialogs, sounds, and interactions — and the engine takes care of the rest.
 
 ```js
@@ -58,7 +58,7 @@ Customize the appearance, filters, controls, colors, and screen.
 
 ## <Emoji src="📫" /> Questions or Ideas?
 
-OdyC is an open and free project.
+Odyc.js is an open and free project.
 You’re welcome to contribute to the documentation, suggest ideas, or ask questions on [GitHub](https://github.com/achtaitaipai/odyc) or via email at [slt@charlescailleteau.com](mailto:slt@charlescailleteau.com).
 
 ---
