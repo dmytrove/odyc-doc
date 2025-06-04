@@ -16,7 +16,7 @@
 	const t = useTranslations(page.params.lang)
 </script>
 
-<footer class=" mt-28">
+<footer class="mt-28 px-8">
 	<div class="px-2">
 		<a
 			href="https://github.com/achtaitaipai/odyc-doc/edit/main/src/content/doc/{filePath}/{lang}.md"
