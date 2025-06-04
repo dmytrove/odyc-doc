@@ -2,7 +2,7 @@
 import Emoji from '../../../lib/ui/Doc/Emoji.svelte'
 </script>
 
-# <Emoji src="🚀" /> Démarrer avec OdyC.js
+# <Emoji src="🚀" /> Démarrer avec Odyc.js
 
 Envie de créer un jeu rapidement ? Voici **trois façons de commencer**, selon vos préférences :
 
