@@ -1,62 +1,80 @@
-# Hello
+<script>
+import Aside from '../../../lib/ui/Doc/Aside.svelte'
+import Emoji from '../../../lib/ui/Doc/Emoji.svelte'
+import KeyDemo from '../../../lib/ui/Doc/KeyDemo.svelte'
+</script>
 
-prout
+# <Emoji src="🎮" /> Custom Controls
 
-```bash
-npm i odyc
-npm run dev
-rm -rf
-```
+By default, OdyC uses the arrow keys and **Space** or **Enter** to move and interact.
 
-caca
+But you can fully redefine the control scheme using the `controls` option.
+
+---
+
+## <Emoji src="🧩" /> Default Setup
+
+Here’s the default control configuration if none is specified:
 
 ```js
-game.playSound()
-const game = createGame({
-	player: {
-		sprite: `
-			.7....7.
-			..7..7..
-			..7..7..
-			..0770..
-			.777777.
-			7.7887.7
-			..7777..
-			.77..77.
-			`,
-		position: [1, 1]
-	},
-	templates: {
-		// robot
-		r: {
-			sprite: `
-			........
-			.222222.
-			.322232.
-			.422242.
-			.222222.
-			.222222.
-			..2..2..
-			.22.22..
-			`,
-			dialog: 'Are you a robot?'
-		},
+controls: {
+  LEFT: 'ArrowLeft',
+  RIGHT: 'ArrowRight',
+  UP: 'ArrowUp',
+  DOWN: 'ArrowDown',
+  ACTION: ['Enter', 'Space']
+}
+```
 
-		// wall
-		x: {
-			sprite: 2
-		}
-	},
-	map: `
-	xxxxxxxx
-	x......x
-	x......x
-	x......x
-	x......x
-	x....r.x
-	x......x
-	xxxxxxxx
-	`,
-	background: 9
+---
+
+## <Emoji src="⚙️" /> Customizing the Keys
+
+You can override this configuration when calling `createGame()`:
+
+```js
+createGame({
+	controls: {
+		LEFT: 'KeyA',
+		RIGHT: 'KeyD',
+		UP: 'KeyW',
+		DOWN: 'KeyS',
+		ACTION: 'ShiftLeft'
+	}
 })
 ```
+
+Each key can be:
+
+- a **string** representing a keyboard key (`'z'`, `'ArrowLeft'`, `'Shift'`, etc.)
+- or an **array of strings** if you want to allow multiple keys for the same action
+
+---
+
+## <Emoji src="🔑" /> Recognized Keys
+
+Key names follow the standard **[`KeyboardEvent.code`](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/code)** values in JavaScript.
+
+> The `KeyboardEvent.code` represents the physical key on the keyboard,
+> not the character it generates.
+
+> For example, the code is `"KeyQ"` for the physical **Q** key,
+> which produces different characters depending on the keyboard layout.
+
+Press a key to see its code:
+
+<KeyDemo/>
+
+---
+
+## <Emoji src="🎯" /> Available Actions
+
+Here are the keys you can customize:
+
+| Key      | Action performed       |
+| -------- | ---------------------- |
+| `UP`     | Move the player up     |
+| `DOWN`   | Move the player down   |
+| `LEFT`   | Move the player left   |
+| `RIGHT`  | Move the player right  |
+| `ACTION` | Skip dialog or message |

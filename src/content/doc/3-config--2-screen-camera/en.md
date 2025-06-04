@@ -1,62 +1,72 @@
-# Hello
+<script>
+import Aside from '../../../lib/ui/Doc/Aside.svelte'
+import Emoji from '../../../lib/ui/Doc/Emoji.svelte'
+</script>
 
-prout
+# <Emoji src="🎥" /> The Camera
 
-```bash
-npm i odyc
-npm run dev
-rm -rf
-```
+The camera controls which part of the game world is visible.  
+You can customize the **sprite size**, **screen size**, and **tracking behavior** for either a smooth or snappy follow effect.
 
-caca
+---
+
+## <Emoji src="📐" /> Sprite Size
+
+By default, each sprite is **8 × 8 pixels**, but you can change this using `cellWidth` and `cellHeight`:
 
 ```js
-game.playSound()
-const game = createGame({
-	player: {
-		sprite: `
-			.7....7.
-			..7..7..
-			..7..7..
-			..0770..
-			.777777.
-			7.7887.7
-			..7777..
-			.77..77.
-			`,
-		position: [1, 1]
-	},
-	templates: {
-		// robot
-		r: {
-			sprite: `
-			........
-			.222222.
-			.322232.
-			.422242.
-			.222222.
-			.222222.
-			..2..2..
-			.22.22..
-			`,
-			dialog: 'Are you a robot?'
-		},
-
-		// wall
-		x: {
-			sprite: 2
-		}
-	},
-	map: `
-	xxxxxxxx
-	x......x
-	x......x
-	x......x
-	x......x
-	x....r.x
-	x......x
-	xxxxxxxx
-	`,
-	background: 9
+createGame({
+	cellWidth: 16,
+	cellHeight: 32
 })
 ```
+
+<Aside>
+All sprites share the same size.  
+To simulate larger objects, you can combine multiple sprites together.
+</Aside>
+
+---
+
+## <Emoji src="🖥️" /> Screen Size
+
+The screen size defines the visible area of the world.
+It is measured in **grid cells**, not pixels:
+
+```js
+createGame({
+	screenWidth: 16,
+	screenHeight: 12
+})
+```
+
+---
+
+## <Emoji src="📍" /> Camera Tracking
+
+By default, the camera **snaps instantly** when the player moves off screen.
+
+To enable **smooth tracking**, define a central invisible **tracking zone** around the player.
+The camera will only move when the player exits this zone.
+
+These dimensions are also in grid cells, not pixels.
+
+<div class="relative">
+<video src="/doc/camera-example.webm" autoplay loop muted playsinline />
+<div class="absolute inset-[33%] border-4 border-blue-500"></div>
+</div>
+
+```js
+createGame({
+	screenWidth: 12,
+	screenHeight: 12,
+	cameraWidth: 4,
+	cameraHeight: 4
+})
+```
+
+<Aside variant="Warning">
+
+To enable smooth tracking, you must define **both** `cameraWidth` **and** `cameraHeight`.
+
+</Aside>

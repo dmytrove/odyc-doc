@@ -1,62 +1,96 @@
-# Hello
+<script>
+import Aside from '../../../lib/ui/Doc/Aside.svelte'
+import Emoji from '../../../lib/ui/Doc/Emoji.svelte'
+import PaintDemo from '../../../lib/ui/Doc/PaintDemo.svelte'
+import ColorsDemo from '../../../lib/ui/Doc/ColorsDemo.svelte'
+</script>
 
-prout
+# <Emoji src="🫟" /> Customizing Colors
 
-```bash
-npm i odyc
-npm run dev
-rm -rf
-```
+Odyc.js uses a predefined color palette to render sprites, dialogs, and messages.  
+You can replace or adjust it however you like.
 
-caca
+---
+
+## <Emoji src="🌈" /> Customizing the Palette
+
+Here is the default color palette. Click a color to copy its hex code.
+
+<ColorsDemo/>
+
+_These colors are based on the excellent [Open Color](https://yeun.github.io/open-color/) palette._
+
+You can override the palette with your own array of colors:
 
 ```js
-game.playSound()
-const game = createGame({
-	player: {
-		sprite: `
-			.7....7.
-			..7..7..
-			..7..7..
-			..0770..
-			.777777.
-			7.7887.7
-			..7777..
-			.77..77.
-			`,
-		position: [1, 1]
-	},
-	templates: {
-		// robot
-		r: {
-			sprite: `
-			........
-			.222222.
-			.322232.
-			.422242.
-			.222222.
-			.222222.
-			..2..2..
-			.22.22..
-			`,
-			dialog: 'Are you a robot?'
-		},
+createGame({
+	// ...
+	colors: [
+		'red',
+		'orange',
+		'lab(50% 40 59.5)',
+		'hwb(12 50% 0%)',
+		'#f06595',
+		'#f09',
+		'oklch(60% 0.15 50)',
+		'hsl(150 30% 60%)',
+		'light-dark(white, black)',
+		'black'
+	]
+})
+```
 
-		// wall
-		x: {
-			sprite: 2
-		}
-	},
-	map: `
-	xxxxxxxx
-	x......x
-	x......x
-	x......x
-	x......x
-	x....r.x
-	x......x
-	xxxxxxxx
-	`,
-	background: 9
+The `colors` array should contain strings that represent valid [CSS colors](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value) — color names, hex codes, RGB, HSL, LAB, etc.
+
+---
+
+## <Emoji src="🌈" /> Background Color
+
+Use the `background` option to set the background color.
+
+```javascript
+createGame({
+	//...
+	background: '#ff00ff'
+})
+```
+
+The `background` value can be a [CSS color](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value) or a number pointing to a color in your palette.
+
+---
+
+## <Emoji src="💅"/> Dialog and Message Appearance
+
+You can also customize the appearance of dialog and message boxes with dedicated options.
+
+### Dialog Box
+
+- `dialogColor` → text color
+- `dialogBackground` → background color
+- `dialogBorder` → border color
+
+These values can be any [CSS color](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value) or a number referring to a color from your palette.
+
+```javascript
+createGame({
+	// ...
+	dialogBackground: '#228be6',
+	dialogBorder: 3,
+	dialogColor: 'white'
+})
+```
+
+### Message Box
+
+- `messageColor` → text color
+- `messageBackground` → background color
+
+These also accept any valid [CSS color](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value) or a palette index.
+
+```javascript
+createGame({
+	//...
+	messageColor: 'red',
+	messageBackground: '#228be6'
 })
 ```
