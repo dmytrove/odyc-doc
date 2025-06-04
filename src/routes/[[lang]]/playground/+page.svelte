@@ -3,6 +3,7 @@
 	import { page } from '$app/state'
 	import { Playground, Header, MediaQuery, useTranslations } from '$lib'
 	import type { PageProps } from './$types'
+	import defaultCode from '../../../content/examples/1-basic/1-hello-world?raw'
 
 	const { data }: PageProps = $props()
 
@@ -18,37 +19,7 @@
 		}
 	]
 
-	const code =
-		localCode ??
-		`const game = createGame({
-	player: {
-		sprite: \`
-			...00...
-			...00...
-			.000000.
-			0.0000.0
-			0.0000.0
-			..0000..
-			..0..0..
-			..0..0..
-			\`,
-		position: [3, 1]
-	},
-	templates: {
-		x: {
-			sprite: 2
-		}
-	},
-	map: \`
-	xxxxxxxx
-	x......x
-	x......x
-	x......x
-	x......x
-	x......x
-	x......x
-	xxxxxxxx
-	\`})`
+	const code = localCode ?? defaultCode
 
 	let t = useTranslations(page.params.lang)
 </script>
