@@ -3,11 +3,18 @@
 	import type { PageProps } from './$types'
 	import Pagination from './Footer.svelte'
 	import Toc from './Toc.svelte'
+	import { useTranslations } from '$lib'
+	import { page } from '$app/state'
 
 	let { data }: PageProps = $props()
 
 	let wrapper: HTMLElement | undefined = $state()
+	let t = useTranslations(page.params.lang)
 </script>
+
+<svelte:head>
+	<title>{data.title} • {t('nav.doc')} • Odyc.js</title>
+</svelte:head>
 
 <main class="flex justify-center">
 	<article transition:fade id="main-content" class="pt-12 pb-12" bind:this={wrapper}>

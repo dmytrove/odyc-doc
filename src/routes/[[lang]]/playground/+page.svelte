@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { browser } from '$app/environment'
 	import { page } from '$app/state'
-	import { Playground, Header, MediaQuery } from '$lib'
+	import { Playground, Header, MediaQuery, useTranslations } from '$lib'
 	import type { PageProps } from './$types'
 
 	const { data }: PageProps = $props()
@@ -49,8 +49,13 @@
 	x......x
 	xxxxxxxx
 	\`})`
+
+	let t = useTranslations(page.params.lang)
 </script>
 
+<svelte:head>
+	<title>{t('nav.playground')} • Odyc.js</title>
+</svelte:head>
 <div class="flex h-screen flex-col">
 	{#key page.params.lang}
 		<Header {locales} />

@@ -10,6 +10,10 @@
 
 <Header />
 
+<svelte:head>
+	<title>Odyc.js</title>
+</svelte:head>
+
 <main class="pb-32">
 	<section class="container mx-auto grid items-center gap-12 px-2 pt-44 lg:grid-cols-[7fr_4fr]">
 		<div class="grid gap-6 text-center lg:text-left">
