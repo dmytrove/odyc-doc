@@ -48,7 +48,7 @@ createGame({
 
 <Aside>
 
-Le fonctionnement des sprites est expliqué plus en détail dans la [section dédiée](/fr/doc/construction-du-monde/sprites).
+Le fonctionnement des sprites est expliqué plus en détail dans la [section dédiée](/fr/doc/world-building/sprites).
 
 </Aside>
 

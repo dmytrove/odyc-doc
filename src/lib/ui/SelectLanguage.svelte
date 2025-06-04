@@ -31,10 +31,11 @@
 </script>
 
 {#snippet item(langCode: string, langLabel: string)}
-	{@const url = (langCode === defaultLang ? '' : '/' + langCode) + baseUrl}
+	{@const url = (langCode === defaultLang ? '' : '/' + langCode) + (baseUrl || '/')}
 	<li>
 		<a
 			href={url}
+			data-sveltekit-reload
 			class={twMerge(
 				'text-base-content/70 hover:text-base-content capitalize',
 				page.url.pathname === url && 'text-base-content'

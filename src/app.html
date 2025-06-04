@@ -5,12 +5,15 @@
 		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		%sveltekit.head%
+		<link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+		<script src="/pagefind/pagefind-ui.js"></script>
 		<script>
 			const isDark = localStorage.getItem('theme') === 'dark'
 			document.firstElementChild.classList.toggle('dark', isDark)
 		</script>
 	</head>
 	<body data-sveltekit-preload-data="hover">
+		<div id="search"></div>
 		<div style="display: contents">%sveltekit.body%</div>
 	</body>
 </html>

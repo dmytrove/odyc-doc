@@ -82,7 +82,7 @@
 			></span>
 		{/if}
 	</button>
-	<Tooltip text={t('gamewindow.screenshot')} placement="bottom-end" />
+	<Tooltip text={t('gamewindow.record')} placement="bottom-end" />
 
 	<button
 		class="ring-ring absolute top-4 right-14 cursor-pointer p-1 opacity-80 mix-blend-difference hover:opacity-100 focus:ring-1"

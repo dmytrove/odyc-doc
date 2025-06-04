@@ -76,11 +76,11 @@
 			editor.formatCode()
 			e.preventDefault()
 		}
-		if (e.metaKey && e.key === 's') {
+		if ((e.metaKey || e.ctrlKey) && e.key === 's') {
 			save()
 			e.preventDefault()
 		}
-		if (e.metaKey && e.shiftKey && e.key === 'O') {
+		if ((e.metaKey || e.ctrlKey) && e.shiftKey && e.key === 'O') {
 			inputFile.click()
 			e.preventDefault()
 		}
@@ -128,7 +128,7 @@
 </script>
 
 <svelte:window onkeydown={handleKeydown} />
-<div class={twMerge('playground  flex h-full flex-col shadow', className)}>
+<div class={twMerge('playground  flex h-full flex-col shadow ', className)}>
 	<header class="border-border flex items-center justify-between gap-2 border-b px-1 py-2 sm:px-4">
 		<div class="flex items-center sm:gap-2">
 			<Button

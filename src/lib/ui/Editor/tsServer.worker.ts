@@ -50,7 +50,7 @@ addEventListener('message', (e) => {
 async function init() {
 	const compilerOptions = {
 		target: ts.ScriptTarget.ES2016,
-		lib: ['es2016', 'dom'],
+		lib: ['es2017', 'dom'],
 		allowJs: true,
 		checkJs: true
 	}

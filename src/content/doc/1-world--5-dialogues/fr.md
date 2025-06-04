@@ -60,7 +60,7 @@ Pour rendre votre dialogue plus dynamique, vous pouvez lui appliquer des effets 
 
 ### Couleurs
 
-Pour appliquer une couleur, encadrez le texte avec `<n>`, où `n` correspond à l’index de la couleur dans [votre palette](/fr/doc/configuration/couleurs#personnalisation-de-la-palette) :
+Pour appliquer une couleur, encadrez le texte avec `<n>`, où `n` correspond à l’index de la couleur dans [votre palette](/fr/doc/configuration/colors#personnaliser-la-palette) :
 
 ```js
 '<3>Texte bleu<3> '

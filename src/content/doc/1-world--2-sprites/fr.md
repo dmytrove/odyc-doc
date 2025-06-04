@@ -63,7 +63,7 @@ Pour gagner de la place vous pouvez utiliser `\n` pour remplacer les sauts de li
 
 ## <Emoji src="👀" /> Inspirations
 
-Voici deux outils complémentaires qui peuvent vous aider à trouver des idées pour vos sprites:
+Voici deux ressources qui peuvent vous aider à trouver des idées pour vos sprites:
 
 - [Pixeltwist](https://pixeltwist.achtaitaipai.com/) : propose une infinité de sprites générées aléatoirement.
 - [Baxel](https://baxel.achtaitaipai.com/) : une collection ouverte de sprites créées par la communauté.

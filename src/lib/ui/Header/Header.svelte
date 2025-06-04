@@ -1,11 +1,20 @@
 <script lang="ts">
 	import { afterNavigate } from '$app/navigation'
 	import { page } from '$app/state'
-	import { getFirstDocPost, getLangFromUrl, SelectLanguage, useTranslations } from '$lib'
+	import {
+		Dialog,
+		getFirstDocPost,
+		getLangFromUrl,
+		SelectLanguage,
+		Shortcut,
+		useTranslations
+	} from '$lib'
 	import { AlignRight, Github, Moon, Sun, X } from '@steeze-ui/lucide-icons'
 	import { Icon } from '@steeze-ui/svelte-icon'
+	import { Search as SearchIcon } from '@steeze-ui/lucide-icons'
 	import { fade } from 'svelte/transition'
 	import { twMerge } from 'tailwind-merge'
+	import Search from './Search.svelte'
 
 	type Props = {}
 
@@ -23,6 +32,7 @@
 	])
 
 	let isMenuOpen = $state(false)
+	let isSearchOpen = $state(false)
 
 	afterNavigate(() => {
 		isMenuOpen = false
@@ -35,14 +45,29 @@
 	}
 </script>
 
-<header class="border-border iems-center text-base-content flex border-b px-4 sm:px-8">
-	<a href="/" class="my-auto flex items-center gap-2">
+<header class="border-border iems-center text-base-content flex items-center border-b px-4 sm:px-8">
+	<a href="{urlPrefix}/" class="my-auto flex items-center gap-2">
 		<img src="/logo.jpeg" alt="" class="pixelated h-8" />
 		<span class="font-pixel text-xl"> Odyc.js </span>
 	</a>
-
 	<button
 		class="text-base-content/80 hover:text-base-content ml-auto cursor-pointer p-1 md:hidden"
+		onclick={() => (isSearchOpen = true)}
+		aria-label={useTranslations(lang)('header.search')}
+	>
+		<Icon src={SearchIcon} class="size-4" />
+	</button>
+	<button
+		onclick={() => (isSearchOpen = true)}
+		class="text-base-content/70 hover:text-base-content border-border mx-12 hidden w-72 cursor-pointer items-center gap-2 rounded-md border px-3 py-2 md:flex"
+	>
+		<Icon src={SearchIcon} class="text-base-content !size-4" />
+		<span class="">{useTranslations(lang)('header.search')}</span>
+		<Shortcut defaultShortcut="ctrl K" macShortcut="⌘ K" class="ml-auto text-base" />
+	</button>
+
+	<button
+		class="text-base-content/80 hover:text-base-content ml-4 cursor-pointer p-1 md:hidden"
 		onclick={() => (isMenuOpen = true)}
 		aria-label={useTranslations(lang)('header.menu')}
 	>
@@ -118,6 +143,7 @@
 		</div>
 	</nav>
 {/if}
+<Search bind:open={isSearchOpen} />
 
 <style>
 	:global(body) {

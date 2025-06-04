@@ -90,5 +90,7 @@ createGame({
 De la même façon qu'avec les dialogues, vous pouvez enrichir le texte avec des **couleurs** et des **animations**.
 
 <Aside>
-Voir la <a href="/fr/doc/construction-du-monde/dialogues#ajouter-des-effets-et-des-couleurs-au-texte">page consacrée aux dialogues</a> pour plus de détails sur la mise en forme.
+
+Voir la [page consacrée aux dialogues](/fr/doc/world-building/dialogues#ajouter-des-effets-et-des-couleurs-au-texte) pour plus de détails sur la mise en forme.
+
 </Aside>

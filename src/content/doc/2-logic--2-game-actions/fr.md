@@ -25,7 +25,7 @@ game.openDialog('Bonjour le monde !')
 ```
 
 Cela affichera une boîte de dialogue avec le texte fourni.
-Vous pouvez également utiliser les effets de texte et les couleurs (voir [Dialogues](/fr/doc/construction-du-monde/dialogues#ajouter-des-effets-et-des-couleurs-au-texte)).
+Vous pouvez également utiliser les effets de texte et les couleurs (voir [Dialogues](/fr/doc/world-building/dialogues)).
 
 ---
 
@@ -42,7 +42,7 @@ console.log('Not highlighted')
 ```
 
 Vous pouvez passer un **preset**, un **preset + seed**, une **URL PFXR**, ou un **objet personnalisé**.
-Voir [la page sur les sons](/fr/doc/construction-du-monde/sounds) pour plus de détails.
+Voir [la page sur les sons](/fr/doc/world-building/sounds) pour plus de détails.
 
 ---
 

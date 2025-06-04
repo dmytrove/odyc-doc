@@ -23,6 +23,7 @@ export const ui = {
 
 		'gamewindow.fullscreen': 'Fullscreen',
 		'gamewindow.screenshot': 'Screenshot',
+		'gamewindow.record': 'Record the screen',
 		'gamewindow.screenshotName': 'odyc-screenshot',
 		'gamewindow.recordName': 'odyc-video',
 
@@ -51,6 +52,7 @@ export const ui = {
 		'header.selectLang': 'Select Language',
 		'header.menu': 'Menu',
 		'header.closeMenu': 'Close',
+		'header.search': 'Search',
 
 		'nav.doc': 'Docs',
 		'nav.tutorial': 'Tutorial',
@@ -76,6 +78,7 @@ export const ui = {
 
 		'gamewindow.fullscreen': 'Plein écran',
 		'gamewindow.screenshot': "Capture d'écran",
+		'gamewindow.record': "Enregistrer l'écran",
 		'gamewindow.screenshotName': 'odyc-capture-d-ecran',
 		'gamewindow.recordName': 'odyc-video',
 
@@ -103,6 +106,7 @@ export const ui = {
 		'header.selectLang': 'Sélection de la langue',
 		'header.menu': 'Menu',
 		'header.closeMenu': 'Fermer',
+		'header.search': 'Rechercher',
 
 		'nav.doc': 'Documentation',
 		'nav.tutorial': 'Tutoriel',

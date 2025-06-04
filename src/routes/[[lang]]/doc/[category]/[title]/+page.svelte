@@ -9,10 +9,10 @@
 	let wrapper: HTMLElement | undefined = $state()
 </script>
 
-<div class="flex justify-center">
+<main class="flex justify-center">
 	<article transition:fade id="main-content" class="px-8 pt-12 pb-12" bind:this={wrapper}>
 		{#key data.Content}
-			<div class="prose dark:prose-invert mx-auto max-w-prose">
+			<div class="prose dark:prose-invert mx-auto max-w-prose" data-pagefind-body>
 				<data.Content />
 			</div>
 		{/key}
@@ -23,4 +23,4 @@
 			<Toc toc={data.metadata.toc} />
 		{/key}
 	</aside>
-</div>
+</main>
