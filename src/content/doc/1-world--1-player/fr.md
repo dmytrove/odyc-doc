@@ -5,7 +5,7 @@ import Emoji from '../../../lib/ui/Doc/Emoji.svelte'
 
 # <Emoji src="😎" /> Le Joueur
 
-Le `player` est le personnage que l’on contrôle dans le jeu. Il est défini par deux propriétés : **sa position** et **son apparence**.
+Le `player` est le personnage que l’on contrôle dans le jeu. Il est défini par deux propriétés :**son apparence** et **sa position**.
 
 ---
 

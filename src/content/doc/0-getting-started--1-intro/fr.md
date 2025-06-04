@@ -12,7 +12,7 @@ Tout se construit **par le code**, mais sans complexité inutile : votre jeu peu
 ## <Emoji src="🎮" /> Un jeu, une fonction
 
 Créer un jeu avec OdyC, c’est simplement appeler `createGame()`.  
-Vous fournissez vos sprites, vos dialogues, vos sons, vos interactions — et le moteur s’occupe du reste.
+Vous fournissez vos sprites, vos dialogues, vos sons, vos interactions, puis le moteur s’occupe du reste.
 
 ```js
 createGame({

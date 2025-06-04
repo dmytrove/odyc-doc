@@ -1,13 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/state'
-	import {
-		defaultLang,
-		getFirstDocPost,
-		getLangFromUrl,
-		Header,
-		SvgSprite,
-		useTranslations
-	} from '$lib'
+	import { defaultLang, getFirstDocPost, getLangFromUrl, Header, useTranslations } from '$lib'
 	import Gallery from './Gallery.svelte'
 
 	const lang = getLangFromUrl(page.url)
@@ -26,7 +19,7 @@
 				Odyc.js
 			</h1>
 			<p class="mt-4 text-4xl font-bold">{t('home.headline')}</p>
-			<p class="max-w-prose text-xl">{t('home.description')}</p>
+			<p class="text-xl">{t('home.description')}</p>
 			<div class="mt-6 flex flex-wrap items-center justify-center gap-6 lg:justify-start">
 				<a
 					href="{langPrefix}playground/"

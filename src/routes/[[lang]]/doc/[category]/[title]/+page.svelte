@@ -10,9 +10,9 @@
 </script>
 
 <main class="flex justify-center">
-	<article transition:fade id="main-content" class="px-8 pt-12 pb-12" bind:this={wrapper}>
+	<article transition:fade id="main-content" class="pt-12 pb-12" bind:this={wrapper}>
 		{#key data.Content}
-			<div class="prose dark:prose-invert mx-auto max-w-prose" data-pagefind-body>
+			<div class="prose dark:prose-invert mx-auto px-8" data-pagefind-body>
 				<data.Content />
 			</div>
 		{/key}

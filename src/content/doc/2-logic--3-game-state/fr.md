@@ -62,7 +62,7 @@ game.addToCell(3, 2, '#')
 ```
 
 <Aside variant="Warning">
-Il ne peut y avoir qu’un seul élément par case. Si la case est déjà occupée, elle sera écrasée.
+Il ne peut y avoir qu’un seul élément par case. Si la case est déjà occupée, l'élément présent sera supprimé.
 </Aside>
 
 ---

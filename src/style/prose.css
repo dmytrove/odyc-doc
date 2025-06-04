@@ -10,6 +10,9 @@
 	color: var(--color-base-content);
 	font-size: var(--fs-0);
 	line-height: 1.6;
+	max-width: min(65ch, 100vw);
+	min-width: 0;
+	width: 100%;
 }
 
 .prose > * + :where(*):not(:where([class~='not-prose'] *)) {
@@ -56,6 +59,8 @@
 .prose :where(div):not(:where([class~='not-prose']), [class~='not-prose'] *),
 .prose :where(table):not(:where([class~='not-prose']), [class~='not-prose'] *),
 .prose :where(pre):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
+	max-width: 100%;
+	overflow-x: auto;
 	--flow-space: 1.5em;
 }
 

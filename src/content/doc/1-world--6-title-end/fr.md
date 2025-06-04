@@ -56,7 +56,7 @@ createGame({
 
 <Aside>
 
-Si vous souhaitez terminer le jeu san afficher de message, vous pouvez écrire `end: true`.
+Si vous souhaitez terminer le jeu sans afficher de message, vous pouvez écrire `end: true`.
 
 </Aside>
 

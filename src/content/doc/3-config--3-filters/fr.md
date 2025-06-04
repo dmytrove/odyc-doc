@@ -9,7 +9,7 @@ Les **filtres** permettent de modifier l’apparence visuelle globale du jeu, en
 
 <Aside variant="Warning">
 
-Les filtres sollicitent **fortement la carte graphique** Ils peuvent **réduire les performances** sur des machines plus anciennes Certains appareils (notamment mobiles) peuvent **ne pas supporter WebGL**
+Les filtres sollicitent **fortement la carte graphique. ** Ils peuvent **réduire les performances** sur des machines plus anciennes. Certains appareils (notamment mobiles) peuvent **ne pas supporter WebGL**.
 
 </Aside>
 
@@ -90,7 +90,7 @@ filter: {
 
 <Aside>
 
-Le rendu du filtre `neon` est beaucoup plus intéressant sur un fond noir. Si vous n'avez pas accés au css, comme dans le playground, vous pouvez utiliser la ligne suivante:
+Le rendu du filtre `neon` est beaucoup plus intéressant sur un fond noir. Si vous n'avez pas accès au css, comme dans le playground, vous pouvez utiliser la ligne suivante:
 
 ```js
 document.body.style.setProperty('background', 'black')
