@@ -10,7 +10,7 @@ Want to create a game quickly? Here are **three ways to start**, depending on yo
 
 ## <Emoji src="🧪" /> Use the Online Editor
 
-The easiest way to get started is to use the [online editor](/en/playground).  
+The easiest way to get started is to use the [online editor](/playground).  
 No setup required: just open the link and start coding your game directly in your browser.
 
 ---

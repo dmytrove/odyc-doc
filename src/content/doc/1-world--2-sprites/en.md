@@ -72,6 +72,6 @@ Here are two useful resources for generating or browsing sprite ideas:
 
 <Aside>
 
-To import a sprite from one of these sites into your game, simply **right-click → copy image**, then **paste it into the drawing tool** in the [playground](/en/playground).
+To import a sprite from one of these sites into your game, simply **right-click → copy image**, then **paste it into the drawing tool** in the [playground](/playground).
 
 </Aside>

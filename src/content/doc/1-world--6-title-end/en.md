@@ -91,6 +91,6 @@ Just like with dialogues, you can enhance the text with **colors** and **animati
 
 <Aside>
 
-See the [dialogue formatting section](/en/doc/world-building/dialogues#adding-effects-and-colors-to-text) for more details.
+See the [dialogue formatting section](/doc/world-building/dialogues#adding-effects-and-colors-to-text) for more details.
 
 </Aside>

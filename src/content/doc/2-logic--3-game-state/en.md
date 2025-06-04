@@ -22,7 +22,7 @@ element.visible = false
 
 <Aside>
 
-The available properties are the same as those listed for [event targets](/en/doc/interaction-and-logic/events#available-properties).
+The available properties are the same as those listed for [event targets](/doc/interaction-and-logic/events#available-properties).
 
 </Aside>
 

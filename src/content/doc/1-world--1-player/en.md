@@ -48,7 +48,7 @@ createGame({
 
 <Aside>
 
-Sprites are explained in more detail in the [dedicated section](/en/doc/world-building/sprites).
+Sprites are explained in more detail in the [dedicated section](/doc/world-building/sprites).
 
 </Aside>
 

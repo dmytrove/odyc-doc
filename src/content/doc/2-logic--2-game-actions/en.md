@@ -25,7 +25,7 @@ game.openDialog('Hello world!')
 ```
 
 This will display a dialog box with the provided text.
-You can use text effects and colors as well (see [Dialogues](/en/doc/world-building/dialogues)).
+You can use text effects and colors as well (see [Dialogues](/doc/world-building/dialogues)).
 
 ---
 
@@ -41,7 +41,7 @@ game.playSound({ frequency: 300, waveForm: 1 })
 ```
 
 You can pass a **preset name**, a **preset + seed**, a **PFXR URL**, or a **custom sound object**.
-See [the Sounds page](/en/doc/world-building/sounds) for more details.
+See [the Sounds page](/doc/world-building/sounds) for more details.
 
 ---
 
