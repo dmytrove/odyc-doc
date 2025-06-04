@@ -7,6 +7,14 @@ export type DocCategory = { [lang in Lang]: string } & { items: DocItem[] }
 export type DocSummary = DocCategory[]
 export const docSummary: DocSummary = [
 	{
+		en: 'Getting Started',
+		fr: 'Pour commencer',
+		items: [
+			{ en: 'Intro', fr: 'Intro', path: '0-getting-started--1-intro' },
+			{ en: 'Quick Start', fr: 'Démarrage rapide', path: '0-getting-started--2-quick-start' }
+		]
+	},
+	{
 		en: 'World Building',
 		fr: 'Construction du monde',
 		items: [
