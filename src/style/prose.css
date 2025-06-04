@@ -59,6 +59,7 @@
 .prose :where(div):not(:where([class~='not-prose']), [class~='not-prose'] *),
 .prose :where(table):not(:where([class~='not-prose']), [class~='not-prose'] *),
 .prose :where(pre):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
+	display: block;
 	max-width: 100%;
 	overflow-x: auto;
 	--flow-space: 1.5em;
@@ -82,6 +83,7 @@
 	border-collapse: collapse;
 	width: 100%;
 	max-width: 100%;
+	overflow-x: auto;
 }
 
 .prose table :where(th):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
