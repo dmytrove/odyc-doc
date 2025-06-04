@@ -30,6 +30,10 @@
 		{ img: 'space-bar.png', url: 'https://jjjbon.itch.io/spacebar-odyc-beta' },
 		{ img: 'emily.png', url: 'https://goupilette.itch.io/emily-sest-perdue' },
 		{
+			img: 'john-wick.png',
+			url: 'https://achtaitaipai.github.io/odyc-exemples/games/john-wick.html'
+		},
+		{
 			img: 'mushroom.png',
 			url: 'https://achtaitaipai.github.io/odyc-exemples/games/mushroom.html'
 		}
