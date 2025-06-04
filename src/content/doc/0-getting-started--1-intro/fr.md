@@ -11,7 +11,7 @@ Tout se construit **par le code**, mais sans complexité inutile : votre jeu peu
 
 ## <Emoji src="🎮" /> Un jeu, une fonction
 
-Créer un jeu avec OdyC, c’est simplement appeler `createGame()`.  
+Créer un jeu avec Odyc.js, c’est simplement appeler `createGame()`.  
 Vous fournissez vos sprites, vos dialogues, vos sons, vos interactions, puis le moteur s’occupe du reste.
 
 ```js
@@ -58,7 +58,7 @@ Personnalisez l’apparence, les filtres, les touches, les couleurs et l’écra
 
 ## <Emoji src="📫" /> Une question ? Une idée ?
 
-OdyC est un projet libre et ouvert.
+Odyc.js est un projet libre et ouvert.
 Vous pouvez contribuer à la documentation, proposer des idées ou poser des questions sur [GitHub](https://github.com/achtaitaipai/odyc) ou par mail à [slt@charlescailleteau.com](mailto:slt@charlescailleteau.com).
 
 ---
