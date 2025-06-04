@@ -2,7 +2,7 @@
 import Emoji from '../../../lib/ui/Doc/Emoji.svelte'
 </script>
 
-# <Emoji src="✨" /> Welcome to the Odyc.js Documentation
+# <Emoji src="✨" /> Welcome
 
 Odyc.js is a tiny JavaScript library designed to create narrative games by combining pixels, sounds, text, and a bit of logic.  
 Everything is built **through code**, but without unnecessary complexity: your entire game can fit in a single file.
