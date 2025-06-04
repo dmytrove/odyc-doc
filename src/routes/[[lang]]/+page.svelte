@@ -1,13 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/state'
-	import {
-		defaultLang,
-		getFirstDocPost,
-		getLangFromUrl,
-		Header,
-		makeLocaleUrl,
-		useTranslations
-	} from '$lib'
+	import { defaultLang, getFirstDocPost, getLangFromUrl, Header, useTranslations } from '$lib'
 	import Gallery from './Gallery.svelte'
 
 	const lang = getLangFromUrl(page.url)

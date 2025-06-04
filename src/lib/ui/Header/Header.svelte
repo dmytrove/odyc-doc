@@ -1,17 +1,9 @@
 <script lang="ts">
 	import { afterNavigate } from '$app/navigation'
 	import { page } from '$app/state'
-	import {
-		Dialog,
-		getFirstDocPost,
-		getLangFromUrl,
-		SelectLanguage,
-		Shortcut,
-		useTranslations
-	} from '$lib'
-	import { AlignRight, Github, Moon, Sun, X } from '@steeze-ui/lucide-icons'
+	import { getFirstDocPost, getLangFromUrl, SelectLanguage, Shortcut, useTranslations } from '$lib'
+	import { AlignRight, Github, Moon, Search as SearchIcon, Sun, X } from '@steeze-ui/lucide-icons'
 	import { Icon } from '@steeze-ui/svelte-icon'
-	import { Search as SearchIcon } from '@steeze-ui/lucide-icons'
 	import { fade } from 'svelte/transition'
 	import { twMerge } from 'tailwind-merge'
 	import Search from './Search.svelte'
@@ -104,7 +96,7 @@
 {#if isMenuOpen}
 	<nav
 		transition:fade={{ duration: 100 }}
-		class="bg-base-100 fixed top-0 left-0 z-50 flex h-screen w-full flex-col md:hidden"
+		class="bg-base-100 fixed top-0 left-0 z-50 flex h-svh w-full flex-col md:hidden"
 	>
 		<button
 			class="text-base-content/80 hover:text-base-content absolute top-4 right-8 cursor-pointer p-1 md:hidden"
