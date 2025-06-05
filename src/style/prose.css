@@ -62,6 +62,10 @@
 	--flow-space: 1.5em;
 }
 
+.prose :where(pre):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
+	overflow-x: auto;
+}
+
 .prose :not(pre) > :where(code):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
 	white-space: pre-wrap;
 	background: var(--color-base-300);
