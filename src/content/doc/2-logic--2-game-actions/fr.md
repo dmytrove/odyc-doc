@@ -58,6 +58,31 @@ game.openMessage('Bonjour et ~bienvenue~')
 
 ---
 
+## <Emoji src="✋" /> Poser une question au joueur
+
+La méthode `game.prompt()` permet de laisser le choix au joueur entre plusieurs options :
+
+```js
+await game.prompt('oui', 'non')
+await game.prompt('Papier', 'Caillou', 'Ciseau')
+```
+
+Cette méthode retourne une **promesse** contenant l’**index** de l’option choisie: `0` → première option, `1` → deuxième option, etc...
+
+Cela vous permet de réagir différemment selon le choix du joueur :
+
+```js
+const choix = await game.prompt('Aller à gauche', 'Aller à droite')
+
+if (choix === 0) {
+	game.openMessage('Vous tournez à gauche')
+} else {
+	game.openMessage('Vous tournez à droite')
+}
+```
+
+---
+
 ## <Emoji src="🏁" /> Finir le jeu
 
 La méthode `game.end()` permet de **relancer le jeu depuis le début**.

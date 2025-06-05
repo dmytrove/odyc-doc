@@ -57,6 +57,31 @@ game.openMessage('Hello and ~welcome~')
 
 ---
 
+## <Emoji src="✋" /> Ask the player a question
+
+The `game.prompt()` method lets you present multiple options to the player:
+
+```js
+await game.prompt('yes', 'no')
+await game.prompt('Rock', 'Paper', 'Scissors')
+```
+
+This method returns a **promise** containing the **index** of the selected option: `0` → first option, `1` → second option…
+
+This allows you to react based on the player's choice:
+
+```js
+const choice = await game.prompt('Go left', 'Go right')
+
+if (choice === 0) {
+	game.openMessage('You turned left')
+} else {
+	game.openMessage('You turned right')
+}
+```
+
+---
+
 ## <Emoji src="🏁" /> End the game
 
 To restart the game from the beginning, call `game.end()`.

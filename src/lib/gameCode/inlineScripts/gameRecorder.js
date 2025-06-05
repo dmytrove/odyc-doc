@@ -19,6 +19,8 @@
 		/**@type{HTMLCanvasElement}*/
 		#dialogCanvas
 		/**@type{HTMLCanvasElement}*/
+		#promptCanvas
+		/**@type{HTMLCanvasElement}*/
 		#messageCanvas
 
 		constructor() {
@@ -30,6 +32,9 @@
 			)
 			this.#dialogCanvas = /**@type {HTMLCanvasElement} */ (
 				document.querySelector('canvas.odyc-dialog-canvas')
+			)
+			this.#promptCanvas = /**@type {HTMLCanvasElement} */ (
+				document.querySelector('canvas.odyc-prompt-canvas')
 			)
 			this.#messageCanvas = /**@type {HTMLCanvasElement} */ (
 				document.querySelector('canvas.odyc-message-canvas')
@@ -53,6 +58,7 @@
 				this.#filterCanvas ? this.#glCanvasTo2dCanvas(this.#filterCanvas) : this.#rendererCanvas
 			]
 			if (this.#dialogCanvas.style.display !== 'none') frames.push(this.#dialogCanvas)
+			if (this.#promptCanvas.style.display !== 'none') frames.push(this.#promptCanvas)
 			if (this.#messageCanvas.style.display !== 'none') frames.push(this.#messageCanvas)
 			const backgroundColor = getComputedStyle(document.body, null).getPropertyValue(
 				'background-color'
