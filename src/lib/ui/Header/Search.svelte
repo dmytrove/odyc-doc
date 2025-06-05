@@ -40,7 +40,10 @@
 	})
 
 	function handlekeydown(e: KeyboardEvent) {
-		if ((e.metaKey || e.ctrlKey) && e.key === 'k') open = true
+		if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+			e.preventDefault()
+			open = true
+		}
 	}
 </script>
 
