@@ -80,6 +80,12 @@ createGame({
 })
 ```
 
+<Aside>
+
+The colors defined for the dialog box also apply to the `prompt` window.
+
+</Aside>
+
 ### Message Box
 
 - `messageColor` → text color
