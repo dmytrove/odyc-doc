@@ -20,9 +20,9 @@ export const buildGame = (code: string, debug = true) => `
   <script>
     ${odyc}
     const {createGame, createSound} = odyc
-    //startofthegame
-    ${code}
-    //endofthegame
+//startofthegame
+${code}
+//endofthegame
     ${debug ? gameRecorderScript : ''}
   </script>
 </body>
@@ -30,7 +30,7 @@ export const buildGame = (code: string, debug = true) => `
 `
 
 export const parseCode = (code: string) => {
-	return code.match(/(?<=\/\/startofthegame\n)((.|\n)*)(?=\n\/\/endofthegame)/gm)
+	return code.match(/(?<=\/\/startofthegame\n)((.|\n)*)(?=\/\/endofthegame)/gm)
 }
 
 export function updateIframe(code: string, iframe: HTMLIFrameElement): void {
