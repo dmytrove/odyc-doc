@@ -19,4 +19,4 @@
 	})
 </script>
 
-<kbd class={twMerge('text-base-fade font-sans text-xs/4', className)}>{content}</kbd>
+<kbd class={twMerge('text-base-content/60 font-sans text-xs/4', className)}>{content}</kbd>

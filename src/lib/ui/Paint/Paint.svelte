@@ -41,14 +41,16 @@
 		drawing.display(ctx)
 	})
 
-	function handleClick(e: MouseEvent) {
+	function handleClick(e: PointerEvent) {
+		e.preventDefault()
 		const [x, y] = getMousePos(e)
 		drawing.putPixel(x, y, currentColor)
 		drawing.display(ctx)
 		onChange?.(drawing.text)
 	}
 
-	function handleMouseMove(e: MouseEvent) {
+	function handleMouseMove(e: PointerEvent) {
+		e.preventDefault()
 		const [x, y] = getMousePos(e)
 		const isPressed = e.buttons === 1
 		if (isPressed) {
@@ -195,10 +197,10 @@
 	</div>
 	<div class="mt-3 flex aspect-square">
 		<canvas
-			onclick={(e) => handleClick(e)}
-			onmousemove={(e) => handleMouseMove(e)}
+			onpointerdown={(e) => handleClick(e)}
+			onpointermove={(e) => handleMouseMove(e)}
 			class={[
-				'pixelated m-auto max-h-full max-w-full cursor-crosshair',
+				'pixelated m-auto max-h-full max-w-full cursor-crosshair touch-none',
 				drawing.width > drawing.height ? 'h-auto w-full' : 'h-full w-auto'
 			]}
 			bind:this={canvas}
