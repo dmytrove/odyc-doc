@@ -15,7 +15,9 @@
 </svelte:head>
 
 <main class="pb-32">
-	<section class="container mx-auto grid items-center gap-12 px-2 pt-44 lg:grid-cols-[7fr_4fr]">
+	<section
+		class="container mx-auto grid items-center gap-12 px-2 pt-22 lg:grid-cols-[7fr_4fr] lg:pt-44"
+	>
 		<div class="grid gap-6 text-center lg:text-left">
 			<h1
 				class="font-pixel decoration-base-content text-7xl font-bold text-[#228be6] underline underline-offset-8 md:text-9xl"
