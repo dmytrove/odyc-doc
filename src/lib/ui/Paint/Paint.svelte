@@ -249,7 +249,7 @@
 	{#if copy}
 		<div class="mt-2 flex justify-end gap-4 px-2 pt-2 pb-4">
 			<Button onclick={() => copyToClipBoard()} class="">
-				{t('paint.copy')}
+				{t('copy')}
 				<Icon src={copied ? Check : Clipboard} class="size-5" />
 			</Button>
 		</div>

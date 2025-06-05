@@ -3,7 +3,7 @@
 	import type { PageProps } from './$types'
 	import Pagination from './Footer.svelte'
 	import Toc from './Toc.svelte'
-	import { useTranslations } from '$lib'
+	import { Prose, useTranslations } from '$lib'
 	import { page } from '$app/state'
 
 	let { data }: PageProps = $props()
@@ -19,9 +19,9 @@
 <main class="flex justify-center">
 	<article transition:fade id="main-content" class="pt-12 pb-12" bind:this={wrapper}>
 		{#key data.Content}
-			<div class="prose dark:prose-invert mx-auto px-8" data-pagefind-body>
+			<Prose pagefindBody class="mx-auto">
 				<data.Content />
-			</div>
+			</Prose>
 		{/key}
 		<Pagination filePath={data.path} />
 	</article>

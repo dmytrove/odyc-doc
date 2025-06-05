@@ -1,5 +1,6 @@
 <script lang="ts">
-	import { Button } from '$lib'
+	import { page } from '$app/state'
+	import { Button, useTranslations } from '$lib'
 	import { Clipboard, Check } from '@steeze-ui/lucide-icons'
 	import { Icon } from '@steeze-ui/svelte-icon'
 
@@ -10,6 +11,7 @@
 	let { toCopy }: Props = $props()
 	let copied = $state(false)
 	let timeOutId: ReturnType<typeof setTimeout> | undefined = undefined
+	const t = useTranslations(page.params.lang)
 
 	function handleClick() {
 		navigator.clipboard.writeText(toCopy)
@@ -25,7 +27,7 @@
 <Button
 	size="icon"
 	variant="ghost"
-	tooltip={{ text: 'Copy', delay: 1 }}
+	tooltip={{ text: t('copy'), delay: 1 }}
 	onclick={handleClick}
 	class="hover:bg-transparent"
 >

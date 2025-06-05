@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { page } from '$app/state'
+	import { useTranslations } from '$lib'
 	import { ChevronLeft, ChevronRight } from '@steeze-ui/heroicons'
 	import { Icon } from '@steeze-ui/svelte-icon'
 	import EmblaCarousel from 'embla-carousel'
@@ -12,6 +14,8 @@
 			carousel = EmblaCarousel(wrapper, { loop: true })
 		}
 	})
+
+	const t = useTranslations(page.params.lang)
 
 	const games = [
 		{ img: 'cdlr.png', url: 'https://jjjbon.itch.io/codedelaroute' },
@@ -56,10 +60,12 @@
 <div class="mt-4 flex justify-center gap-6">
 	<button
 		class="text-base-content/80 hover:text-base-content cursor-pointer"
+		title={t('previous')}
 		onclick={() => carousel.scrollPrev()}><Icon src={ChevronLeft} class="size-7" /></button
 	>
 	<button
 		class="text-base-content/80 hover:text-base-content cursor-pointer"
+		title={t('next')}
 		onclick={() => carousel.scrollNext()}><Icon src={ChevronRight} class="size-7" /></button
 	>
 </div>

@@ -8,6 +8,10 @@ export const languagesUrl = Object.keys(languages).filter((el) => el !== default
 
 export const ui = {
 	en: {
+		copy: 'Copy',
+		previous: 'Previous',
+		next: 'Next',
+
 		'playground.refresh': 'Refresh',
 		'playground.format': 'Format code',
 		'playground.paint': 'Paint',
@@ -33,7 +37,6 @@ export const ui = {
 		'paint.clear': 'Clear',
 		'paint.width': 'Width',
 		'paint.height': 'Height',
-		'paint.copy': 'Copy',
 		'paint.up': 'Nudge Up',
 		'paint.right': 'Nudge Right',
 		'paint.down': 'Nudge Down',
@@ -72,6 +75,10 @@ export const ui = {
 			'Odyc.js is a simple JavaScript library to create interactive narrative games, even without coding experience.'
 	},
 	fr: {
+		copy: 'Copier',
+		previous: 'Précédent',
+		next: 'Suivant',
+
 		'playground.refresh': 'Actualiser',
 		'playground.format': 'Formater le code',
 		'playground.paint': 'Dessiner',
@@ -97,7 +104,6 @@ export const ui = {
 		'paint.clear': 'Tout effacer',
 		'paint.width': 'Largeur',
 		'paint.height': 'Hauteur',
-		'paint.copy': 'Copier',
 		'paint.up': 'Décaler vers le haut',
 		'paint.right': 'Décaler vers la droite',
 		'paint.down': 'Décaler vers le bas',

@@ -14,6 +14,7 @@ import Header from './ui/Header/Header.svelte'
 import SelectLanguage from './ui/SelectLanguage.svelte'
 import MediaQuery from './ui/MediaQuery.svelte'
 import SvgSprite from './ui/SvgSprite.svelte'
+import Prose from './ui/Prose/Prose.svelte'
 
 export {
 	Editor,
@@ -31,7 +32,8 @@ export {
 	Header,
 	SelectLanguage,
 	MediaQuery,
-	SvgSprite
+	SvgSprite,
+	Prose
 }
 
 export * from './getDocPosts'
