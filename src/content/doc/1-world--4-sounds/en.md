@@ -59,7 +59,7 @@ You can create a custom sound using [the Pfxr interface](https://achtaitaipai.gi
 sound: 'https://achtaitaipai.github.io/pfxr/?fx=1,0.3,...'
 ```
 
-<Aside>Odyc does not connect to the site: all information is read directly from the URL. No internet connection is required to play the sound.</Aside>
+<Aside>Odyc.js does not connect to the site: all information is read directly from the URL. No internet connection is required to play the sound.</Aside>
 
 ### A configuration object
 
