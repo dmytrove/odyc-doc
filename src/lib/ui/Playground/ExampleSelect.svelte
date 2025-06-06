@@ -24,7 +24,10 @@
 		if (!current) return null
 		const code = await current.getContent()
 		if (!code) return
-		if (code) load(code)
+		load(code)
+		const url = page.url
+		url.searchParams.set('q', id)
+		window.history.replaceState({}, '', url)
 	}
 </script>
 

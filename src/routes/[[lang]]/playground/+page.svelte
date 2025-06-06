@@ -19,7 +19,7 @@
 		}
 	]
 
-	const code = localCode ?? defaultCode
+	const code = data.current ?? localCode ?? defaultCode
 
 	let t = useTranslations(page.params.lang)
 </script>
