@@ -1,10 +1,9 @@
 <script lang="ts">
 	import { browser } from '$app/environment'
 	import { page } from '$app/state'
-	import { Playground, Header, MediaQuery, useTranslations } from '$lib'
-	import type { PageProps } from './$types'
+	import { Header, MediaQuery, Playground, useTranslations } from '$lib'
 	import defaultCode from '../../../content/examples/1-basic/1-hello-world?raw'
-	import { onMount } from 'svelte'
+	import type { PageProps } from './$types'
 
 	const { data }: PageProps = $props()
 
@@ -21,10 +20,6 @@
 	]
 
 	const code = localCode ?? defaultCode
-
-	onMount(() => {
-		console.log(page.url.hash)
-	})
 
 	let t = useTranslations(page.params.lang)
 </script>
