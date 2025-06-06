@@ -59,7 +59,7 @@ Vous pouvez utiliser [l'interface de Pfxr](https://achtaitaipai.github.io/pfxr/)
 sound: 'https://achtaitaipai.github.io/pfxr/?fx=1,0.3,...'
 ```
 
-<Aside>Odyc ne se connecte pas au site: toutes les informations sont directement lues dans l’URL. Aucun accès internet n’est requis au moment de jouer le son.</Aside>
+<Aside>Odyc.js ne se connecte pas au site: toutes les informations sont directement lues dans l’URL. Aucun accès internet n’est requis au moment de jouer le son.</Aside>
 
 ### Un objet de configuration
 
