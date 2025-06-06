@@ -4,6 +4,7 @@
 	import { Playground, Header, MediaQuery, useTranslations } from '$lib'
 	import type { PageProps } from './$types'
 	import defaultCode from '../../../content/examples/1-basic/1-hello-world?raw'
+	import { onMount } from 'svelte'
 
 	const { data }: PageProps = $props()
 
@@ -19,7 +20,11 @@
 		}
 	]
 
-	const code = data.current ?? localCode ?? defaultCode
+	const code = localCode ?? defaultCode
+
+	onMount(() => {
+		console.log(page.url.hash)
+	})
 
 	let t = useTranslations(page.params.lang)
 </script>

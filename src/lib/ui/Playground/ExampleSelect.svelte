@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/state'
 	import { Select, useTranslations } from '$lib'
+	import { onMount } from 'svelte'
 
 	export type Props = {
 		onChange: (code: string) => void
@@ -18,6 +19,15 @@
 
 	const categories = [...new Set(examples.map((el) => el.category))]
 
+	onMount(async () => {
+		const exampleId = page.url.hash
+		if (exampleId) {
+			const example = examples.find((el) => exampleId === '#' + el.id)
+			const code = await example?.getContent()
+			if (code) load(code)
+		}
+	})
+
 	async function onSelectExample(e: Event & { currentTarget: EventTarget & HTMLSelectElement }) {
 		const id = e.currentTarget.value
 		const current = examples.find((el) => el.id === id)
@@ -25,9 +35,7 @@
 		const code = await current.getContent()
 		if (!code) return
 		load(code)
-		const url = page.url
-		url.searchParams.set('q', id)
-		window.history.replaceState({}, '', url)
+		location.hash = id
 	}
 </script>
 
