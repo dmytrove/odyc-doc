@@ -61,17 +61,20 @@ createGame({
 
 ### <Emoji src="📋" /> Available properties
 
-| Property / Method | Type                 | Description                                      | Read-only |
-| ----------------- | -------------------- | ------------------------------------------------ | --------- |
-| `solid`           | `boolean`            | Makes the object passable or not                 | No        |
-| `visible`         | `boolean`            | Shows or hides the object                        | No        |
-| `sprite`          | `number \| string`   | Changes the object’s appearance                  | No        |
-| `sound`           | `string \| object`   | Changes the sound played on interaction          | No        |
-| `dialog`          | `string \| string[]` | Changes the message shown in the dialogue box    | No        |
-| `end`             | `string \| string[]` | Triggers a custom end message                    | No        |
-| `symbol`          | `string`             | The character representing the object in the map | Yes       |
-| `position`        | `[number, number]`   | The `[x, y]` coordinates of the object           | Yes       |
-| `remove()`        | `() => void`         | Removes the object from the game                 | —         |
+| Property / Method | Type                   | Description                                        | Read-only |
+| ----------------- | ---------------------- | -------------------------------------------------- | --------- |
+| `solid`           | `boolean`              | Makes the object passable or not                   | No        |
+| `visible`         | `boolean`              | Shows or hides the object                          | No        |
+| `sprite`          | `number` \| `string`   | Changes the appearance of the object               | No        |
+| `sound`           | `string` \| `object`   | Changes the sound played on interaction            | No        |
+| `dialog`          | `string` \| `string[]` | Modifies the text displayed in the dialog box      | No        |
+| `end`             | `string` \| `string[]` | Triggers a custom game ending                      | No        |
+| `symbol`          | `string`               | The character representing the object in the `map` | Yes       |
+| `position`        | `[number, number]`     | `[x, y]` coordinates of the object on the map      | Yes       |
+| `onCollide`       | `function`             | Called when a collision with the object occurs     | Yes       |
+| `onEnter`         | `function`             | Called when the player enters the object’s cell    | Yes       |
+| `onLeave`         | `function`             | Called when the player leaves the object’s cell    | Yes       |
+| `remove`          | `() => void`           | Removes the object                                 | —         |
 
 ---
 

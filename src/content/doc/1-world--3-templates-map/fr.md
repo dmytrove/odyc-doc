@@ -77,3 +77,26 @@ createGame({
   `
 })
 ```
+
+---
+
+## <Emoji src="☄️" /> Templates dynamiques
+
+Un `template` ne doit pas forcément être un objet fixe.
+Vous pouvez aussi le définir comme une **fonction** qui retourne un objet.
+C’est utile si vous souhaitez créer des éléments **légèrement différents à chaque apparition**.
+
+Par exemple, pour créer un mur dont **chaque instance a une couleur différente** :
+
+```js
+createGame({
+	templates: {
+		x: () => ({
+			sprite: Math.floor(Math.random() * 9)
+		})
+	}
+	//...
+})
+```
+
+La fonction est appelée **chaque fois qu’un élément `x` est placé sur la carte**.

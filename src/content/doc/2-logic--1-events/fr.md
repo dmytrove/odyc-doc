@@ -61,17 +61,20 @@ createGame({
 
 ### <Emoji src="📋" /> Propriétés disponibles
 
-| Propriété / Méthode | Type                 | Description                                        | Lecture seule |
-| ------------------- | -------------------- | -------------------------------------------------- | ------------- |
-| `solid`             | `boolean`            | Rend l’objet traversable ou non                    | Non           |
-| `visible`           | `boolean`            | Affiche ou masque l’objet                          | Non           |
-| `sprite`            | `number \| string`   | Change l’apparence de l’objet                      | Non           |
-| `sound`             | `string \| object`   | Change le son joué lors d’une interaction          | Non           |
-| `dialog`            | `string \| string[]` | Modifie le texte affiché dans la boîte de dialogue | Non           |
-| `end`               | `string \| string[]` | Déclenche une fin de jeu personnalisée             | Non           |
-| `symbol`            | `string`             | Le caractère représentant l’objet dans la `map`    | Oui           |
-| `position`          | `[number, number]`   | Coordonnées `[x, y]` de l’objet sur la carte       | Oui           |
-| `remove()`          | `() => void`         | Supprime l’élément                                 | —             |
+| Propriété / Méthode | Type                   | Description                                        | Lecture seule |
+| ------------------- | ---------------------- | -------------------------------------------------- | ------------- |
+| `solid`             | `boolean`              | Rend l’objet traversable ou non                    | Non           |
+| `visible`           | `boolean`              | Affiche ou masque l’objet                          | Non           |
+| `sprite`            | `number` \| `string`   | Change l’apparence de l’objet                      | Non           |
+| `sound`             | `string`\| `object`    | Change le son joué lors d’une interaction          | Non           |
+| `dialog`            | `string` \| `string[]` | Modifie le texte affiché dans la boîte de dialogue | Non           |
+| `end`               | `string` \| `string[]` | Déclenche une fin de jeu personnalisée             | Non           |
+| `symbol`            | `string`               | Le caractère représentant l’objet dans la `map`    | Oui           |
+| `position`          | `[number, number]`     | Coordonnées `[x, y]` de l’objet sur la carte       | Oui           |
+| `onCollide`         | `function`             | Fonction appelée lors d’une collision              | Oui           |
+| `onEnter`           | `function`             | Fonction appelée à l’entrée sur la case            | Oui           |
+| `onLeave`           | `function`             | Fonction appelée à la sortie de la case            | Oui           |
+| `remove`            | `() => void`           | Supprime l’élément                                 | —             |
 
 ### Exemple : changer une propriété
 
