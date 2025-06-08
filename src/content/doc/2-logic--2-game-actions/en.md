@@ -82,6 +82,28 @@ if (choice === 0) {
 
 ---
 
+## <Emoji src="🕸️" /> Display a menu
+
+The `game.openMenu()` method lets you **nest multiple `prompt()` calls**.
+It’s a simple way to present a structured menu, with sub-options and associated actions.
+
+```js
+await game.openMenu({
+	Greet: {
+		Hello: () => game.openDialog('Hello there'),
+		Yo: () => game.openDialog('Excuse me?')
+	},
+	Insult: () => game.openDialog('Same to you!'),
+	Ignore: null
+})
+```
+
+- A **function** → triggers an action
+- An **object** → opens a **sub-menu**
+- `null` → shows a **disabled option**
+
+---
+
 ## <Emoji src="🏁" /> End the game
 
 To restart the game from the beginning, call `game.end()`.

@@ -83,6 +83,32 @@ if (choix === 0) {
 
 ---
 
+Parfait ! Voici une reformulation plus concise et alignée avec cette idée, à intégrer juste après la section `prompt` :
+
+---
+
+## <Emoji src="🕸️" /> Afficher un menu
+
+La méthode `game.openMenu()` permet d'imbriquer plusieurs `prompt()`.
+Elle permet de présenter un menu structuré, avec des sous-options et des actions associées.
+
+```js
+await game.openMenu({
+	Saluer: {
+		Bonjour: () => game.openDialog('Bonjour à vous'),
+		Yo: () => game.openDialog('Pardon?')
+	},
+	Insulter: () => game.openDialog('Toi même'),
+	Ignorer: null
+})
+```
+
+- Une **fonction** déclenche une action immédiate.
+- Un **objet** ouvre un **sous-menu**.
+- `null` affiche une option **inactive**.
+
+---
+
 ## <Emoji src="🏁" /> Finir le jeu
 
 La méthode `game.end()` permet de **relancer le jeu depuis le début**.

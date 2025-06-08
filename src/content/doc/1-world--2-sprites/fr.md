@@ -55,7 +55,7 @@ Chaque ligne représente une rangée de pixels, et chaque caractère correspond 
 <Aside>
 
 Pour gagner de la place vous pouvez utiliser `\n` pour remplacer les sauts de ligne.
-`'..4.4...\n..4.4.4.\n..4.4.4.\n4.44444.'`
+`'..4.4...\n..4.4.4.'`
 
 </Aside>
 

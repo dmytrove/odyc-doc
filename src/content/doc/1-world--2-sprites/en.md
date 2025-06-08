@@ -57,7 +57,7 @@ Each line represents a row of pixels, and each character is a pixel:
 <Aside>
 
 To make your code shorter, you can use `\n` instead of line breaks:  
-`'..4.4...\n..4.4.4.\n..4.4.4.\n4.44444.'`
+`'..4.4...\n..4.4.4.'`
 
 </Aside>
 
