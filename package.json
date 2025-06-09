@@ -15,7 +15,7 @@
 		"build-storybook": "storybook build",
 		"build": "vite build",
 		"postbuild:search": "pagefind --output-path build/pagefind",
-		"postbuild:sitemap": "svelte-sitemap --domain https://myawesomedomain.com",
+		"postbuild:sitemap": "svelte-sitemap --domain https://odyc.dev",
 		"postbuild": "npm run postbuild:search && npm run postbuild:sitemap"
 	},
 	"devDependencies": {
