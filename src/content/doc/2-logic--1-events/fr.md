@@ -14,27 +14,35 @@ Les événements sont définis dans les `templates`.
 
 ## <Emoji src="🔎" /> Types d’événements
 
-Il existe trois types d’événements :
+Il existe cinq types d’événements :
 
 - **`onCollide`** — appelé quand le joueur **entre en collision** avec l’élément
 - **`onEnter`** — appelé quand le joueur **entre sur une case** contenant l’élément
 - **`onLeave`** — appelé quand le joueur **quitte une case** contenant l’élément
+- **`onScreenEnter`** — appelé quand l’élément **entre dans l’écran**
+- **`onScreenLeave`** — appelé quand l’élément **sort de l’écran**
 
 ```js
 createGame({
-	templates: {
-		x: {
-			onCollide() {
-				alert(1)
-			},
-			onEnter() {
-				alert(2)
-			},
-			onLeave() {
-				alert(3)
-			}
-		}
-	}
+  templates: {
+    x: {
+      onCollide() {
+        alert(1)
+      },
+      onEnter() {
+        alert(2)
+      },
+      onLeave() {
+        alert(3)
+      }
+      onScreenEnter() {
+        alert('hi')
+      }
+      onScreenLeave() {
+        alert('bye')
+      }
+    }
+  }
 })
 ```
 
@@ -71,9 +79,6 @@ createGame({
 | `end`               | `string` \| `string[]` | Déclenche une fin de jeu personnalisée             | Non           |
 | `symbol`            | `string`               | Le caractère représentant l’objet dans la `map`    | Oui           |
 | `position`          | `[number, number]`     | Coordonnées `[x, y]` de l’objet sur la carte       | Oui           |
-| `onCollide`         | `function`             | Fonction appelée lors d’une collision              | Oui           |
-| `onEnter`           | `function`             | Fonction appelée à l’entrée sur la case            | Oui           |
-| `onLeave`           | `function`             | Fonction appelée à la sortie de la case            | Oui           |
 | `remove`            | `() => void`           | Supprime l’élément                                 | —             |
 
 ### Exemple : changer une propriété

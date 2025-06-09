@@ -14,27 +14,35 @@ Events are defined inside `templates`.
 
 ## <Emoji src="🔎" /> Types of events
 
-There are three types of events:
+There are five types of events:
 
 - **`onCollide`** — triggered when the player **collides** with the element
 - **`onEnter`** — triggered when the player **enters a tile** containing the element
 - **`onLeave`** — triggered when the player **leaves a tile** containing the element
+- **`onScreenEnter`** — triggered when the element **enters on screen**
+- **`onScreenLeave`** — triggered when the element **leaves the screen**
 
 ```js
 createGame({
-	templates: {
-		x: {
-			onCollide() {
-				alert(1)
-			},
-			onEnter() {
-				alert(2)
-			},
-			onLeave() {
-				alert(3)
-			}
-		}
-	}
+  templates: {
+    x: {
+      onCollide() {
+        alert(1)
+      },
+      onEnter() {
+        alert(2)
+      },
+      onLeave() {
+        alert(3)
+      }
+      onScreenEnter() {
+        alert('hi')
+      }
+      onScreenLeave() {
+        alert('bye')
+      }
+    }
+  }
 })
 ```
 
@@ -71,9 +79,6 @@ createGame({
 | `end`             | `string` \| `string[]` | Triggers a custom game ending                      | No        |
 | `symbol`          | `string`               | The character representing the object in the `map` | Yes       |
 | `position`        | `[number, number]`     | `[x, y]` coordinates of the object on the map      | Yes       |
-| `onCollide`       | `function`             | Called when a collision with the object occurs     | Yes       |
-| `onEnter`         | `function`             | Called when the player enters the object’s cell    | Yes       |
-| `onLeave`         | `function`             | Called when the player leaves the object’s cell    | Yes       |
 | `remove`          | `() => void`           | Removes the object                                 | —         |
 
 ---
