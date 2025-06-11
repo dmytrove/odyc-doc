@@ -120,6 +120,8 @@
 			const text = await navigator.clipboard.readText()
 			if (text) {
 				drawing.text = text
+				canvas.width = drawing.width * FONT_SIZE
+				canvas.height = drawing.height * FONT_SIZE
 				drawing.display(ctx)
 			}
 		} catch (error) {}
