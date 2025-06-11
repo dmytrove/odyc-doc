@@ -1,7 +1,8 @@
-import LightWrapperDecorator from '../src/stories/decorators/LightWrapperDecorator.svelte';
-import DarkWrapperDecorator from '../src/stories/decorators/DarkWrapperDecorator.svelte';
-import type { Preview } from '@storybook/svelte';
-import '../src/app.css';
+import LightWrapperDecorator from '../src/stories/decorators/LightWrapperDecorator.svelte'
+import DarkWrapperDecorator from '../src/stories/decorators/DarkWrapperDecorator.svelte'
+import type { Preview } from '@storybook/svelte'
+import '@fontsource-variable/pixelify-sans'
+import '../src/app.css'
 
 const preview: Preview = {
 	parameters: {
@@ -33,6 +34,6 @@ const preview: Preview = {
 	decorators: [
 		(_, ctx) => (ctx.globals.theme === 'dark' ? DarkWrapperDecorator : LightWrapperDecorator)
 	]
-};
+}
 
-export default preview;
+export default preview

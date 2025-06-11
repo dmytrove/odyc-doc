@@ -15,6 +15,7 @@ import SelectLanguage from './ui/SelectLanguage.svelte'
 import MediaQuery from './ui/MediaQuery.svelte'
 import SvgSprite from './ui/SvgSprite.svelte'
 import Prose from './ui/Prose/Prose.svelte'
+import MapEditor from './ui/MapEditor/MapEditor.svelte'
 
 export {
 	Editor,
@@ -33,7 +34,8 @@ export {
 	SelectLanguage,
 	MediaQuery,
 	SvgSprite,
-	Prose
+	Prose,
+	MapEditor
 }
 
 export * from './getDocPosts'

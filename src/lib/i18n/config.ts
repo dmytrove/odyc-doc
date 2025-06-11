@@ -24,6 +24,7 @@ export const ui = {
 		'playgroung.vimMode': 'Vim Mode',
 		'playgroung.autoRefresh': 'Auto-refresh',
 		'playgroung.autoSave': 'Auto-save',
+		'playground.map': 'Map',
 
 		'gamewindow.fullscreen': 'Fullscreen',
 		'gamewindow.screenshot': 'Screenshot',
@@ -41,6 +42,8 @@ export const ui = {
 		'paint.right': 'Nudge Right',
 		'paint.down': 'Nudge Down',
 		'paint.left': 'Nudge Left',
+
+		'map.char': 'Current character',
 
 		'doc.note': 'Note',
 		'doc.warning': 'Warning',
@@ -91,6 +94,7 @@ export const ui = {
 		'playgroung.vimMode': 'Mode Vim',
 		'playgroung.autoRefresh': 'Actualisation automatique',
 		'playgroung.autoSave': 'Sauvegarde automatique',
+		'playground.map': 'Carte',
 
 		'gamewindow.fullscreen': 'Plein écran',
 		'gamewindow.screenshot': "Capture d'écran",
@@ -108,6 +112,8 @@ export const ui = {
 		'paint.right': 'Décaler vers la droite',
 		'paint.down': 'Décaler vers le bas',
 		'paint.left': 'Décaler vers la gauche',
+
+		'map.char': 'Caractère courrant',
 
 		'doc.note': 'Note',
 		'doc.warning': 'Attention',
