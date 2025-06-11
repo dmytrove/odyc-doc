@@ -1,6 +1,16 @@
 <script lang="ts">
 	import { page } from '$app/state'
-	import { Button, Dialog, Editor, GameWindow, Paint, Sound, Switch, useTranslations } from '$lib'
+	import {
+		Button,
+		Dialog,
+		Editor,
+		GameWindow,
+		MapEditor,
+		Paint,
+		Sound,
+		Switch,
+		useTranslations
+	} from '$lib'
 	import { buildGame, parseCode } from '$lib/gameCode'
 	import { SplitPane } from '@rich_harris/svelte-split-pane'
 	import { Icon } from '@steeze-ui/svelte-icon'
@@ -12,7 +22,8 @@
 		Code,
 		Brush,
 		Music,
-		Download
+		Download,
+		Map
 	} from '@steeze-ui/lucide-icons'
 	import { twMerge } from 'tailwind-merge'
 	import type { Props as LoadExamplesProps } from './ExampleSelect.svelte'
@@ -40,6 +51,7 @@
 	let editor: Editor
 	let settingsIsOpen = $state(false)
 	let paintIsOpen = $state(false)
+	let mapIsOpen = $state(false)
 	let soundIsOpen = $state(false)
 	let downloadIsOpen = $state(false)
 	let saved = $state(true)
@@ -92,6 +104,10 @@
 
 	function openPaint() {
 		paintIsOpen = true
+	}
+
+	function openMap() {
+		mapIsOpen = true
 	}
 
 	function loadExample(newCode: string) {
@@ -165,6 +181,16 @@
 				class="hidden sm:flex"
 			>
 				<Icon src={Brush} />
+			</Button>
+
+			<Button
+				size="icon"
+				tooltip={{ text: t('playground.map') }}
+				variant="ghost"
+				onclick={openMap}
+				class="hidden sm:flex"
+			>
+				<Icon src={Map} />
 			</Button>
 
 			<Button
@@ -255,6 +281,10 @@
 
 <Dialog bind:open={paintIsOpen}>
 	<Paint />
+</Dialog>
+
+<Dialog bind:open={mapIsOpen}>
+	<MapEditor />
 </Dialog>
 
 <Dialog bind:open={soundIsOpen}>
