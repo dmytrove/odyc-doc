@@ -115,7 +115,7 @@
 		setTimeout(() => (copied = false), 1000)
 	}
 
-	function handleClickInput(e: MouseEvent & { currentTarget: HTMLInputElement }) {
+	function handleFocusInput(e: FocusEvent & { currentTarget: HTMLInputElement }) {
 		e.currentTarget.select()
 	}
 </script>
@@ -126,7 +126,7 @@
 		bind:value={char}
 		maxlength="1"
 		class="border-border text-base-content/80 bg-base-200 focus:bg-base-100 focus:text-base-content mx-auto my-2 flex h-12 w-12 cursor-pointer items-center justify-center border p-2 text-center font-mono text-2xl"
-		onclick={handleClickInput}
+		onfocus={handleFocusInput}
 	/>
 	<Tooltip text={t('map.char')} />
 	<div class="mt-8 grid grid-cols-[auto_1fr_auto] grid-rows-[auto_1fr_auto]">
