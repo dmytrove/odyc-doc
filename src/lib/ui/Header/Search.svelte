@@ -22,10 +22,10 @@
 				//@ts-ignore
 				result.sub_results = result.sub_results.map((el) => ({
 					...el,
-					url: el.url.replace('.html', '/'),
+					url: el.url.replace('.html', '/')
 				}))
 				return result
-			},
+			}
 		})
 	}
 

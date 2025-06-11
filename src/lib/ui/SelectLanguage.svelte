@@ -22,7 +22,7 @@
 
 	const placementClasses = {
 		top: 'bottom-full right-0',
-		bottom: 'top-full right-0',
+		bottom: 'top-full right-0'
 	}
 
 	afterNavigate(() => {

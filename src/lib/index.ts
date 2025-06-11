@@ -33,7 +33,7 @@ export {
 	SelectLanguage,
 	MediaQuery,
 	SvgSprite,
-	Prose,
+	Prose
 }
 
 export * from './getDocPosts'

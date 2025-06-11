@@ -10,7 +10,7 @@ createGame({
 			.444444.
 			.4....4.
 			`,
-		position: [16, 17],
+		position: [16, 17]
 	},
 	templates: {
 		X: {
@@ -23,11 +23,11 @@ createGame({
 			22202222
 			22202222
 			00000000
-			`,
+			`
 		},
 		E: {
-			end: 'The End',
-		},
+			end: 'The End'
+		}
 	},
 	map: `
     XEXXXXXXXXXXXXXXXXXXXXXX
@@ -59,5 +59,5 @@ createGame({
 	screenWidth: 12,
 	screenHeight: 12,
 	cameraWidth: 4,
-	cameraHeight: 4,
+	cameraHeight: 4
 })

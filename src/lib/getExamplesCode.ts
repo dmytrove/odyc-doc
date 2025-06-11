@@ -2,7 +2,7 @@ import { capitalize, getDirName, getFileName, getNumberPrefix, removeNumberPrefi
 
 const rawExamples = import.meta.glob('../content/examples/*/*.js', {
 	query: '?raw',
-	import: 'default',
+	import: 'default'
 })
 
 export function getExamples() {
@@ -22,7 +22,7 @@ export function getExamples() {
 				name,
 				categoryIndex,
 				nameIndex,
-				getContent,
+				getContent
 			}
 		})
 		.sort((a, b) => {

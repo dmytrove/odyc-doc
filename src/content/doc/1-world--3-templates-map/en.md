@@ -36,14 +36,14 @@ createGame({
 			sprite: 6,
 			sound: ['HIT', 999],
 			visible: false,
-			end: 'Game Over',
+			end: 'Game Over'
 		},
 		g: {
 			sprite: 7,
 			dialog: "I'm grass.",
-			solid: false,
-		},
-	},
+			solid: false
+		}
+	}
 })
 ```
 
@@ -65,7 +65,7 @@ createGame({
 	templates: {
 		x: { sprite: 0 },
 		g: { sprite: 7 },
-		r: { sprite: 4 },
+		r: { sprite: 4 }
 	},
 	map: `
     xxxxxxxxxxxxxxxx
@@ -76,7 +76,7 @@ createGame({
     x....r.........x
     x..............x
     xxxxxxxxxxxxxxxx
-  `,
+  `
 })
 ```
 
@@ -94,9 +94,9 @@ For example, to create a wall where **each instance has a different color**:
 createGame({
 	templates: {
 		x: () => ({
-			sprite: Math.floor(Math.random() * 9),
-		}),
-	},
+			sprite: Math.floor(Math.random() * 9)
+		})
+	}
 	//...
 })
 ```

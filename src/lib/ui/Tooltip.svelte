@@ -23,8 +23,8 @@
 			placement,
 			modifiers: [
 				{ name: 'offset', options: { offset: [0, 8] } },
-				{ name: 'arrow', options: { padding: 5 } },
-			],
+				{ name: 'arrow', options: { padding: 5 } }
+			]
 		})
 
 		const mouseEnter = () => {

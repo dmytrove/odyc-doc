@@ -91,10 +91,10 @@ It’s a simple way to present a structured menu, with sub-options and associate
 await game.openMenu({
 	Greet: {
 		Hello: () => game.openDialog('Hello there'),
-		Yo: () => game.openDialog('Excuse me?'),
+		Yo: () => game.openDialog('Excuse me?')
 	},
 	Insult: () => game.openDialog('Same to you!'),
-	Ignore: null,
+	Ignore: null
 })
 ```
 

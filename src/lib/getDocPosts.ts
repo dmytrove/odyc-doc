@@ -10,7 +10,7 @@ export function getAllPosts(url?: URL) {
 			title: el[lang],
 			category: category[lang],
 			path: el.path,
-			url: `${prefix}/doc/${slugify(category[defaultLang])}/${slugify(el[defaultLang])}`,
+			url: `${prefix}/doc/${slugify(category[defaultLang])}/${slugify(el[defaultLang])}`
 		}))
 	)
 }

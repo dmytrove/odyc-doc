@@ -7,7 +7,7 @@
 		title: 'Ui/Select',
 		component: Select,
 		tags: ['autodocs'],
-		argTypes: {},
+		argTypes: {}
 	})
 </script>
 

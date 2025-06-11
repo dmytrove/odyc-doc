@@ -33,7 +33,7 @@ Si vous préférez travailler localement **sans configuration complexe**, vous p
 	<body>
 		<script>
 			const game = odyc.createGame({
-				title: 'Mon super jeu',
+				title: 'Mon super jeu'
 			})
 		</script>
 	</body>
@@ -58,6 +58,6 @@ Ensuite, dans votre fichier JavaScript ou TypeScript :
 import { createGame } from 'odyc'
 
 const game = createGame({
-	title: 'Mon Super Jeu',
+	title: 'Mon Super Jeu'
 })
 ```

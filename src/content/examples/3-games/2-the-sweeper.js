@@ -15,7 +15,7 @@ const levels = /**@type {const}*/ ([
 		.######.
 		........
 	  `,
-		playerPos: [3, 0],
+		playerPos: [3, 0]
 	},
 	{
 		map: `
@@ -28,7 +28,7 @@ const levels = /**@type {const}*/ ([
 		.######.
 		........
 	  `,
-		playerPos: [3, 0],
+		playerPos: [3, 0]
 	},
 	{
 		map: `
@@ -41,7 +41,7 @@ const levels = /**@type {const}*/ ([
 		.###X##.
 		........
 		`,
-		playerPos: [3, 0],
+		playerPos: [3, 0]
 	},
 	{
 		map: `
@@ -54,7 +54,7 @@ const levels = /**@type {const}*/ ([
 		.#X####.
 		........
 	  `,
-		playerPos: [3, 0],
+		playerPos: [3, 0]
 	},
 	{
 		map: `
@@ -67,8 +67,8 @@ const levels = /**@type {const}*/ ([
 	  .######.
 	  ........
 	`,
-		playerPos: [3, 0],
-	},
+		playerPos: [3, 0]
+	}
 ])
 
 let levelIndex = 0
@@ -104,13 +104,13 @@ const sprites = {
 		020000020
 		022222220
 		000000000
-	`,
+	`
 }
 
 const game = createGame({
 	player: {
 		sprite: sprites.player,
-		position: levels[0].playerPos,
+		position: levels[0].playerPos
 	},
 	templates: {
 		'.': {
@@ -126,7 +126,7 @@ const game = createGame({
 				const { map, playerPos } = levels[levelIndex]
 				game.loadMap(map, [...playerPos])
 				if (levelIndex === 0) game.end('Nice job!\n\nEverything’s clean!')
-			},
+			}
 		},
 		'#': {
 			sprite: sprites.dirtyFloor,
@@ -134,7 +134,7 @@ const game = createGame({
 			sound: ['BLIP', 424245453],
 			onEnter: function (target) {
 				game.addToCell(...target.position, '$')
-			},
+			}
 		},
 		$: {
 			sprite: sprites.cleanFloor,
@@ -144,11 +144,11 @@ const game = createGame({
 				game.addToCell(...target.position, '#')
 				await game.openDialog('Oh no, I got it dirty again!')
 				game.end()
-			},
+			}
 		},
 		X: {
-			sprite: sprites.wall,
-		},
+			sprite: sprites.wall
+		}
 	},
 	map: levels[0].map,
 	screenWidth,
@@ -157,5 +157,5 @@ const game = createGame({
 	cellHeight,
 	background: 0,
 	volume: 0.04,
-	title: 'The sweeper with the dirty shoes',
+	title: 'The sweeper with the dirty shoes'
 })

@@ -15,7 +15,7 @@ export class TsServer {
 
 	constructor() {
 		this.#worker = new Worker(new URL('./tsServer.worker.ts', import.meta.url), {
-			type: 'module',
+			type: 'module'
 		})
 
 		this.#messageChannel = new MessageChannel()
@@ -74,9 +74,9 @@ export class TsServer {
 			options: completions.entries.map((completion) => {
 				return {
 					label: completion.name,
-					type: completion.kind,
+					type: completion.kind
 				}
-			}),
+			})
 		}
 	}
 
@@ -99,7 +99,7 @@ export class TsServer {
 				dom.textContent = tooltipText
 
 				return { dom }
-			},
+			}
 		}
 	}
 }

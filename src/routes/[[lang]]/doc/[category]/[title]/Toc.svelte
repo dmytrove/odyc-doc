@@ -49,7 +49,7 @@
 			},
 			{
 				// Negative bottom margin means heading needs to be towards top of viewport to trigger intersection.
-				rootMargin: '0% 0% -80%',
+				rootMargin: '0% 0% -80%'
 			}
 		)
 
@@ -67,7 +67,7 @@
 	for (const heading of toc) {
 		const item: TocEntry = {
 			...heading,
-			children: [],
+			children: []
 		}
 		if (heading.depth === 1) {
 			item.depth = 2

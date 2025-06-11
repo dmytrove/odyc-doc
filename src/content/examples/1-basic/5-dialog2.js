@@ -10,7 +10,7 @@ const game = createGame({
 			...888..
 			..77.77.
 			`,
-		position: [1, 1],
+		position: [1, 1]
 	},
 	templates: {
 		// robot
@@ -42,13 +42,13 @@ Do you believe in truth?
 |
 ~Result:~ <4>Unreliable narrator detected.<4>  
 |
-%Recalibrating neural patterns...%   `,
+%Recalibrating neural patterns...%   `
 		},
 
 		// wall
 		x: {
-			sprite: 0,
-		},
+			sprite: 0
+		}
 	},
 	map: `
 	xxxxxxxx
@@ -63,5 +63,5 @@ Do you believe in truth?
 	background: 1,
 	dialogBackground: 1,
 	dialogBorder: 0,
-	dialogColor: 0,
+	dialogColor: 0
 })

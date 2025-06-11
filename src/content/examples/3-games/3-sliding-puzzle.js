@@ -1,49 +1,49 @@
 const game = createGame({
 	player: {
 		sprite: 0,
-		position: [7, 7],
+		position: [7, 7]
 	},
 	templates: {
 		0: {
 			sprite: 0,
-			onCollide,
+			onCollide
 		},
 		1: {
 			sprite: 1,
-			onCollide,
+			onCollide
 		},
 		2: {
 			sprite: 2,
-			onCollide,
+			onCollide
 		},
 		3: {
 			sprite: 3,
-			onCollide,
+			onCollide
 		},
 		4: {
 			sprite: 4,
-			onCollide,
+			onCollide
 		},
 		5: {
 			sprite: 5,
-			onCollide,
+			onCollide
 		},
 		6: {
 			sprite: 6,
-			onCollide,
+			onCollide
 		},
 		7: {
 			sprite: 7,
-			onCollide,
+			onCollide
 		},
 		8: {
 			sprite: 8,
-			onCollide,
+			onCollide
 		},
 		9: {
 			sprite: 9,
-			onCollide,
-		},
+			onCollide
+		}
 	},
 	map: `
 			55553333
@@ -60,9 +60,9 @@ const game = createGame({
 		LEFT: 'ArrowRight',
 		DOWN: 'ArrowUp',
 		UP: 'ArrowDown',
-		ACTION: ['Enter', 'Space'],
+		ACTION: ['Enter', 'Space']
 	},
-	background: 2,
+	background: 2
 })
 
 /** @param target{import('odyc').Actor}*/

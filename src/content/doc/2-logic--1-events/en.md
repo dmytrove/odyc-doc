@@ -59,9 +59,9 @@ createGame({
 		x: {
 			onCollide(target) {
 				target.remove()
-			},
-		},
-	},
+			}
+		}
+	}
 })
 ```
 
@@ -94,9 +94,9 @@ createGame({
 			dialog: 'Hello',
 			onCollide(target) {
 				target.dialog = 'Hello again'
-			},
-		},
-	},
+			}
+		}
+	}
 })
 ```
 
@@ -113,8 +113,8 @@ createGame({
 			dialog: 'Hello',
 			onCollide(target) {
 				target.remove()
-			},
-		},
-	},
+			}
+		}
+	}
 })
 ```

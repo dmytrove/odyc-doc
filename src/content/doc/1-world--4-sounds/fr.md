@@ -84,7 +84,7 @@ Le volume des sons peut être ajusté dans la configuration initiale du jeu avec
 
 ```js
 createGame({
-	volume: 0.8,
+	volume: 0.8
 })
 ```
 

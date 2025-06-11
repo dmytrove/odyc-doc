@@ -1,6 +1,6 @@
 export const languages = {
 	fr: 'français',
-	en: 'english',
+	en: 'english'
 }
 export const defaultLang = 'en'
 
@@ -72,7 +72,7 @@ export const ui = {
 		'home.create': 'Create a game',
 		'home.gallery': 'Gallery',
 		'meta.description':
-			'Odyc.js is a simple JavaScript library to create interactive narrative games, even without coding experience.',
+			'Odyc.js is a simple JavaScript library to create interactive narrative games, even without coding experience.'
 	},
 	fr: {
 		copy: 'Copier',
@@ -139,6 +139,6 @@ export const ui = {
 		'home.gallery': 'Galerie',
 
 		'meta.description':
-			'Odyc.js est une bibliothèque JavaScript simple pour créer des jeux narratifs interactifs, même sans savoir coder.',
-	},
+			'Odyc.js est une bibliothèque JavaScript simple pour créer des jeux narratifs interactifs, même sans savoir coder.'
+	}
 } as const

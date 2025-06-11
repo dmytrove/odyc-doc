@@ -31,7 +31,7 @@ const game = createGame({
 			..3333..
 			..3..3..
 			`,
-		position: [2, 2],
+		position: [2, 2]
 	},
 
 	templates: {
@@ -45,7 +45,7 @@ const game = createGame({
       00000000
       99909990
       99909990
-    `,
+    `
 		},
 		o: {
 			sprite: `
@@ -64,20 +64,20 @@ const game = createGame({
 				game.addToCell(...randomPosition(target.position), 'o')
 				filterIntensity = filterIntensity === 0 ? 0.1 : filterIntensity * -1.1
 				game.updateFilter({
-					intensity: filterIntensity,
+					intensity: filterIntensity
 				})
 				clearTimeout(timeoutIntervalId)
 				score++
 				timeoutIntervalId = setTimeout(() => {
 					filterIntensity = 0
 					game.updateFilter({
-						intensity: filterIntensity,
+						intensity: filterIntensity
 					})
 					game.end('°GAME OVER', 'Score: ' + score)
 					score = 0
 				}, TIME_BEFORE_LOSE)
-			},
-		},
+			}
+		}
 	},
 	map: `
   xxxxxxxxx
@@ -95,10 +95,10 @@ const game = createGame({
 	screenHeight: 9,
 	filter: {
 		fragment,
-		settings: {},
+		settings: {}
 	},
 	title:
-		'_~ <3>T<3><4>h<4><5>e<5> <6>M<6><7>a<7><8>g<8><3>i<3><4>c<4> <5>M<5><6>u<6><7>s<7><8>h<8><3>r<3><4>o<4><5>o<5><6>m<6> ',
+		'_~ <3>T<3><4>h<4><5>e<5> <6>M<6><7>a<7><8>g<8><3>i<3><4>c<4> <5>M<5><6>u<6><7>s<7><8>h<8><3>r<3><4>o<4><5>o<5><6>m<6> '
 })
 
 /**

@@ -22,8 +22,8 @@ L’ajout d’un filtre se fait lors de l’appel à `createGame`, via la propri
 ```js
 createGame({
 	filter: {
-		name: 'neon',
-	},
+		name: 'neon'
+	}
 })
 ```
 
@@ -127,8 +127,8 @@ void main() {
 
 createGame({
 	filter: {
-		fragment: myShader,
-	},
+		fragment: myShader
+	}
 })
 ```
 

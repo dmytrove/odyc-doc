@@ -18,7 +18,7 @@ Vous fournissez vos sprites, vos dialogues, vos sons, vos interactions, puis le 
 createGame({
 	player: {
 		sprite: 7,
-		position: [2, 5],
+		position: [2, 5]
 	},
 	map: `
 		########
@@ -30,9 +30,9 @@ createGame({
 	templates: {
 		X: {
 			sprite: 4,
-			dialog: 'Bonjour, aventurier·ère !',
-		},
-	},
+			dialog: 'Bonjour, aventurier·ère !'
+		}
+	}
 })
 ```
 

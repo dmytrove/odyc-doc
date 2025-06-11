@@ -17,7 +17,7 @@ Au démarrage du jeu, vous pouvez configurer un **écran de titre** avec la prop
 
 ```js
 createGame({
-	title: 'Mon Super Jeu',
+	title: 'Mon Super Jeu'
 })
 ```
 
@@ -32,7 +32,7 @@ createGame({
 
 
 
-        par John Doe`,
+        par John Doe`
 })
 ```
 
@@ -48,9 +48,9 @@ createGame({
 	templates: {
 		X: {
 			sprite: 2,
-			end: 'Fin...',
-		},
-	},
+			end: 'Fin...'
+		}
+	}
 })
 ```
 
@@ -68,7 +68,7 @@ Vous pouvez afficher plusieurs messages successifs en passant un tableau de cha�
 
 ```js
 createGame({
-	title: ['Un super jeu', 'par John Doe'],
+	title: ['Un super jeu', 'par John Doe']
 })
 ```
 
@@ -77,9 +77,9 @@ createGame({
 	templates: {
 		X: {
 			sprite: 2,
-			end: ['Perdu', 'Fin...'],
-		},
-	},
+			end: ['Perdu', 'Fin...']
+		}
+	}
 })
 ```
 

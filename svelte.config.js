@@ -18,9 +18,9 @@ const config = {
 
 				// Let all other errors behave normally
 				return 'fail'
-			},
-		},
-	},
+			}
+		}
+	}
 }
 
 export default config

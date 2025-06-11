@@ -14,7 +14,7 @@ export const entries: EntryGenerator = () => {
 				posts.push({
 					lang: lang === defaultLang ? undefined : lang,
 					category: slugify(category),
-					title: slugify(title),
+					title: slugify(title)
 				})
 			})
 		})
@@ -35,6 +35,6 @@ export const load: PageLoad = async ({ url, params }) => {
 		category: group[lang],
 		path: post.path,
 		metadata: md.metadata as DocPostFrontamatter,
-		Content: md.default,
+		Content: md.default
 	}
 }

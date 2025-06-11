@@ -10,7 +10,7 @@ const game = createGame({
 			..8..8..
 			.88..88.
 			`,
-		position: [5, 1],
+		position: [5, 1]
 	},
 	templates: {
 		// Bell
@@ -25,13 +25,13 @@ const game = createGame({
 			.55555..
 			5555555.
 			`,
-			sound: ['PICKUP', 1560136431384798],
+			sound: ['PICKUP', 1560136431384798]
 		},
 
 		// wall
 		x: {
-			sprite: 9,
-		},
+			sprite: 9
+		}
 	},
 	map: `
 	xxxxxxxx
@@ -43,5 +43,5 @@ const game = createGame({
 	x......x
 	xxxxxxxx
 	`,
-	background: 7,
+	background: 7
 })

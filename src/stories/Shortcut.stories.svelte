@@ -9,7 +9,7 @@
 		title: 'Ui/Shortcut',
 		component: Shortcut,
 		tags: ['autodocs'],
-		argTypes: {},
+		argTypes: {}
 	})
 </script>
 

@@ -10,11 +10,11 @@ const game = createGame({
 			08888880
 			..0..0..
 			`,
-		position: [3, 1],
+		position: [3, 1]
 	},
 	templates: {
 		x: {
-			sprite: 9,
+			sprite: 9
 		},
 		t: {
 			sprite: `
@@ -32,8 +32,8 @@ const game = createGame({
 				const res = await game.prompt('Great!', 'Meh..', 'Good', 'Bad!')
 				if (res === 0 || res === 2) game.openDialog('Glad to hear it!')
 				else game.openDialog('Sorry to hear that...')
-			},
-		},
+			}
+		}
 	},
 	map: `
 	xxxxxxxx
@@ -44,5 +44,5 @@ const game = createGame({
 	x....t.x
 	x......x
 	xxxxxxxx
-	`,
+	`
 })

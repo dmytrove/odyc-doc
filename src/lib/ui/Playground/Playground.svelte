@@ -12,7 +12,7 @@
 		Code,
 		Brush,
 		Music,
-		Download,
+		Download
 	} from '@steeze-ui/lucide-icons'
 	import { twMerge } from 'tailwind-merge'
 	import type { Props as LoadExamplesProps } from './ExampleSelect.svelte'
@@ -33,7 +33,7 @@
 		orientation = 'horizontal',
 		examples,
 		localStorageKey,
-		class: className = '',
+		class: className = ''
 	}: Props = $props()
 
 	let gameWindow: GameWindow
@@ -137,7 +137,7 @@
 				tooltip={{
 					text: t('playground.refresh'),
 					placement: 'bottom-end',
-					shortcut: { defaultShortcut: 'ctrl ⇧ R', macShortcut: '⌘ ⇧ R' },
+					shortcut: { defaultShortcut: 'ctrl ⇧ R', macShortcut: '⌘ ⇧ R' }
 				}}
 				variant="ghost"
 				onclick={refresh}
@@ -149,7 +149,7 @@
 				size="icon"
 				tooltip={{
 					text: t('playground.format'),
-					shortcut: { defaultShortcut: 'ctrl ⇧ F', macShortcut: '⌘ ⇧ F' },
+					shortcut: { defaultShortcut: 'ctrl ⇧ F', macShortcut: '⌘ ⇧ F' }
 				}}
 				variant="ghost"
 				onclick={() => editor.formatCode()}
@@ -200,7 +200,7 @@
 				tooltip={{
 					text: t('playground.save'),
 					placement: 'bottom-end',
-					shortcut: { defaultShortcut: 'ctrl S', macShortcut: '⌘ S' },
+					shortcut: { defaultShortcut: 'ctrl S', macShortcut: '⌘ S' }
 				}}
 				variant="ghost"
 				class="relative"
@@ -218,7 +218,7 @@
 				tooltip={{
 					text: t('playground.open'),
 					placement: 'bottom-end',
-					shortcut: { defaultShortcut: 'ctrl ⇧ O', macShortcut: '⌘ ⇧ O' },
+					shortcut: { defaultShortcut: 'ctrl ⇧ O', macShortcut: '⌘ ⇧ O' }
 				}}
 				variant="ghost"
 				onclick={() => inputFile?.click()}
@@ -232,7 +232,7 @@
 				tooltip={{
 					text: t('playground.export'),
 					placement: 'bottom-start',
-					shortcut: { defaultShortcut: 'ctrl ⇧ E', macShortcut: '⌘ ⇧ E' },
+					shortcut: { defaultShortcut: 'ctrl ⇧ E', macShortcut: '⌘ ⇧ E' }
 				}}
 				variant="ghost"
 				onclick={() => (downloadIsOpen = true)}

@@ -36,7 +36,7 @@
 	function requestScreenshot() {
 		messageChannel.port1.postMessage({
 			type: 'screenshot',
-			filename: t('gamewindow.screenshotName'),
+			filename: t('gamewindow.screenshotName')
 		})
 	}
 

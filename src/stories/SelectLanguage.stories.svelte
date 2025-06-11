@@ -7,12 +7,12 @@
 		title: 'Ui/SelectLanguage',
 		component: SelectLanguage,
 		tags: ['autodocs'],
-		argTypes: {},
+		argTypes: {}
 	})
 
 	const items = [
 		{ lang: 'english', url: '#' },
-		{ lang: 'français', url: '#' },
+		{ lang: 'français', url: '#' }
 	]
 </script>
 

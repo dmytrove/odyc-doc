@@ -32,8 +32,8 @@ createGame({
 		'oklch(60% 0.15 50)',
 		'hsl(150 30% 60%)',
 		'light-dark(white, black)',
-		'black',
-	],
+		'black'
+	]
 })
 ```
 
@@ -48,7 +48,7 @@ Utiliser `backround` pour paramétrer la couleur de fond.
 ```javascript
 createGame({
 	//...
-	background: '#ff00ff',
+	background: '#ff00ff'
 })
 ```
 
@@ -73,7 +73,7 @@ createGame({
 	// ...
 	dialogBackground: '#228be6',
 	dialogBorder: 3,
-	dialogColor: 'white',
+	dialogColor: 'white'
 })
 ```
 
@@ -94,6 +94,6 @@ Ces valeurs peuvent être une [couleur CSS](https://developer.mozilla.org/fr/doc
 createGame({
 	//...
 	messageColor: 'red',
-	messageBackground: '#228be6',
+	messageBackground: '#228be6'
 })
 ```

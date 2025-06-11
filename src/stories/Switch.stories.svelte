@@ -7,7 +7,7 @@
 		title: 'Ui/Switch',
 		component: Switch,
 		tags: ['autodocs'],
-		argTypes: {},
+		argTypes: {}
 	})
 </script>
 

@@ -50,7 +50,7 @@ const sprites = {
     55555
     .555.
     ..5..
-  `,
+  `
 }
 
 const levels = [
@@ -74,7 +74,7 @@ const levels = [
     ................
     `,
 		playerX: 2,
-		playerY: 7,
+		playerY: 7
 	},
 	{
 		map: `
@@ -96,7 +96,7 @@ const levels = [
     ................
     `,
 		playerX: 1,
-		playerY: 6,
+		playerY: 6
 	},
 	{
 		map: `
@@ -118,7 +118,7 @@ const levels = [
     ................
     `,
 		playerX: 1,
-		playerY: 6,
+		playerY: 6
 	},
 	{
 		map: `
@@ -141,7 +141,7 @@ const levels = [
     ................
     `,
 		playerX: 1,
-		playerY: 6,
+		playerY: 6
 	},
 	{
 		map: `
@@ -163,7 +163,7 @@ const levels = [
     ################
     `,
 		playerX: 5,
-		playerY: 4,
+		playerY: 4
 	},
 	{
 		map: `
@@ -185,7 +185,7 @@ const levels = [
     ################
     `,
 		playerX: 7,
-		playerY: 3,
+		playerY: 3
 	},
 	{
 		map: `
@@ -207,8 +207,8 @@ const levels = [
     ................
     `,
 		playerX: 2,
-		playerY: 9,
-	},
+		playerY: 9
+	}
 ]
 
 let oldPlayerPos = [levels[levelIndex].playerX, levels[levelIndex].playerY]
@@ -230,7 +230,7 @@ const directions = {
 	'^': [0, -1],
 	v: [0, 1],
 	'>': [1, 0],
-	'<': [-1, 0],
+	'<': [-1, 0]
 }
 
 async function update() {
@@ -238,7 +238,7 @@ async function update() {
 		...game.getAll('<'),
 		...game.getAll('>'),
 		...game.getAll('v'),
-		...game.getAll('^'),
+		...game.getAll('^')
 	]
 	const [playerX, playerY] = game.player.position
 	let gameOver = false
@@ -253,7 +253,7 @@ async function update() {
 				'<': '>',
 				'>': '<',
 				'^': 'v',
-				v: '^',
+				v: '^'
 			})
 			if (playerX === posX && playerY === posY) {
 				gameOver = true
@@ -280,46 +280,46 @@ async function update() {
 const game = createGame({
 	player: {
 		position: [levels[levelIndex].playerX, levels[levelIndex].playerY],
-		sprite: sprites.player,
+		sprite: sprites.player
 	},
 	templates: {
 		'#': {
-			sprite: 2,
+			sprite: 2
 		},
 		'.': {
 			sprite: 0,
 			solid: false,
-			onEnter: update,
+			onEnter: update
 		},
 		'*': {
 			onCollide: loose,
-			sprite: sprites.bomb,
+			sprite: sprites.bomb
 		},
 		'^': {
 			sprite: sprites.top,
 			solid: false,
-			onEnter: update,
+			onEnter: update
 		},
 		v: {
 			sprite: sprites.bottom,
 			solid: false,
-			onEnter: update,
+			onEnter: update
 		},
 		'>': {
 			sprite: sprites.right,
 			solid: false,
-			onEnter: update,
+			onEnter: update
 		},
 		'<': {
 			sprite: sprites.left,
 			solid: false,
-			onEnter: update,
+			onEnter: update
 		},
 		$: {
 			sprite: sprites.win,
 			solid: false,
-			onEnter: nextLevel,
-		},
+			onEnter: nextLevel
+		}
 	},
 	map: levels[levelIndex].map,
 	cellHeight: 5,
@@ -331,7 +331,7 @@ const game = createGame({
 		name: 'neon',
 		settings: {
 			scale: 0.8,
-			intensity: 0.6,
-		},
-	},
+			intensity: 0.6
+		}
+	}
 })

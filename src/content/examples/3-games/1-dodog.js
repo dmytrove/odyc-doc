@@ -22,7 +22,7 @@ const game = createGame({
 		..9..9..
 		........
 	`,
-		position: [2, 2],
+		position: [2, 2]
 	},
 
 	templates: {
@@ -36,7 +36,7 @@ const game = createGame({
       55555555
       99959995
       99959995
-    `,
+    `
 		},
 		m: {
 			sprite: `
@@ -58,7 +58,7 @@ const game = createGame({
 				} else {
 					game.openDialog('Go go!')
 				}
-			},
+			}
 		},
 		o: {
 			sprite: `
@@ -75,8 +75,8 @@ const game = createGame({
 			onCollide: function (target) {
 				target.remove()
 				hasOs = true
-			},
-		},
+			}
+		}
 	},
 	map: `
   xxxxxxxxx
@@ -92,5 +92,5 @@ const game = createGame({
 	background: 7,
 	screenWidth: 9,
 	screenHeight: 9,
-	title: '>> Dodog <<',
+	title: '>> Dodog <<'
 })
