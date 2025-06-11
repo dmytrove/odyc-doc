@@ -174,8 +174,9 @@
 
 	<div class="mt-2 flex justify-end gap-4 px-2 pt-2 pb-4">
 		<Button onclick={loadFromClipboard} class="">
-			{t('map.load')}
+			{t('paste')}
 		</Button>
+		<Tooltip text={t('map.load')} />
 		<Button onclick={() => copyToClipBoard()} class="">
 			{t('copy')}
 			<Icon src={copied ? Check : Clipboard} class="size-5" />

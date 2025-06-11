@@ -9,6 +9,7 @@ export const languagesUrl = Object.keys(languages).filter((el) => el !== default
 export const ui = {
 	en: {
 		copy: 'Copy',
+		paste: 'Paste',
 		previous: 'Previous',
 		next: 'Next',
 
@@ -44,7 +45,7 @@ export const ui = {
 		'paint.left': 'Nudge Left',
 
 		'map.char': 'Current character',
-		'map.load': 'Paste',
+		'map.load': 'Load from clipboard',
 
 		'doc.note': 'Note',
 		'doc.warning': 'Warning',
@@ -80,6 +81,7 @@ export const ui = {
 	},
 	fr: {
 		copy: 'Copier',
+		paste: 'Coller',
 		previous: 'Précédent',
 		next: 'Suivant',
 
@@ -115,7 +117,7 @@ export const ui = {
 		'paint.left': 'Décaler vers la gauche',
 
 		'map.char': 'Caractère courrant',
-		'map.load': 'Coller',
+		'map.load': 'Charger depuis le presse-papier',
 
 		'doc.note': 'Note',
 		'doc.warning': 'Attention',
