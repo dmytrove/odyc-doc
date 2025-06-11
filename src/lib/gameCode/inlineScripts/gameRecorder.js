@@ -55,7 +55,7 @@
 
 		update() {
 			const frames = [
-				this.#filterCanvas ? this.#glCanvasTo2dCanvas(this.#filterCanvas) : this.#rendererCanvas
+				this.#filterCanvas ? this.#glCanvasTo2dCanvas(this.#filterCanvas) : this.#rendererCanvas,
 			]
 			if (this.#dialogCanvas.style.display !== 'none') frames.push(this.#dialogCanvas)
 			if (this.#promptCanvas.style.display !== 'none') frames.push(this.#promptCanvas)
@@ -134,12 +134,12 @@
 					'video/webm\;codecs=vp8',
 					'video/webm\;codecs=daala',
 					'video/webm\;codecs=h264',
-					'video/mpeg'
+					'video/mpeg',
 				].find((el) => MediaRecorder.isTypeSupported(el)) ?? ''
 
 			const stream = canvas.captureStream(TIMEBETWEENFRAMES)
 			this.#mediaRecorder = new MediaRecorder(stream, {
-				mimeType: this.#mimeType
+				mimeType: this.#mimeType,
 			})
 
 			this.#mediaRecorder.ondataavailable = (e) => {

@@ -18,7 +18,7 @@ You provide your sprites, dialogs, sounds, and interactions — and the engine t
 createGame({
 	player: {
 		sprite: 7,
-		position: [2, 5]
+		position: [2, 5],
 	},
 	map: `
 		########
@@ -30,9 +30,9 @@ createGame({
 	templates: {
 		X: {
 			sprite: 4,
-			dialog: 'Hello, adventurer!'
-		}
-	}
+			dialog: 'Hello, adventurer!',
+		},
+	},
 })
 ```
 

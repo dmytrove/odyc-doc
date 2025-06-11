@@ -8,7 +8,7 @@ import {
 	createDefaultMapFromCDN,
 	createSystem,
 	createVirtualTypeScriptEnvironment,
-	type VirtualTypeScriptEnvironment
+	type VirtualTypeScriptEnvironment,
 } from '@typescript/vfs'
 import lzstring from 'lz-string'
 import odycTypes from 'odyc/dist/index.d.ts?raw'
@@ -52,7 +52,7 @@ async function init() {
 		target: ts.ScriptTarget.ES2016,
 		lib: ['es2017', 'dom'],
 		allowJs: true,
-		checkJs: true
+		checkJs: true,
 	}
 
 	filesMap = await createDefaultMapFromCDN(compilerOptions, ts.version, false, ts, lzstring)
@@ -100,7 +100,7 @@ function lint(): Diagnostic[] {
 		message:
 			typeof tsError.messageText === 'string'
 				? tsError.messageText
-				: tsError.messageText.messageText
+				: tsError.messageText.messageText,
 	}))
 }
 
@@ -109,12 +109,12 @@ function tooltip(pos: number): { result?: QuickInfo; tooltipText: string } {
 	if (!result)
 		return {
 			result,
-			tooltipText: ''
+			tooltipText: '',
 		}
 	return {
 		result,
 		tooltipText:
 			ts.displayPartsToString(result.displayParts) +
-			(result.documentation?.length ? '\n' + ts.displayPartsToString(result.documentation) : '')
+			(result.documentation?.length ? '\n' + ts.displayPartsToString(result.documentation) : ''),
 	}
 }

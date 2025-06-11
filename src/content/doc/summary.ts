@@ -11,8 +11,8 @@ export const docSummary: DocSummary = [
 		fr: 'Pour commencer',
 		items: [
 			{ en: 'Intro', fr: 'Intro', path: '0-getting-started--1-intro' },
-			{ en: 'Quick Start', fr: 'Démarrage rapide', path: '0-getting-started--2-quick-start' }
-		]
+			{ en: 'Quick Start', fr: 'Démarrage rapide', path: '0-getting-started--2-quick-start' },
+		],
 	},
 	{
 		en: 'World Building',
@@ -23,8 +23,8 @@ export const docSummary: DocSummary = [
 			{ en: 'Templates & Map', fr: 'Templates et Carte', path: '1-world--3-templates-map' },
 			{ en: 'Sounds', fr: 'Sons', path: '1-world--4-sounds' },
 			{ en: 'Dialogues', fr: 'Dialogues', path: '1-world--5-dialogues' },
-			{ en: 'Title & End', fr: 'Titre & fin de jeu', path: '1-world--6-title-end' }
-		]
+			{ en: 'Title & End', fr: 'Titre & fin de jeu', path: '1-world--6-title-end' },
+		],
 	},
 	{
 		en: 'Interaction & Logic',
@@ -32,8 +32,8 @@ export const docSummary: DocSummary = [
 		items: [
 			{ en: 'Events', fr: 'Événements', path: '2-logic--1-events' },
 			{ en: 'Game Actions', fr: 'Actions du jeu', path: '2-logic--2-game-actions' },
-			{ en: 'Modifying Game State', fr: 'Modifier l’état du jeu', path: '2-logic--3-game-state' }
-		]
+			{ en: 'Modifying Game State', fr: 'Modifier l’état du jeu', path: '2-logic--3-game-state' },
+		],
 	},
 	{
 		en: 'Configuration',
@@ -46,8 +46,8 @@ export const docSummary: DocSummary = [
 			{
 				en: 'Default Configuration',
 				fr: 'Configuration par défaut',
-				path: '3-config--5-default-config'
-			}
-		]
-	}
+				path: '3-config--5-default-config',
+			},
+		],
+	},
 ]

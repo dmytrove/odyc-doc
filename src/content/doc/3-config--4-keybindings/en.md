@@ -39,8 +39,8 @@ createGame({
 		RIGHT: 'KeyD',
 		UP: 'KeyW',
 		DOWN: 'KeyS',
-		ACTION: 'ShiftLeft'
-	}
+		ACTION: 'ShiftLeft',
+	},
 })
 ```
 

@@ -16,7 +16,7 @@ Voici la configuration utilisée si vous ne précisez rien :
 ```js
 createGame({
 	player: {
-		sprite: 0
+		sprite: 0,
 	},
 	templates: {},
 	map: `
@@ -39,7 +39,7 @@ createGame({
 		'#ff922b',
 		'#40c057',
 		'#f06595',
-		'#a52f01'
+		'#a52f01',
 	],
 	messageBackground: 0,
 	messageColor: 1,
@@ -57,7 +57,7 @@ createGame({
 		RIGHT: 'ArrowRight',
 		UP: 'ArrowUp',
 		DOWN: 'ArrowDown',
-		ACTION: ['Enter', 'Space']
-	}
+		ACTION: ['Enter', 'Space'],
+	},
 })
 ```

@@ -18,9 +18,9 @@
 		{
 			label: useTranslations(lang)('nav.doc'),
 			url: getFirstDocPost(page.url),
-			base: urlPrefix + '/doc'
+			base: urlPrefix + '/doc',
 		},
-		{ label: useTranslations(lang)('nav.playground'), url: urlPrefix + '/playground' }
+		{ label: useTranslations(lang)('nav.playground'), url: urlPrefix + '/playground' },
 	])
 
 	let isMenuOpen = $state(false)

@@ -17,7 +17,7 @@ By default, each sprite is **8 × 8 pixels**, but you can change this using `cel
 ```js
 createGame({
 	cellWidth: 16,
-	cellHeight: 32
+	cellHeight: 32,
 })
 ```
 
@@ -36,7 +36,7 @@ It is measured in **grid cells**, not pixels:
 ```js
 createGame({
 	screenWidth: 16,
-	screenHeight: 12
+	screenHeight: 12,
 })
 ```
 
@@ -61,7 +61,7 @@ createGame({
 	screenWidth: 12,
 	screenHeight: 12,
 	cameraWidth: 4,
-	cameraHeight: 4
+	cameraHeight: 4,
 })
 ```
 

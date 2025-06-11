@@ -7,6 +7,6 @@ export function formatJs(code: string) {
 		// indent_with_tabs: true,
 		space_in_empty_paren: true,
 		preserve_newlines: true,
-		max_preserve_newlines: 2
+		max_preserve_newlines: 2,
 	})
 }

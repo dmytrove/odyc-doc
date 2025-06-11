@@ -36,7 +36,7 @@ It takes three arguments: `x`, `y`, and an object with the properties to update.
 ```js
 game.setCell(3, 4, {
 	visible: false,
-	dialog: 'I am invisible'
+	dialog: 'I am invisible',
 })
 ```
 
@@ -48,7 +48,7 @@ game.setCell(3, 4, {
 
 ```js
 game.setAll('#', {
-	visible: false
+	visible: false,
 })
 ```
 
@@ -136,13 +136,13 @@ const game = createGame({
 		settings: {
 			sideCount: 12,
 			scale: 0.9,
-			rotation: 0
-		}
-	}
+			rotation: 0,
+		},
+	},
 })
 
 game.updateFilter({
-	scale: 0.3
+	scale: 0.3,
 })
 ```
 

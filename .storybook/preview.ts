@@ -1,17 +1,17 @@
-import LightWrapperDecorator from '../src/stories/decorators/LightWrapperDecorator.svelte';
-import DarkWrapperDecorator from '../src/stories/decorators/DarkWrapperDecorator.svelte';
-import type { Preview } from '@storybook/svelte';
-import '../src/app.css';
+import LightWrapperDecorator from '../src/stories/decorators/LightWrapperDecorator.svelte'
+import DarkWrapperDecorator from '../src/stories/decorators/DarkWrapperDecorator.svelte'
+import type { Preview } from '@storybook/svelte'
+import '../src/app.css'
 
 const preview: Preview = {
 	parameters: {
 		controls: {
 			matchers: {
 				color: /(background|color)$/i,
-				date: /Date$/i
-			}
+				date: /Date$/i,
+			},
 		},
-		layout: 'fullscreen'
+		layout: 'fullscreen',
 	},
 	globalTypes: {
 		theme: {
@@ -23,16 +23,16 @@ const preview: Preview = {
 				// Array of plain string values or MenuItem shape (see below)
 				items: ['light', 'dark'],
 				// Change title based on selected value
-				dynamicTitle: true
-			}
-		}
+				dynamicTitle: true,
+			},
+		},
 	},
 	initialGlobals: {
-		theme: 'light'
+		theme: 'light',
 	},
 	decorators: [
-		(_, ctx) => (ctx.globals.theme === 'dark' ? DarkWrapperDecorator : LightWrapperDecorator)
-	]
-};
+		(_, ctx) => (ctx.globals.theme === 'dark' ? DarkWrapperDecorator : LightWrapperDecorator),
+	],
+}
 
-export default preview;
+export default preview

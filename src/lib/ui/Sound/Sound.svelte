@@ -39,7 +39,7 @@
 		const newSound = {
 			template,
 			seed,
-			name: template + ' ' + nameSuffix
+			name: template + ' ' + nameSuffix,
 		}
 		sounds = [newSound, ...sounds]
 		selectAndPlay(0)

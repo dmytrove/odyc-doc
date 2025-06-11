@@ -5,7 +5,7 @@
 		log: '#e9ecef',
 		error: '#c92a2a',
 		warn: '#e67700',
-		info: '#e9ecef'
+		info: '#e9ecef',
 	})
 
 	// Container Element
@@ -24,7 +24,7 @@
 			'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
 		fontSize: '.8rem',
 		padding: '.4rem .6rem',
-		backgroundColor: '#0c1323'
+		backgroundColor: '#0c1323',
 	})
 
 	const closeBtn = document.createElement('button')
@@ -39,7 +39,7 @@
 		background: 'transparent',
 		border: 'none',
 		cursor: 'pointer',
-		color: '#f1f3f5'
+		color: '#f1f3f5',
 	})
 	closeBtn.innerHTML = ` <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="1em" height="1em">
   <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
@@ -61,7 +61,7 @@
 		backgroundColor: 'transparent',
 		color: 'white',
 		mixBlendMode: 'difference',
-		cursor: 'pointer'
+		cursor: 'pointer',
 	})
 	openBtn.textContent = 'Console'
 	openBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" width="1em" height="1em">

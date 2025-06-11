@@ -8,14 +8,14 @@
 	const classVariants = {
 		default:
 			'bg-base-200 border border-border/60 hover:border-border hover:bg-base-300 ring-ring focus:ring-1',
-		ghost: 'hover:bg-base-200'
+		ghost: 'hover:bg-base-200',
 	}
 
 	const classSizes = {
 		default: 'h-9 px-4 py-2',
 		sm: 'h-8  px-3 text-xs',
 		lg: 'h-10 px-8',
-		icon: 'h-9 w-9'
+		icon: 'h-9 w-9',
 	}
 
 	type Props = {

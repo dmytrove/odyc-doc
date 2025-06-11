@@ -18,9 +18,9 @@ To assign a dialogue to a game element, use the `dialog` property in the `templa
 createGame({
 	templates: {
 		'@': {
-			dialog: 'Hello world!'
-		}
-	}
+			dialog: 'Hello world!',
+		},
+	},
 })
 ```
 

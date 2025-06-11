@@ -8,7 +8,7 @@ export const odycColors = [
 	'#ff922b', //orange
 	'#40c057', //green
 	'#f06595', //pink
-	'#a52f01' //brown,
+	'#a52f01', //brown,
 ]
 
 export const rgbOdycColors = [
@@ -21,5 +21,5 @@ export const rgbOdycColors = [
 	[255, 146, 43],
 	[64, 192, 87],
 	[240, 101, 149],
-	[165, 47, 1]
+	[165, 47, 1],
 ]

@@ -11,12 +11,12 @@
 
 	const icons: Record<AsideVariant, IconSource> = {
 		Note: Lightbulb,
-		Warning: MessageCircleWarning
+		Warning: MessageCircleWarning,
 	}
 
 	const variantsClasses: Record<AsideVariant, string> = {
 		Note: 'border-indigo-500 bg-indigo-100 dark:bg-indigo-900/40 ',
-		Warning: 'border-red-500 bg-red-100 dark:bg-red-900/40 '
+		Warning: 'border-red-500 bg-red-100 dark:bg-red-900/40 ',
 	}
 	type Props = { children: Snippet; variant?: AsideVariant }
 

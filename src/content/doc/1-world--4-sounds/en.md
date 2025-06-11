@@ -84,7 +84,7 @@ The overall sound volume can be adjusted via the `volume` key in the initial gam
 
 ```js
 createGame({
-	volume: 0.8
+	volume: 0.8,
 })
 ```
 

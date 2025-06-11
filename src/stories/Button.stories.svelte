@@ -9,7 +9,7 @@
 		title: 'Ui/Button',
 		component: Button,
 		tags: ['autodocs'],
-		argTypes: {}
+		argTypes: {},
 	})
 </script>
 

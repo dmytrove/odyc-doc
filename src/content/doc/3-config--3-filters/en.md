@@ -23,8 +23,8 @@ To use a filter, simply pass a `filter` option when calling `createGame`:
 ```js
 createGame({
 	filter: {
-		name: 'neon'
-	}
+		name: 'neon',
+	},
 })
 ```
 
@@ -129,8 +129,8 @@ void main() {
 
 createGame({
 	filter: {
-		fragment: myShader
-	}
+		fragment: myShader,
+	},
 })
 ```
 

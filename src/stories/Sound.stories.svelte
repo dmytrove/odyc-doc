@@ -7,7 +7,7 @@
 		title: 'Ui/Sound',
 		component: Sound,
 		tags: ['autodocs'],
-		argTypes: {}
+		argTypes: {},
 	})
 </script>
 

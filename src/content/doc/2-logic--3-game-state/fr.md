@@ -34,7 +34,7 @@ Elle prend trois paramètres : `x`, `y`, et un objet contenant les propriétés 
 ```js
 game.setCell(3, 4, {
 	visible: false,
-	dialog: 'Je suis invisible'
+	dialog: 'Je suis invisible',
 })
 ```
 
@@ -46,7 +46,7 @@ game.setCell(3, 4, {
 
 ```js
 game.setAll('#', {
-	visible: false
+	visible: false,
 })
 ```
 
@@ -132,13 +132,13 @@ const game = createGame({
 		settings: {
 			sideCount: 12,
 			scale: 0.9,
-			rotation: 0
-		}
-	}
+			rotation: 0,
+		},
+	},
 })
 
 game.updateFilter({
-	scale: 0.3
+	scale: 0.3,
 })
 ```
 

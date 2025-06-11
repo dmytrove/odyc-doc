@@ -16,7 +16,7 @@ Par défaut, les sprites font **8 × 8 pixels**, mais vous pouvez ajuster cette 
 ```js
 createGame({
 	cellWidth: 16,
-	cellHeight: 32
+	cellHeight: 32,
 })
 ```
 
@@ -35,7 +35,7 @@ Elle s’exprime en **nombre de cases** (et non en pixels) :
 ```js
 createGame({
 	screenWidth: 16,
-	screenHeight: 12
+	screenHeight: 12,
 })
 ```
 
@@ -60,7 +60,7 @@ createGame({
 	screenWidth: 12,
 	screenHeight: 12,
 	cameraWidth: 4,
-	cameraHeight: 4
+	cameraHeight: 4,
 })
 ```
 

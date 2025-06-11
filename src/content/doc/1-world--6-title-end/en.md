@@ -17,7 +17,7 @@ When the game starts, you can show a **title screen** using the `title` property
 
 ```js
 createGame({
-	title: 'My Awesome Game'
+	title: 'My Awesome Game',
 })
 ```
 
@@ -32,7 +32,7 @@ createGame({
 
 
 
-        by John Doe`
+        by John Doe`,
 })
 ```
 
@@ -48,9 +48,9 @@ createGame({
 	templates: {
 		X: {
 			sprite: 2,
-			end: 'The End...'
-		}
-	}
+			end: 'The End...',
+		},
+	},
 })
 ```
 
@@ -68,7 +68,7 @@ You can display several messages in sequence by using an array of strings:
 
 ```js
 createGame({
-	title: ['An awesome game', 'by John Doe']
+	title: ['An awesome game', 'by John Doe'],
 })
 ```
 
@@ -77,9 +77,9 @@ createGame({
 	templates: {
 		X: {
 			sprite: 2,
-			end: ['You lost', 'Game Over...']
-		}
-	}
+			end: ['You lost', 'Game Over...'],
+		},
+	},
 })
 ```
 

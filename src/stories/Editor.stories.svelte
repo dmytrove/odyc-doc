@@ -9,8 +9,8 @@
 		tags: ['autodocs'],
 		argTypes: {
 			code: { control: 'text' },
-			withVim: { control: 'boolean', defaultValue: false }
-		}
+			withVim: { control: 'boolean', defaultValue: false },
+		},
 	})
 </script>
 

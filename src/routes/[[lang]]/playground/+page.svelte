@@ -15,8 +15,8 @@
 		{ lang: 'english', url: '/playground' },
 		{
 			lang: 'français',
-			url: '/fr/playground'
-		}
+			url: '/fr/playground',
+		},
 	]
 
 	const code = localCode ?? defaultCode

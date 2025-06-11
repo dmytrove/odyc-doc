@@ -20,8 +20,8 @@ Dans ce cas, le joueur sera représenté par un rectangle uni de la couleur corr
 ```js
 createGame({
 	player: {
-		sprite: 7
-	}
+		sprite: 7,
+	},
 })
 ```
 
@@ -41,8 +41,8 @@ createGame({
       1.3333.1
       ..3333..
       ..3..3..
-    `
-	}
+    `,
+	},
 })
 ```
 
@@ -65,8 +65,8 @@ Par exemple, `[2, 5]` place le personnage à la 2ᵉ colonne et à la 5ᵉ ligne
 createGame({
 	player: {
 		sprite: 7,
-		position: [3, 4]
-	}
+		position: [3, 4],
+	},
 })
 ```
 

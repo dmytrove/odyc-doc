@@ -10,7 +10,7 @@ const game = createGame({
 			..7777..
 			.77..77.
 			`,
-		position: [1, 1]
+		position: [1, 1],
 	},
 	templates: {
 		// robot
@@ -25,13 +25,13 @@ const game = createGame({
 			..2..2..
 			.22.22..
 			`,
-			dialog: 'Are you a robot?'
+			dialog: 'Are you a robot?',
 		},
 
 		// wall
 		x: {
-			sprite: 2
-		}
+			sprite: 2,
+		},
 	},
 	map: `
 	xxxxxxxx
@@ -43,5 +43,5 @@ const game = createGame({
 	x......x
 	xxxxxxxx
 	`,
-	background: 9
+	background: 9,
 })

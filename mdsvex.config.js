@@ -56,7 +56,7 @@ export default function remarkInjectTocInFrontmatter() {
 						items.push({
 							title,
 							url: link.url,
-							depth: currentDepth
+							depth: currentDepth,
 						})
 					}
 
@@ -73,7 +73,7 @@ export default function remarkInjectTocInFrontmatter() {
 
 		file.data.fm = {
 			...(file.data.fm || {}),
-			toc: items
+			toc: items,
 		}
 	}
 }
@@ -86,11 +86,11 @@ export const mdsvexOptions = {
 			const html = await codeToHtml(code, {
 				lang: lang,
 				theme: shikiTheme,
-				transformers: []
+				transformers: [],
 			})
 			return escapeSvelte(html)
-		}
+		},
 	},
-	remarkPlugins: [remarkGithubAlert, remarkAddHeadingId, remarkInjectTocInFrontmatter]
+	remarkPlugins: [remarkGithubAlert, remarkAddHeadingId, remarkInjectTocInFrontmatter],
 	// rehypePlugins: [rehypeSlug]
 }

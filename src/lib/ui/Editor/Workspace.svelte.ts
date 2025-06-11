@@ -18,7 +18,7 @@ const extensions: Extension[] = [
 	javascript(),
 	EditorState.tabSize.of(2),
 	theme,
-	vimMode.of([])
+	vimMode.of([]),
 ]
 
 type Props = {
@@ -50,16 +50,16 @@ export class Workspace {
 				autocompletion({
 					activateOnTyping: true,
 					override: [this.#tsServer.autocomplete],
-					defaultKeymap: true
+					defaultKeymap: true,
 				}),
 				keymap.of([...defaultKeymap, { key: 'Tab', run: acceptCompletion }, indentWithTab]),
-				EditorView.updateListener.of(this.#handleChange)
-			]
+				EditorView.updateListener.of(this.#handleChange),
+			],
 		})
 
 		this.view = new EditorView({
 			state,
-			parent: container
+			parent: container,
 		})
 	}
 
@@ -72,7 +72,7 @@ export class Workspace {
 	toggleVim(value: boolean) {
 		const ext = value ? vim() : []
 		this.view.dispatch({
-			effects: vimMode.reconfigure(ext)
+			effects: vimMode.reconfigure(ext),
 		})
 	}
 
@@ -81,8 +81,8 @@ export class Workspace {
 			changes: {
 				from: 0,
 				to: this.view.state.doc.length,
-				insert: formatJs(this.view.state.doc.toString())
-			}
+				insert: formatJs(this.view.state.doc.toString()),
+			},
 		})
 	}
 
@@ -92,8 +92,8 @@ export class Workspace {
 			changes: {
 				from: 0,
 				to: this.view.state.doc.length,
-				insert: newCode
-			}
+				insert: newCode,
+			},
 		})
 	}
 }

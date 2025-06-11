@@ -20,8 +20,8 @@ In this case, the player will be shown as a solid-colored rectangle using the co
 ```js
 createGame({
 	player: {
-		sprite: 7
-	}
+		sprite: 7,
+	},
 })
 ```
 
@@ -41,8 +41,8 @@ createGame({
       1.3333.1
       ..3333..
       ..3..3..
-    `
-	}
+    `,
+	},
 })
 ```
 
@@ -65,8 +65,8 @@ For example, `[2, 5]` places the character in the 2nd column and 5th row (from t
 createGame({
 	player: {
 		sprite: 7,
-		position: [3, 4]
-	}
+		position: [3, 4],
+	},
 })
 ```
 

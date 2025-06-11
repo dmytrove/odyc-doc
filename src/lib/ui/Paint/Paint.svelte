@@ -7,7 +7,7 @@
 		Eraser,
 		FlipHorizontal,
 		FlipVertical,
-		RotateCw
+		RotateCw,
 	} from '@steeze-ui/lucide-icons'
 	import { Icon } from '@steeze-ui/svelte-icon'
 	import { onMount, tick } from 'svelte'
@@ -201,7 +201,7 @@
 			onpointermove={(e) => handleMouseMove(e)}
 			class={[
 				'pixelated m-auto max-h-full max-w-full cursor-crosshair touch-none',
-				drawing.width > drawing.height ? 'h-auto w-full' : 'h-full w-auto'
+				drawing.width > drawing.height ? 'h-auto w-full' : 'h-full w-auto',
 			]}
 			bind:this={canvas}
 			width={drawing.width}
@@ -212,7 +212,7 @@
 		<label
 			class={[
 				'aspect-square h-auto w-full cursor-pointer bg-gradient-to-br from-white from-50% to-gray-300 to-50% ring transition-all',
-				currentColor === -1 ? 'ring-2 ring-blue-800 dark:ring-blue-600' : 'ring-gray-400'
+				currentColor === -1 ? 'ring-2 ring-blue-800 dark:ring-blue-600' : 'ring-gray-400',
 			]}
 		>
 			<input type="radio" bind:group={currentColor} value={-1} hidden />
@@ -221,7 +221,7 @@
 			<label
 				class={[
 					'aspect-square h-auto w-full cursor-pointer ring transition-all',
-					index === currentColor ? 'ring-2 ring-blue-800 dark:ring-blue-600' : 'ring-gray-400'
+					index === currentColor ? 'ring-2 ring-blue-800 dark:ring-blue-600' : 'ring-gray-400',
 				]}
 				style="background-color: {color};"
 			>

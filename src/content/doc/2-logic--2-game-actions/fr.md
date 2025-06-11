@@ -96,10 +96,10 @@ Elle permet de présenter un menu structuré, avec des sous-options et des actio
 await game.openMenu({
 	Saluer: {
 		Bonjour: () => game.openDialog('Bonjour à vous'),
-		Yo: () => game.openDialog('Pardon?')
+		Yo: () => game.openDialog('Pardon?'),
 	},
 	Insulter: () => game.openDialog('Toi même'),
-	Ignorer: null
+	Ignorer: null,
 })
 ```
 

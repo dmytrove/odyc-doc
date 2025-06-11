@@ -27,7 +27,7 @@
 			easing,
 			css: (t) => `
 			transform: ${transform} translateX(${-(1 - t) * 100}%);
-		`
+		`,
 		}
 	}
 </script>

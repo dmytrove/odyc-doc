@@ -10,7 +10,7 @@ const game = createGame({
 			0..22..0
 			0..00..0
 			`,
-		position: [12, 12]
+		position: [12, 12],
 	},
 	templates: {
 		$: {
@@ -27,13 +27,13 @@ const game = createGame({
 			sound: ['PICKUP', 7904414519357331],
 			onCollide(target) {
 				target.remove()
-			}
+			},
 		},
 
 		// wall
 		x: {
-			sprite: 2
-		}
+			sprite: 2,
+		},
 	},
 	map: `
   ..$..........$..........
@@ -61,5 +61,5 @@ const game = createGame({
   ............$...........
   ........................
     `,
-	background: 7
+	background: 7,
 })

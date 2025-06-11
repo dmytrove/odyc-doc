@@ -10,11 +10,11 @@ const game = createGame({
 			07077070
 			.0.00.0.
 			`,
-		position: [3, 1]
+		position: [3, 1],
 	},
 	templates: {
 		x: {
-			sprite: 9
+			sprite: 9,
 		},
 		d: {
 			sprite: `
@@ -32,17 +32,17 @@ const game = createGame({
 					Withdraw: {
 						$20: () => game.openMessage('You have withdrawn $20'),
 						$50: () => game.openMessage('You have withdrawn $50'),
-						$100: () => game.openMessage('You have withdrawn $100')
+						$100: () => game.openMessage('You have withdrawn $100'),
 					},
 					Balance: () => game.openMessage('Your balance is $1234.56'),
 					Settings: {
 						PIN: () => game.openMessage('PIN change is not available right now'),
-						Lang: () => game.openMessage('Language settings coming soon')
+						Lang: () => game.openMessage('Language settings coming soon'),
 					},
-					Cancel: null
+					Cancel: null,
 				})
-			}
-		}
+			},
+		},
 	},
 	map: `
 	xxxxxxxx
@@ -53,5 +53,5 @@ const game = createGame({
 	x......x
 	x......x
 	xxxxxxxx
-	`
+	`,
 })

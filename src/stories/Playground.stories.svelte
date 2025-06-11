@@ -7,7 +7,7 @@
 		title: 'Ui/Playground',
 		component: Playground,
 		tags: ['autodocs'],
-		argTypes: {}
+		argTypes: {},
 	})
 	const code = `createGame({
 	player: {

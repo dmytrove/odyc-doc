@@ -10,12 +10,12 @@ const game = createGame({
 			..0..0..
 			..0..0..
 			`,
-		position: [3, 1]
+		position: [3, 1],
 	},
 	templates: {
 		x: {
-			sprite: 2
-		}
+			sprite: 2,
+		},
 	},
 	map: `
 	xxxxxxxx
@@ -26,5 +26,5 @@ const game = createGame({
 	x......x
 	x......x
 	xxxxxxxx
-	`
+	`,
 })

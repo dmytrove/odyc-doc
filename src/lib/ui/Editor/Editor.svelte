@@ -13,7 +13,7 @@
 		code = $bindable(''),
 		handleChange,
 		withVim = $bindable(false),
-		class: className = ''
+		class: className = '',
 	}: Props = $props()
 
 	let container: HTMLElement
@@ -24,7 +24,7 @@
 		workspace = new Workspace({
 			container,
 			defaultCode: code,
-			onChange: onCodeChange
+			onChange: onCodeChange,
 		})
 	})
 

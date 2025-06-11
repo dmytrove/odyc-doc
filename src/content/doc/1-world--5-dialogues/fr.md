@@ -17,9 +17,9 @@ Pour associer un dialogue à un élément du jeu, utilisez la propriété `dialo
 createGame({
 	templates: {
 		'@': {
-			dialog: 'Bonjour le monde !'
-		}
-	}
+			dialog: 'Bonjour le monde !',
+		},
+	},
 })
 ```
 
