@@ -136,9 +136,11 @@
 	async function handlePaste(e: ClipboardEvent) {
 		if (e.clipboardData?.files?.[0]) {
 			await drawing.loadImgFile(e.clipboardData.files[0])
+			await tick()
 			drawing.display(ctx)
 		} else if (e.clipboardData?.getData('Text')) {
 			drawing.text = e.clipboardData.getData('Text')
+			await tick()
 			drawing.display(ctx)
 		}
 	}
