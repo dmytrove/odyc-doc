@@ -115,6 +115,16 @@
 		setTimeout(() => (copied = false), 1000)
 	}
 
+	async function loadFromClipboard() {
+		try {
+			const text = await navigator.clipboard.readText()
+			if (text) {
+				drawing.text = text
+				drawing.display(ctx)
+			}
+		} catch (error) {}
+	}
+
 	function handleFocusInput(e: FocusEvent & { currentTarget: HTMLInputElement }) {
 		e.currentTarget.select()
 	}
@@ -161,6 +171,9 @@
 	</div>
 
 	<div class="mt-2 flex justify-end gap-4 px-2 pt-2 pb-4">
+		<Button onclick={loadFromClipboard} class="">
+			{t('map.load')}
+		</Button>
 		<Button onclick={() => copyToClipBoard()} class="">
 			{t('copy')}
 			<Icon src={copied ? Check : Clipboard} class="size-5" />

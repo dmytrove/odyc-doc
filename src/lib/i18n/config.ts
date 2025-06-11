@@ -44,6 +44,7 @@ export const ui = {
 		'paint.left': 'Nudge Left',
 
 		'map.char': 'Current character',
+		'map.load': 'Paste',
 
 		'doc.note': 'Note',
 		'doc.warning': 'Warning',
@@ -114,6 +115,7 @@ export const ui = {
 		'paint.left': 'Décaler vers la gauche',
 
 		'map.char': 'Caractère courrant',
+		'map.load': 'Coller',
 
 		'doc.note': 'Note',
 		'doc.warning': 'Attention',
