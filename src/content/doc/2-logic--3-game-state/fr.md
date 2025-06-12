@@ -147,3 +147,16 @@ game.updateFilter({
 `updateFilter` ne permet pas de changer le **nom** du filtre, uniquement ses **réglages**.
 
 </Aside>
+
+---
+
+## <Emoji src="🧠" /> Comportement de rendu
+
+Odyc redessine automatiquement l’écran **à chaque fois que l’état du jeu change**.
+
+Si vous modifiez une propriété comme `sprite`, `position`, `dialog`, `visible`…, le jeu est mis à jour immédiatement :
+
+```js
+game.player.sprite = newSprite
+game.setCell(3, 4, { visible: false })
+```
