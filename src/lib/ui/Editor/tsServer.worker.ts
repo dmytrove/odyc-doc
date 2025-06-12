@@ -40,7 +40,6 @@ addEventListener('message', (e) => {
 				port.postMessage({ id, result: { diagnostics: lint() } })
 				break
 			case 'tooltip':
-				console.log(123)
 				port.postMessage({ id, result: { ...tooltip(payload.pos as number) } })
 				break
 		}

@@ -122,7 +122,6 @@
 		const text = await file?.text()
 		if (!text) return
 		const matches = parseCode(text)
-		console.log(matches)
 		if (matches && matches[0]) {
 			code = matches[0]
 		}
