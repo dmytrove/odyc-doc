@@ -15,19 +15,14 @@ You can then assign a set of properties to each template and place them in the `
 
 Each template accepts the following properties:
 
-| Property        | Default value | Description                                                                                                         |
-| --------------- | ------------- | ------------------------------------------------------------------------------------------------------------------- |
-| `solid`         | `false`       | Determines whether the player can pass through the object.                                                          |
-| `visible`       | `true`        | Whether the sprite is visible or not.                                                                               |
-| `sprite`        | None          | Defines the visual appearance of the object ([see sprites](/doc/world-building/sprites)).                           |
-| `sound`         | None          | Sound played when interacting with the object ([see sounds](/doc/world-building/sounds)).                           |
-| `dialog`        | None          | Dialog displayed when the player interacts with the object ([see dialogs](/doc/world-building/dialogues)).          |
-| `end`           | None          | Ends the game with a custom message ([see title & end screen](/doc/world-building/title-and-end)).                  |
-| `onCollide`     | None          | Called when the player **collides** with the object ([see events](/doc/interaction-and-logic/events)).              |
-| `onEnter`       | None          | Called when the player **enters the tile** containing the object ([see events](/doc/interaction-and-logic/events)). |
-| `onLeave`       | None          | Called when the player **leaves the tile** containing the object ([see events](/doc/interaction-and-logic/events)). |
-| `onScreenEnter` | None          | Called when the object **enters the visible area** of the screen ([see events](/doc/interaction-and-logic/events)). |
-| `onScreenLeave` | None          | Called when the object **leaves the visible area** of the screen ([see events](/doc/interaction-and-logic/events)). |
+| Property  | Default value | Description                                                                                                |
+| --------- | ------------- | ---------------------------------------------------------------------------------------------------------- |
+| `solid`   | `false`       | Determines whether the player can pass through the object.                                                 |
+| `visible` | `true`        | Whether the sprite is visible or not.                                                                      |
+| `sprite`  | None          | Defines the visual appearance of the object ([see sprites](/doc/world-building/sprites)).                  |
+| `sound`   | None          | Sound played when interacting with the object ([see sounds](/doc/world-building/sounds)).                  |
+| `dialog`  | None          | Dialog displayed when the player interacts with the object ([see dialogs](/doc/world-building/dialogues)). |
+| `end`     | None          | Ends the game with a custom message ([see title & end screen](/doc/world-building/title-and-end)).         |
 
 ```js
 createGame({

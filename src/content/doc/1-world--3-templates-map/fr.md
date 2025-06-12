@@ -15,19 +15,14 @@ Vous pouvez ensuite attribuer un ensemble de propriétés à chaque `template`, 
 
 Chaque template accepte les propriétés suivantes:
 
-| Propriété       | Valeur par défaut | Description                                                                                                                            |
-| --------------- | ----------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| `solid`         | `false`           | Définit si le joueur peut passer au travers de l'élément.                                                                              |
-| `visible`       | `true`            | Définit si la sprite est affichée ou non.                                                                                              |
-| `sprite`        | Aucun             | Définit l'apparence de l'objet ([voir sprites](/fr/doc/world-building/sprites))                                                        |
-| `sound`         | Aucun             | Son joué à l’interaction ([voir sons](/fr/doc/world-building/sounds))                                                                  |
-| `dialog`        | Aucun             | Message affiché dans la boîte de dialogue quand le joueur interagit avec l’objet ([voir dialogues](/fr/doc/world-building/dialogues))  |
-| `end`           | Aucun             | Déclenche la fin du jeu avec un message personnalisé ([voir titre & fin de jeu](/fr/doc/world-building/title-and-end))                 |
-| `onCollide`     | Aucun             | Fonction appelée lorsque le joueur entre en **collision** avec l’élément ([voir événements](/fr/doc/interaction-and-logic/events))     |
-| `onEnter`       | Aucun             | Fonction appelée lorsque le joueur **entre sur la case** contenant l’élément ([voir événements](/fr/doc/interaction-and-logic/events)) |
-| `onLeave`       | Aucun             | Fonction appelée lorsque le joueur **quitte la case** contenant l’élément ([voir événements](/fr/doc/interaction-and-logic/events))    |
-| `onScreenEnter` | Aucun             | Fonction appelée lorsque l’élément entre dans la zone visible à l’écran ([voir événements](/fr/doc/interaction-and-logic/events))      |
-| `onScreenLeave` | Aucun             | Fonction appelée lorsque l’élément sort de la zone visible à l’écran ([voir événements](/fr/doc/interaction-and-logic/events))         |
+| Propriété | Valeur par défaut | Description                                                                                                                           |
+| --------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| `solid`   | `false`           | Définit si le joueur peut passer au travers de l'élément.                                                                             |
+| `visible` | `true`            | Définit si la sprite est affichée ou non.                                                                                             |
+| `sprite`  | Aucun             | Définit l'apparence de l'objet ([voir sprites](/fr/doc/world-building/sprites))                                                       |
+| `sound`   | Aucun             | Son joué à l’interaction ([voir sons](/fr/doc/world-building/sounds))                                                                 |
+| `dialog`  | Aucun             | Message affiché dans la boîte de dialogue quand le joueur interagit avec l’objet ([voir dialogues](/fr/doc/world-building/dialogues)) |
+| `end`     | Aucun             | Déclenche la fin du jeu avec un message personnalisé ([voir titre & fin de jeu](/fr/doc/world-building/title-and-end))                |
 
 ```js
 createGame({
