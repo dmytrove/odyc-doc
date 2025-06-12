@@ -83,6 +83,7 @@ createGame({
 | `end`             | `string` \| `string[]` | Triggers a custom game ending                      | No        |
 | `symbol`          | `string`               | The character representing the object in the `map` | Yes       |
 | `position`        | `[number, number]`     | `[x, y]` coordinates of the object on the map      | Yes       |
+| `isOnScreen`      | `boolean`              | `true` if the element is on screen                 | Yes       |
 | `remove`          | `() => void`           | Removes the object                                 | —         |
 
 ---

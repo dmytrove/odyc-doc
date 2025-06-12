@@ -83,6 +83,7 @@ createGame({
 | `end`               | `string` \| `string[]` | Déclenche une fin de jeu personnalisée             | Non           |
 | `symbol`            | `string`               | Le caractère représentant l’objet dans la `map`    | Oui           |
 | `position`          | `[number, number]`     | Coordonnées `[x, y]` de l’objet sur la carte       | Oui           |
+| `isOnScreen`        | `boolean`              | `true` si l'objet est à l'écran                    | Oui           |
 | `remove`            | `() => void`           | Supprime l’élément                                 | —             |
 
 ### Exemple : changer une propriété
