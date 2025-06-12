@@ -14,8 +14,8 @@
 		"storybook": "storybook dev -p 6006",
 		"build-storybook": "storybook build",
 		"build": "vite build",
-		"postbuild:search": "pagefind --output-path .svelte-kit/cloudflare/pagefind",
-		"postbuild:sitemap": "svelte-sitemap --domain https://odyc.dev -o .svelte-kit/cloudflare",
+		"postbuild:search": "pagefind --output-path build/pagefind",
+		"postbuild:sitemap": "svelte-sitemap --domain https://odyc.dev",
 		"postbuild": "npm run postbuild:search && npm run postbuild:sitemap"
 	},
 	"devDependencies": {
@@ -70,7 +70,6 @@
 		"@steeze-ui/heroicons": "^2.4.2",
 		"@steeze-ui/lucide-icons": "^1.4.1",
 		"@steeze-ui/svelte-icon": "^1.6.2",
-		"@sveltejs/adapter-cloudflare": "^7.0.4",
 		"@typescript/vfs": "^1.6.1",
 		"codemirror": "^6.0.1",
 		"codemirror-theme-vars": "^0.1.2",

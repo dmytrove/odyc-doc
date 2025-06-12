@@ -1,2 +1,2 @@
-site: .svelte-kit/cloudflare
+site: build
 output_path: static/pagefind
