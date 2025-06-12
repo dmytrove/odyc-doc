@@ -1,3 +1,4 @@
+export const prerender = true
 export async function GET() {
 	const rawDocs = import.meta.glob('../../content/doc/*/en.md', {
 		query: '?raw',
