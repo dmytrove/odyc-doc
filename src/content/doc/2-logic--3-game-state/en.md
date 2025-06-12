@@ -151,3 +151,16 @@ game.updateFilter({
 `updateFilter` cannot be used to change the **filter name**, only its **settings**.
 
 </Aside>
+
+---
+
+## <Emoji src="🧠" /> Rendering Behavior
+
+Odyc automatically re-renders the screen **every time the game state changes**.
+
+If you update a property like `sprite`, `position`, `dialog`, `visible`..., the game will reflect the change immediately:
+
+```js
+game.player.sprite = newSprite
+game.setCell(3, 4, { visible: false })
+```
