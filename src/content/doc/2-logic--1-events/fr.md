@@ -14,13 +14,14 @@ Les événements sont définis dans les `templates`.
 
 ## <Emoji src="🔎" /> Types d’événements
 
-Il existe cinq types d’événements :
+Il existe six types d’événements :
 
 - **`onCollide`** — appelé quand le joueur **entre en collision** avec l’élément
 - **`onEnter`** — appelé quand le joueur **entre sur une case** contenant l’élément
 - **`onLeave`** — appelé quand le joueur **quitte une case** contenant l’élément
 - **`onScreenEnter`** — appelé quand l’élément **entre dans l’écran**
 - **`onScreenLeave`** — appelé quand l’élément **sort de l’écran**
+- **`onTurn`** — appelé à la fin de chaque tour, après que le joueur a tenté de se déplacer
 
 ```js
 createGame({
@@ -34,6 +35,9 @@ createGame({
       },
       onLeave() {
         alert(3)
+      }
+      onTurn(){
+        alert(4)
       }
       onScreenEnter() {
         alert('hi')

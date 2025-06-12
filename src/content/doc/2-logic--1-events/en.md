@@ -14,13 +14,14 @@ Events are defined inside `templates`.
 
 ## <Emoji src="🔎" /> Types of events
 
-There are five types of events:
+There are six types of events:
 
-- **`onCollide`** — triggered when the player **collides** with the element
-- **`onEnter`** — triggered when the player **enters a tile** containing the element
-- **`onLeave`** — triggered when the player **leaves a tile** containing the element
-- **`onScreenEnter`** — triggered when the element **enters on screen**
-- **`onScreenLeave`** — triggered when the element **leaves the screen**
+- **`onCollide`** — called when the player **collides** with the element
+- **`onEnter`** — called when the player **enters a tile** containing the element
+- **`onLeave`** — called when the player **leaves a tile** containing the element
+- **`onScreenEnter`** — called when the element **enters the visible screen area**
+- **`onScreenLeave`** — called when the element **leaves the visible screen area**
+- **`onTurn`** — called at the **end of each turn**, after the player has attempted to move
 
 ```js
 createGame({
@@ -34,6 +35,9 @@ createGame({
       },
       onLeave() {
         alert(3)
+      }
+      onTurn(){
+        alert(4)
       }
       onScreenEnter() {
         alert('hi')
