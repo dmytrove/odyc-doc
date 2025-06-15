@@ -53,13 +53,13 @@ L'outil Son du playground peut vous aider à trouver le son qui convient.
 
 ### Une URL PFXR
 
-Vous pouvez utiliser [l'interface de Pfxr](https://achtaitaipai.github.io/pfxr/) pour créer un son personnalisé, puis coller l’URL générée:
+Vous pouvez utiliser [l'interface de Pfxr](https://achtaitaipai.github.io/pfxr/) pour créer un son personnalisé, puis coller l'URL générée:
 
 ```js
 sound: 'https://achtaitaipai.github.io/pfxr/?fx=1,0.3,...'
 ```
 
-<Aside>Odyc.js ne se connecte pas au site: toutes les informations sont directement lues dans l’URL. Aucun accès internet n’est requis au moment de jouer le son.</Aside>
+<Aside>Odyc.js ne se connecte pas au site: toutes les informations sont directement lues dans l'URL. Aucun accès internet n'est requis au moment de jouer le son.</Aside>
 
 ### Un objet de configuration
 
@@ -89,3 +89,9 @@ createGame({
 ```
 
 Valeur par défaut : `0.5`
+
+---
+
+## <Emoji src="🎙️"/> Voix de personnages
+
+Les voix de personnages sont des sons spéciaux qui jouent pendant la frappe du texte des dialogues pour créer des personnalités distinctes. Pour plus d'informations sur l'implémentation des voix de personnages, consultez la section [Dialogues](/doc/world-building/dialogues#voix-de-personnages).

@@ -89,3 +89,9 @@ createGame({
 ```
 
 Default value: `0.5`
+
+---
+
+## <Emoji src="🎙️"/> Character Voices
+
+Character voices are special sounds that play during dialog text typing to create distinct character personalities. For more information about implementing character voices, see the [Dialogues](/doc/world-building/dialogues#character-voices) section.

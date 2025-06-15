@@ -83,3 +83,76 @@ Si vous souhaitez afficher un caractère réservé (comme `%`, `~`, `_`, `^`, `=
 affichera :
 
 _Il ne me reste que 56% de batterie_
+
+---
+
+## <Emoji src="🎙️"/> Voix de personnages
+
+Vous pouvez ajouter des sons de voix synchronisés aux dialogues pour créer des voix de personnages distinctes. Ces sons jouent automatiquement pendant la frappe du texte, avec un timing de 30ms par caractère.
+
+### Utilisation de base
+
+```js
+// Ouvrir un dialogue avec une voix spécifique
+game.openDialog("Bonjour !", { template: "BLIP" })
+```
+
+### Templates de voix disponibles
+
+| Template | Description |
+|----------|-------------|
+| `BLIP` | Bip électronique simple |
+| `HIT` | Son d'impact grave |
+| `PICKUP` | Son aigu de ramassage |
+| `JUMP` | Son de saut |
+| `FALL` | Son de chute |
+| `POWERUP` | Son d'amélioration |
+| `LASER` | Son laser futuriste |
+| `BLIP_RANDOM` | Bips avec variations aléatoires |
+
+### Modes de variation
+
+```js
+// Voix avec graine fixe (son identique à chaque fois)
+game.openDialog("Texte", { template: "BLIP", seed: 42 })
+
+// Voix aléatoire par dialogue (différent à chaque dialogue)
+game.openDialog("Texte", { template: "BLIP", seed: null })
+
+// Voix aléatoire par caractère (défaut)
+game.openDialog("Texte", { template: "BLIP" })
+```
+
+### Voix par défaut dans les templates
+
+Vous pouvez définir une voix par défaut pour un personnage dans son template. Cette voix sera automatiquement utilisée lorsque le joueur interagit avec ce personnage :
+
+```javascript
+createGame({
+  templates: {
+    'R': {
+      sprite: 2,
+      dialog: "Je suis un robot !",
+      voice: { template: "HIT" }
+    },
+    'F': {
+      sprite: 3, 
+      dialog: "Je suis amical !",
+      voice: { template: "BLIP", seed: 42 }
+    },
+    'Q': {
+      sprite: 4,
+      dialog: "Je suis silencieux...",
+      // Pas de propriété voice - ce personnage est silencieux
+    }
+  }
+})
+```
+
+Lorsque le joueur interagit avec le personnage 'R', son dialogue utilisera automatiquement le template de voix HIT. Le personnage 'F' utilisera BLIP avec une graine fixe, et le personnage 'Q' sera silencieux.
+
+### Notes importantes
+
+- Les espaces et la ponctuation sont silencieux
+- Les dialogues sans paramètre `template` sont complètement silencieux
+- Les sons de voix sont indépendants des autres effets sonores du jeu
